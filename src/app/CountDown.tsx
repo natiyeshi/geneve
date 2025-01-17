@@ -6,8 +6,7 @@ const Countdown = () => {
 
   useEffect(() => {
     // Calculate the target date (30 days from now)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
+    const targetDate = new Date("2025-02-15");
 
     const updateCountdown = () => {
       const now = new Date();
