@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
 import "./globals.css";
 import ClientSessionProvider from "@/providers/ClientSessionProvider";
+import { Montserrat } from "next/font/google";
 
-// Import the Lexend font
-const lexend = Lexend({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-lexend", // Define a custom CSS variable for Lexend
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // Include all weights
+  weight: ["300", "400", "500", "600", "700"], // Add the weights you need
+  display: "swap",
 });
+// Import the Lexend font
 
 export const metadata: Metadata = {
   title: "Gaber Wear",
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClientSessionProvider>
-        <body className={`${lexend.variable} antialiased`}>
+        <body className={`antialiased bg-white ${montserrat.className}`}>
           {children}
         </body>
       </ClientSessionProvider>
