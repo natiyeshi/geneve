@@ -16,7 +16,7 @@ const Footer = () => {
             {[...Array(8)].map((_, index) => (
               <div key={index} className="flex flex-col gap-1">
                 {[...Array(20)].map((_, index) => (
-                  <Image src={icongold} className="w-7" alt="icon" />
+                  <Image key={index} src={icongold} className="w-7" alt="icon" />
                 ))}
               </div>
             ))}

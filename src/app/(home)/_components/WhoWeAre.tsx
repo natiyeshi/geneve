@@ -20,7 +20,7 @@ const WhoWeAre: React.FC = () => {
         <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
           <div className="flex relative flex-1 mt-24  ">
             <Image
-              className="md:absolute -left-20 z-10 rounded-3xl  w-[550px]  md:-rotate-[8.31deg] shadow-primary"
+              className="md:absolute  2xl:w-[400px] max-2xl:-left-20 z-10 rounded-3xl  w-[550px]  md:-rotate-[8.31deg] shadow-primary"
               src={img}
               style={{
                 boxShadow: "20px 20px 40px rgba(225, 168, 39, 1)",

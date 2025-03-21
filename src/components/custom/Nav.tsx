@@ -6,17 +6,23 @@ import logo from "@/../public/assets/logo/logo.svg";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { usePathname } from "next/navigation";
+
 export default function Page() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "Contact", href: "/contact" },
-    { name: "About Us", href: "/about" },
+    { name: "products", href: "/products" },
+    { name: "About Us", href: "/aboutus" },
     { name: "Services", href: "/services" },
-    { name: "Blog", href: "/blog" },
+    { name: "Blogs", href: "/blogs" },
   ];
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
-    <div className="relative z-50"> {/* Ensuring highest z-index */}
+    <div className="relative z-50">
+      {" "}
+      {/* Ensuring highest z-index */}
       <div className="flex z-50 justify-between items-center padding relative">
         <div className="w-20 h-fit px-4 p-4 flex bg-background shadow shadow-primary">
           <Image className="m-auto" src={logo} alt="logo" />
@@ -24,7 +30,13 @@ export default function Page() {
 
         <div className="flex gap-8 w-auto max-md:hidden">
           {links.map((link) => (
-            <Link key={link.name} href={link.href}>
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`capitalize ${
+                pathname === link.href ? "text-primary font-semibold" : ""
+              }`}
+            >
               {link.name}
             </Link>
           ))}
@@ -33,11 +45,13 @@ export default function Page() {
         <div className="flex gap-2 justify-end items-center">
           <Link
             className="py-1 px-4 rounded-full border border-white"
-            href={""}
+            href={"/contactus"}
           >
             Contact Us
           </Link>
-          <div className="md:hidden z-50 my-auto"> {/* Ensure dropdown icon is visible */}
+          <div className="md:hidden z-50 my-auto">
+            {" "}
+            {/* Ensure dropdown icon is visible */}
             <RxHamburgerMenu
               onClick={() => setIsOpen((d) => !d)}
               className="text-white text-2xl"
@@ -66,4 +80,3 @@ export default function Page() {
     </div>
   );
 }
-

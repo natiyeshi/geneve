@@ -5,4 +5,4 @@ const nextConfig = {
         domains: ['picsum.photos'],
     },
 };
-export default nextConfig;
+export default nextConfig;  

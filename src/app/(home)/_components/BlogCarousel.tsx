@@ -25,7 +25,7 @@ const BlogCarousel = () => {
     emblaApi.scrollNext();
   };
   return (
-    <Section className="min-h-[70vh] px-12 pb-12 max-md:px-4 ">
+    <Section className=" px-12 pb-12 max-md:px-4 ">
       <div className="flex justify-between">
         <h1 className="text-3xl text-background font-semibold">
           Explore Our Blog Here
@@ -47,7 +47,7 @@ const BlogCarousel = () => {
         >
           <div className="flex h-full ">
             {[...Array(8)].map((b, key) => (
-              <Blog />
+              <Blog key={key} />
             ))}
           </div>
         </div>

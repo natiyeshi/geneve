@@ -3,6 +3,7 @@ export const Section = ({
   className = "",
   childClassName = "",
   h = true,
+  hs = "2xl:min-h-[40vh]",
   maxWidth = "1500",
   pixelate = false,
 }: {
@@ -10,14 +11,15 @@ export const Section = ({
   childClassName?: string;
   className?: string;
   maxWidth?: string;
+  hs?: string;
   h?: boolean;
   pixelate?: boolean;
 }) => {
   return (
     <section
       className={`${className} ${
-        h && "max-2xl:min-h-screen 2xl:py-2"
-      } w-full flex`}
+        h && "2xl:min-h-[40vh] max-2xl:min-h-screen 2xl:py-2 max-md:min-h-[50vh]"
+      } w-full flex relative`}
     >
       <div
         className={` w-full h-fit mx-auto ${

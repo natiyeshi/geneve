@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientSessionProvider from "@/providers/ClientSessionProvider";
 import { Montserrat } from "next/font/google";
-
+import NextTopLoader from "nextjs-toploader";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"], // Add the weights you need
@@ -24,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <ClientSessionProvider>
         <body className={`antialiased bg-white ${montserrat.className}`}>
+          <NextTopLoader />
           {children}
         </body>
       </ClientSessionProvider>
