@@ -11,7 +11,7 @@ export default function Page() {
       <Nav />
       <div className="relative z-10 flex flex-col items-center capitalize max-md:px-2">
         <h1 className="text-2xl text-primary mt-5">Gaber Wear</h1>
-        <h2 className="text-[60px] max-md:py-4 max-lg:text-[50px] max-md:text-[40px] mt-5 italic">
+        <h2 className="text-[60px] text-center max-md:py-4 max-lg:text-[50px] max-md:text-[40px] mt-5 italic">
           Sewed With
           <span className="text-primary"> passion</span>
         </h2>

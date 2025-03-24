@@ -21,13 +21,6 @@ const WhoWeAre: React.FC = () => {
         <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
           <div className="flex relative flex-1 mt-24  ">
             <Image
-              data-aos="fade-up-right"
-              data-aos-offset="150"
-              data-aos-delay="30"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-out"
-              data-aos-mirror="false"
-              data-aos-once="false"
               className="md:absolute  2xl:w-[400px] max-2xl:-left-20 z-10 rounded-3xl  w-[550px]  md:-rotate-[8.31deg] shadow-primary"
               src={img}
               style={{
