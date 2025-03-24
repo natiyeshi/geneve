@@ -28,7 +28,7 @@ export default function Blogs() {
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
         data-aos-once="false"
-        className="grid grid-cols-3 mt-12 px-12 gap-12"
+        className="grid grid-cols-3 max-md:grid-cols-1 mt-12 px-12 gap-12"
       >
         <Blog />
         <Blog />
