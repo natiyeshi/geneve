@@ -3,6 +3,7 @@ import Pattern from "@/components/custom/Pattern";
 import { Button } from "@/components/ui/button";
 import Carousel from "./Carousel";
 import { Section } from "@/components/custom/Section";
+import Link from "next/link";
 export default function Page() {
   return (
     <Section className="relative bg-gradient-to-b w-full from-background via-background to-white text-white">
@@ -18,9 +19,11 @@ export default function Page() {
           Transform your creative ideas into reality and start your journey
           today!
         </div>
-        <Button variant={"primary"} className="py-4  mt-5 rounded-full z-20">
-          Explore Products
-        </Button>
+        <Link href={"/products"}>
+          <Button variant={"primary"} className="py-4  mt-5 rounded-full z-20">
+            Explore Products
+          </Button>
+        </Link>
       </div>
       <div className="relative z-10 mt-8 max-md:mt-12 w-full">
         <Carousel />

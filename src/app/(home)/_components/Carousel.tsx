@@ -30,13 +30,13 @@ const Carousel = () => {
   const bgs = [bg1, bg2, bg3, bg4, bg5];
   return (
     <div>
-      <div className="max-md:hidden "></div>
+      <div className="max-md:hidden"></div>
       <div className=" overflow-hidden" ref={emblaRef}>
         <div className="flex h-full ">
-          {bgs.map((b, key) => (
+          {bgs.map((b, ind) => (
             <>
               <Image
-                key={key}
+                key={ind}
                 src={b}
                 className="mx-8 max-md:mx-3 w-[400px] relative flex-[0_0_100%] min-w-0 basis-1/4 max-md:basis-1/2  rounded-t-full object-cover"
                 alt="a"

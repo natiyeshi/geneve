@@ -1,0 +1,9 @@
+footer and mobile link
+images
+
+backend 
+    - contact us
+    - blog
+    - partners
+    - products
+blog 

@@ -8,7 +8,7 @@ export default function Blogs() {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
 
   return (
-    <Section className="pt-12 pb-6" >
+    <Section className="pt-12 pb-6">
       <div className="flex justify-center relative gap-5">
         {types.map((t) => (
           <Button onClick={() => alert(t)} variant={"outline"} key={t}>
@@ -20,7 +20,16 @@ export default function Blogs() {
         <Input placeholder="search..." className="border" />
         <Button>Search</Button>
       </div>
-      <div className="grid grid-cols-3 mt-12 px-12 gap-12">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="150"
+        data-aos-delay="30"
+        data-aos-duration={`1000`}
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="false"
+        data-aos-once="false"
+        className="grid grid-cols-3 mt-12 px-12 gap-12"
+      >
         <Blog />
         <Blog />
         <Blog />
@@ -48,7 +57,9 @@ const Blog = () => {
         Whether you are preparing for a corporate gathering or looking for
         custom apparel.
       </p>
-      <Button className="mt-4 w-fit" variant={"outline"}>Read</Button>
+      <Button className="mt-4 w-fit" variant={"outline"}>
+        Read
+      </Button>
     </div>
   );
 };

@@ -9,10 +9,11 @@ export default function Page() {
       <Nav />
       <div className="relative z-10 flex flex-col items-center capitalize">
         <h2 className="text-[70px] max-md:py-4 max-lg:text-[50px] max-md:text-[40px] mt-5 ">
-          Blogs
+          Our <span className="text-primary">Services</span>
         </h2>
         <div className="text-center max-w-[500px]">
-          Discover the Ultimate Guide to Succeeding in the Digital World
+          Discover the Future of Innovation: Elevate Your Experience with Our
+          Latest Product!
         </div>
       </div>
     </Section>

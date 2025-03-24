@@ -4,9 +4,35 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 
+import pr1 from "@/../public/assets/images/products/IMG_0659.JPG";
+import pr3 from "@/../public/assets/images/products/IMG_0661.JPG";
+import pr4 from "@/../public/assets/images/products/IMG_0662.JPG";
+import pr5 from "@/../public/assets/images/products/IMG_0664.JPG";
+import pr6 from "@/../public/assets/images/products/IMG_0665.JPG";
+import pr9 from "@/../public/assets/images/products/IMG_0668.JPG";
+import pr15 from "@/../public/assets/images/products/IMG_0674.JPG";
+import pr16 from "@/../public/assets/images/products/IMG_0675.JPG";
+import pr17 from "@/../public/assets/images/products/IMG_0676.JPG";
+import pr18 from "@/../public/assets/images/products/IMG_0686.JPG";
+import pr19 from "@/../public/assets/images/products/IMG_0688.JPG";
+import pr20 from "@/../public/assets/images/products/IMG_0693.JPG";
+
 export default function Products() {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
-
+  const products = [
+    pr1,
+    pr3,
+    pr4,
+    pr5,
+    pr6,
+    pr9,
+    pr15,
+    pr16,
+    pr17,
+    pr18,
+    pr19,
+    pr20,
+  ];
   return (
     <Section className="pt-12 pb-6 relative">
       <div className="flex justify-center max-md:mb-4 overflow-auto relative gap-10">
@@ -25,27 +51,33 @@ export default function Products() {
         <Input placeholder="search..." className="border" />
         <Button>Search</Button>
       </div>
-      <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mt-12 px-12 max-md:px-4 gap-12">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+      <div
+        data-aos="fade-up"
+        data-aos-offset="150"
+        data-aos-delay="30"
+        data-aos-duration={`1000`}
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="false"
+        data-aos-once="false"
+        className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mt-12 px-12 max-md:px-4 gap-12"
+      >
+        {products.map((pr, ind) => (
+          <Product key={ind} img={pr} />
+        ))}
       </div>
     </Section>
   );
 }
 
-const Product = () => {
+const Product = ({ img }: { img: any }) => {
   return (
     <div className="flex flex-col">
       <Image
-        src="https://picsum.photos/200/300"
+        src={img}
         className="rounded-lg w-full h-[250px] object-cover"
         width={100}
         height={100}
+        unoptimized
         alt=""
       />
       <div className="text-lg mt-2">Product Name</div>

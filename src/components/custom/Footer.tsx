@@ -7,6 +7,7 @@ import { LuPhone } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Section } from "@/components/custom/Section";
+import Link from "next/link";
 const Footer = () => {
   return (
     <Section className="bg-background " h={false}>
@@ -16,7 +17,12 @@ const Footer = () => {
             {[...Array(8)].map((_, index) => (
               <div key={index} className="flex flex-col gap-1">
                 {[...Array(20)].map((_, index) => (
-                  <Image key={index} src={icongold} className="w-7" alt="icon" />
+                  <Image
+                    key={index}
+                    src={icongold}
+                    className="w-7"
+                    alt="icon"
+                  />
                 ))}
               </div>
             ))}
@@ -26,27 +32,41 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex  flex-col flex-1 text-white  ps-14 max-md:ps-6 pe-6 my-12">
-          <div className="flex max-md:flex-col max-md:gap-5 justify-around    ">
+          <div className="flex max-md:flex-col max-md:gap-5 justify-around  duration-200  ">
             <div className="flex flex-col gap-4">
               <div className="font-semibold">Home</div>
               <div className="flex flex-col gap-1 ">
-                <div>Service</div>
-                <div>Products</div>
+                <Link className="hover:text-primary" href={"/services"}>
+                  Service
+                </Link>
+                <Link className="hover:text-primary" href={"/products"}>
+                  Products
+                </Link>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <div className="font-semibold">Products</div>
               <div className="flex flex-col gap-1 ">
-                <div>Branded Apparel</div>
-                <div>Uniform Solutions</div>
+                <Link className="hover:text-primary" href={"/products"}>
+                  Branded Apparel
+                </Link>
+                <Link className="hover:text-primary" href={"/products"}>
+                  Uniform Solutions
+                </Link>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <div className="font-semibold">Company</div>
               <div className="flex flex-col gap-1 ">
-                <div>About Us</div>
-                <div>Contact Us</div>
-                <div>Blog</div>
+                <Link className="hover:text-primary" href={"/aboutus"}>
+                  About Us
+                </Link>
+                <Link className="hover:text-primary" href={"/contactus"}>
+                  Contact Us
+                </Link>
+                <Link className="hover:text-primary" href={"/blog"}>
+                  Blog
+                </Link>
               </div>
             </div>
             <div className="flex flex-col gap-4">

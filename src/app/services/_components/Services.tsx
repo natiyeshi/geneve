@@ -6,7 +6,16 @@ import { FaCheck } from "react-icons/fa";
 export default function Services() {
   return (
     <Section className="pt-12  pb-6 relative" childClassName="my-32">
-      <div className="flex max-md:flex-col-reverse max-md:gap-10 gap-5 px-12 max-md:px-4">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="150"
+        data-aos-delay="30"
+        data-aos-duration={`1000`}
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="false"
+        data-aos-once="false"
+        className="flex max-md:flex-col-reverse max-md:gap-10 gap-5 px-12 max-md:px-4"
+      >
         <div className="md:w-1/2">
           <Image
             className="rounded-2xl hover:shadow-xl duration-200"
@@ -42,7 +51,16 @@ export default function Services() {
           </ul>
         </div>
       </div>
-      <div className="flex mt-12 max-md:flex-col max-md:gap-10 gap-5 px-12 max-md:px-4">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="150"
+        data-aos-delay="30"
+        data-aos-duration={`1000`}
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="false"
+        data-aos-once="false"
+        className="flex mt-12 max-md:flex-col max-md:gap-10 gap-5 px-12 max-md:px-4"
+      >
         <div className="md:w-1/2">
           <h2 className="text-3xl font-semibold">Uniform Solutions</h2>
           <p className="mt-5">

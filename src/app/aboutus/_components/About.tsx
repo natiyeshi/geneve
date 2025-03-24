@@ -1,6 +1,8 @@
 import { Section } from "@/components/custom/Section";
 import Topic from "@/components/custom/Topic";
 import img from "@/../public/assets/images/random/movie-card (1).png";
+import img2 from "@/../public/assets/images/random/movie-card (2).png";
+import img3 from "@/../public/assets/images/random/image 22.png";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 
@@ -30,7 +32,16 @@ export default function About() {
   return (
     <Section childClassName="flex mb-32 flex-col">
       <Topic child={<>How it All Started ?</>} />
-      <div className="mx-auto max-w-[50rem] text-center my-12 ">
+      <div
+        data-aos="fade-up-top"
+        data-aos-offset="150"
+        data-aos-delay="30"
+        data-aos-duration={`1000`}
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="false"
+        data-aos-once="false"
+        className="mx-auto max-w-[50rem] text-center my-12 "
+      >
         We, at Gaber Wear, understand that it is better to stand out than to
         blend in with the crowd. That is why we specialize in providing
         customized and tailored service to our customers. We pride ourselves in
@@ -40,6 +51,13 @@ export default function About() {
       <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
         <div className="flex relative flex-1 mt-24  ">
           <Image
+            data-aos="fade-up-right"
+            data-aos-offset="150"
+            data-aos-delay="30"
+            data-aos-duration={`1000`}
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="false"
+            data-aos-once="false"
             className="  z-10 rounded-3xl  w-[500px]  md:-rotate-[8.31deg] shadow-primary"
             src={img}
             style={{
@@ -49,7 +67,16 @@ export default function About() {
           />
           {/* <div className="absolute top-[80px] -left-[1rem] w-[580px] h-[360px] rounded-[50px] bg-primary -rotate-[8.31deg]"></div> */}
         </div>
-        <div className="mt-32 max-md:12 md:pe-12 flex-1 ">
+        <div
+          data-aos="fade-up-left"
+          data-aos-offset="150"
+          data-aos-delay="30"
+          data-aos-duration={`1000`}
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="false"
+          data-aos-once="false"
+          className="mt-32 max-md:12 md:pe-12 flex-1 "
+        >
           <h3 className="font-bold text-xl ">
             Empowering Communities Since 2016
           </h3>
@@ -62,7 +89,16 @@ export default function About() {
       </div>
 
       <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
-        <div className=" content-center max-md:12 md:pe-12 flex-1 items-center ">
+        <div
+          data-aos="fade-up-right"
+          data-aos-offset="150"
+          data-aos-delay="30"
+          data-aos-duration={`1000`}
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="false"
+          data-aos-once="false"
+          className=" content-center max-md:12 md:pe-12 flex-1 items-center "
+        >
           <h3 className="font-bold text-xl ">To Encourage More Women</h3>
           <p className="lg:max-w-lg m w-full mt-5">
             to strive for growth, we focus on promoting from within which helps
@@ -72,8 +108,15 @@ export default function About() {
         </div>
         <div className="flex relative flex-1 mt-24  ">
           <Image
+            data-aos="fade-up-left"
+            data-aos-offset="150"
+            data-aos-delay="30"
+            data-aos-duration={`1000`}
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="false"
+            data-aos-once="false"
             className="  z-10 rounded-3xl  w-[500px]  md:-rotate-[8.31deg] shadow-primary"
-            src={img}
+            src={img3}
             style={{
               boxShadow: "20px 20px 40px rgba(225, 168, 39, 1)",
             }}
@@ -81,13 +124,23 @@ export default function About() {
           />
         </div>
       </div>
-      <div className="mt-[6rem] flex flex-col">
+      <div className="mt-[6rem] flex flex-col py-20">
         <h2 className="text-3xl mb-5 font-semibold text-center">
           Our Mession and Core Values
         </h2>
-        <div className="flex  px-12 max-md:px-4 w-full justify-center gap-10 overflow-auto">
-          {list.map(({ name, Icon },ind) => (
-            <div key={ind} className="flex border hover:shadow-lg duration-200 min-w-[200px]  rounded-md border-primary p-4  flex-col items-center">
+        <div className="flex  px-12 mt-4  max-md:px-4 w-full justify-center gap-10 overflow-auto">
+          {list.map(({ name, Icon }, ind) => (
+            <div
+              data-aos={ind < 2 ? "fade-up-right" : "fade-up-left"}
+              data-aos-offset="150"
+              data-aos-delay="30"
+              data-aos-duration={`1000`}
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="false"
+              data-aos-once="false"
+              key={ind}
+              className="flex border hover:shadow-lg duration-200 min-w-[200px]  rounded-md border-primary p-4  flex-col items-center"
+            >
               <div className="p-3 w-14 h-14 flex rounded-full bg-primary/40">
                 <Icon className="text-yellow-500 m-auto text-4xl mb-4" />
               </div>
@@ -99,8 +152,15 @@ export default function About() {
       <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
         <div className="flex relative flex-1 mt-24  ">
           <Image
+            data-aos="fade-up-right"
+            data-aos-offset="150"
+            data-aos-delay="30"
+            data-aos-duration={`1000`}
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="false"
+            data-aos-once="false"
             className="  z-10 rounded-3xl  w-[500px]  md:-rotate-[8.31deg] shadow-primary"
-            src={img}
+            src={img2}
             style={{
               boxShadow: "20px 20px 40px rgba(225, 168, 39, 1)",
             }}
@@ -108,7 +168,16 @@ export default function About() {
           />
           {/* <div className="absolute top-[80px] -left-[1rem] w-[580px] h-[360px] rounded-[50px] bg-primary -rotate-[8.31deg]"></div> */}
         </div>
-        <div className="mt-32 max-md:12 md:pe-12 flex-1 ">
+        <div
+          data-aos="fade-up-left"
+          data-aos-offset="150"
+          data-aos-delay="30"
+          data-aos-duration={`1000`}
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="false"
+          data-aos-once="false"
+          className="mt-32 max-md:12 md:pe-12 flex-1 "
+        >
           <h3 className="font-bold text-xl ">
             Uplifting Women, Transforming Lives
           </h3>

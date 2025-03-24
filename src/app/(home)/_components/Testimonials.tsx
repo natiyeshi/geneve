@@ -37,8 +37,17 @@ const Testimonials: React.FC = () => {
 
 const Testimony = () => {
   return (
-    <div className="border border-white rounded-lg px-3 py-2 flex flex-col gap-3">
-      <FaQuoteRight className="text-primary text-4xl" />
+    <div
+      data-aos="fade-up-top"
+      data-aos-offset="150"
+      data-aos-delay="30"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="false"
+      data-aos-once="false"
+      className="border border-white rounded-lg px-3 py-2 flex flex-col gap-3"
+    >
+      <FaQuoteRight className="text-primary text-[3rem]" />
       <div className="font-semibold">Client Name</div>
       <p>
         “Gaber Wear transformed our team’s look Gaber Wear transformed our
