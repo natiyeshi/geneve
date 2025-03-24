@@ -9,7 +9,7 @@ export default function Blogs() {
 
   return (
     <Section className="pt-12 pb-6">
-      <div className="flex justify-center relative gap-5">
+      <div className="flex justify-center relative gap-5 overflow-auto">
         {types.map((t) => (
           <Button onClick={() => alert(t)} variant={"outline"} key={t}>
             {t}
