@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 
-import pr1 from "@/../public/assets/images/products/IMG_0659.jpg";
-import pr3 from "@/../public/assets/images/products/IMG_0661.jpg";
-import pr4 from "@/../public/assets/images/products/IMG_0662.jpg";
-import pr5 from "@/../public/assets/images/products/IMG_0664.jpg";
-import pr6 from "@/../public/assets/images/products/IMG_0665.jpg";
-import pr9 from "@/../public/assets/images/products/IMG_0668.jpg";
-import pr15 from "@/../public/assets/images/products/IMG_0674.jpg";
-import pr16 from "@/../public/assets/images/products/IMG_0675.jpg";
-import pr17 from "@/../public/assets/images/products/IMG_0676.jpg";
-import pr18 from "@/../public/assets/images/products/IMG_0686.jpg";
-import pr19 from "@/../public/assets/images/products/IMG_0688.jpg";
-import pr20 from "@/../public/assets/images/products/IMG_0693.jpg";
+import pr1 from "@/../public/assets/images/product/IMG_0659.jpg";
+import pr3 from "@/../public/assets/images/product/IMG_0661.jpg";
+import pr4 from "@/../public/assets/images/product/IMG_0662.jpg";
+import pr5 from "@/../public/assets/images/product/IMG_0664.jpg";
+import pr6 from "@/../public/assets/images/product/IMG_0665.jpg";
+import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
+import pr15 from "@/../public/assets/images/product/IMG_0674.jpg";
+import pr16 from "@/../public/assets/images/product/IMG_0675.jpg";
+import pr17 from "@/../public/assets/images/product/IMG_0676.jpg";
+import pr18 from "@/../public/assets/images/product/IMG_0686.jpg";
+import pr19 from "@/../public/assets/images/product/IMG_0688.jpg";
+import pr20 from "@/../public/assets/images/product/IMG_0693.jpg";
 
 export default function Products() {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
