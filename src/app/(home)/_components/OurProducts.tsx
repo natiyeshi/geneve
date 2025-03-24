@@ -20,7 +20,6 @@ import pr18 from "@/../public/assets/images/product/IMG_0686.jpg";
 import pr19 from "@/../public/assets/images/product/IMG_0688.jpg";
 import pr20 from "@/../public/assets/images/product/IMG_0693.jpg";
 
-
 const OurProducts: React.FC = () => {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const products = [
@@ -48,23 +47,15 @@ const OurProducts: React.FC = () => {
         }
       />
       <div className="flex max-lg:flex-col gap-14 flex-1 px-12 max-lg:px-4 mt-8 relative">
-        <div
-          data-aos="fade-up-right"
-          data-aos-offset="120"
-          data-aos-delay="20"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="false"
-          data-aos-once="false"
-          className="flex  z-10 overflow-auto lg:flex-col md:gap-3 gap-10 max-md:w-full md:sticky top-0 h-full pt-4"
-        >
+        <div className="flex  z-10 overflow-auto lg:flex-col md:gap-3 gap-10 max-md:w-full md:sticky top-0 h-full pt-4 max-md:ps-2">
           {types.map((type, key) => (
             <div
               key={key}
               role="button"
-              className={`capitalize georgiaFont font-semibold italic text-lg ${
-                type === "All" ? "text-primary" : "text-background"
+              className={`capitalize georgiaFont font-semibold italic text-lg whitespace-nowrap ${
+                type === curr ? "text-primary" : "text-background"
               }`}
+              onClick={() => setCurr(type)}
             >
               {type}
             </div>

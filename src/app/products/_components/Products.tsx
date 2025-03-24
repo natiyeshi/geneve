@@ -35,7 +35,7 @@ export default function Products() {
   ];
   return (
     <Section className="pt-12 pb-6 relative">
-      <div className="flex justify-center max-md:mb-4 overflow-auto relative gap-10">
+      <div className="flex justify-center max-md:mb-8 overflow-auto relative gap-10 max-md:ps-3 ">
         {types.map((t) => (
           <div
             role="button"

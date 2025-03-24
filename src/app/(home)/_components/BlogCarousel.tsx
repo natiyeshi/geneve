@@ -26,7 +26,7 @@ const BlogCarousel = () => {
   };
   return (
     <Section className=" px-12 pb-12 max-md:px-4 ">
-      <div className="flex justify-between">
+      <div className="flex justify-between  max-md:mt-6">
         <h1 className="text-3xl text-background font-semibold">
           Explore Our Blog Here
         </h1>

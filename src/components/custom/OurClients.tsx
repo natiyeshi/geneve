@@ -36,7 +36,7 @@ const OurClients: React.FC = () => {
   ]);
 
   return (
-    <Section className="pt-12 flex flex-col ">
+    <Section className="pt-12 flex flex-col maxmd:py-6">
       <Topic
         child={
           <>
