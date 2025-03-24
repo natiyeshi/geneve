@@ -6,7 +6,7 @@ import { Section } from "@/components/custom/Section";
 import Link from "next/link";
 export default function Page() {
   return (
-    <Section className="relative bg-gradient-to-b w-full from-background via-background to-white text-white">
+    <Section className="relative bg-gradient-to-b w-full from-background via-background to-white text-white overflow-hidden">
       <Pattern />
       <Nav />
       <div className="relative z-10 flex flex-col items-center capitalize max-md:px-2">
