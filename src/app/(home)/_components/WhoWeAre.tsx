@@ -10,7 +10,7 @@ import Link from "next/link";
 const WhoWeAre: React.FC = () => {
   return (
     <Section className="mt-12 max-md:mt-4 ">
-      <div className="pt-14  flex flex-col ">
+      <div className="pt-14  flex flex-col p">
         <Topic
           child={
             <>
@@ -19,25 +19,22 @@ const WhoWeAre: React.FC = () => {
           }
         />
         <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
-          <div className="flex relative flex-1 mt-24  ">
+          <div className="flex relative flex-1 mt-24  pb-12">
             <Image
-              className="md:absolute  2xl:w-[400px] max-2xl:-left-20 z-10 rounded-3xl  w-[550px]  md:-rotate-[8.31deg] shadow-primary"
+              className="  2xl:w-[400px]  z-10 rounded-3xl  w-[450px]   shadow-primary"
               src={img}
-              style={{
-                boxShadow: "20px 20px 40px rgba(225, 168, 39, 1)",
-              }}
               alt="abcd"
             />
-            {/* <div className="absolute top-[80px] -left-[1rem] w-[580px] h-[360px] rounded-[50px] bg-primary -rotate-[8.31deg]"></div> */}
+            <div className="border-[1.5px] max-md:hidden border-black w-[450px] rounded-3xl h-[330px] absolute top-7 left-7  "></div>
           </div>
           <div className="mt-32 max-md:12 md:pe-12 flex-1 ">
-            <p className="lg:max-w-lg  w-full mb-5">
+            <p className="lg:max-w-lg pt-12 w-full mb-5">
               As a woman owned company established in 2016, women empowerment is
               at the core of what we do. We hire on average 150 employees of
               which 85% are women and some are in managerial positions.
             </p>
-            <Link href={"/aboutus"}>
-              <Button>About Us</Button>
+            <Link href={"/ourstory"}>
+              <Button>Our Story</Button>
             </Link>
           </div>
         </div>

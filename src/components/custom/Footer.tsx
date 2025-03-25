@@ -58,8 +58,8 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               <div className="font-semibold">Company</div>
               <div className="flex flex-col gap-1 ">
-                <Link className="hover:text-primary" href={"/aboutus"}>
-                  About Us
+                <Link className="hover:text-primary" href={"/ourstory"}>
+                  Our Story
                 </Link>
                 <Link className="hover:text-primary" href={"/contactus"}>
                   Contact Us
@@ -83,6 +83,10 @@ const Footer = () => {
                 <div className="flex  items-center">
                   <LuPhone className="inline-block mr-2 text-lg" />
                   <span>+251911615816</span>
+                </div>
+                <div className="flex  items-center">
+                  <LuPhone className="inline-block mr-2 text-lg" />
+                  <span>+251953206159</span>
                 </div>
               </div>
             </div>

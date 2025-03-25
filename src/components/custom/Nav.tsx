@@ -12,7 +12,7 @@ export default function Page() {
   const links = [
     { name: "Home", href: "/" },
     { name: "products", href: "/products" },
-    { name: "About Us", href: "/aboutus" },
+    { name: "Our Story", href: "/ourstory" },
     { name: "Services", href: "/services" },
     { name: "Blogs", href: "/blogs" },
   ];

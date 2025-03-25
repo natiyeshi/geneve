@@ -22,7 +22,7 @@ export const Section = ({
       } w-full flex relative`}
     >
       <div
-        className={` w-full h-fit mx-auto ${
+        className={` w-full h-fit mx-auto overflow-hidden ${
           pixelate && "px-12 max-lg:px-6 max-md:px-3"
         } ${childClassName}`}
         style={{

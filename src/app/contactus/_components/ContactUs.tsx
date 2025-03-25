@@ -94,9 +94,13 @@ export default function ContactUs() {
             </Button>
           </form>
         </div>
-        <div className="flex">
+        <div className="flex flex-col ">
+          <h3 className="text-2xl my-auto font-semibold pt4">
+            Visit Our Manufacturing{" "}
+            <span className="text-primary">Facility</span>
+          </h3>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112484839!2d144.9630579153167!3d-37.81410797975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1b6b1a1a1a1!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1633072800000!5m2!1sen!2sau"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.2825213069964!2d38.7733142!3d9.035338699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8fb0e34da7d7%3A0xae0f0274e20aec2f!2sGaber%20Garment!5e1!3m2!1sen!2set!4v1742934079021!5m2!1sen!2set"
             width="600"
             height="400"
             loading="lazy"
@@ -108,7 +112,7 @@ export default function ContactUs() {
       <div className="grid grid-cols-2 max-md:flex max-md:flex-col-reverse max-md:px-4 px-12 max-md:gap-10 mt-14">
         <div className="flex">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112484839!2d144.9630579153167!3d-37.81410797975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1b6b1a1a1a1!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1633072800000!5m2!1sen!2sau"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.550654696594!2d38.78916470000001!3d9.004263500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8535663b99a5%3A0xd03967e33c4794a6!2sGaber%20Wear!5e1!3m2!1sen!2set!4v1742934056685!5m2!1sen!2set"
             width="600"
             height="400"
             loading="lazy"
@@ -118,8 +122,7 @@ export default function ContactUs() {
         </div>
         <div className="my-auto ps-10">
           <h3 className="text-2xl font-semibold">
-            Visit Our Manufacturing{" "}
-            <span className="text-primary">Facility</span>
+            Visit Our <span className="text-primary"> Shoping</span>
           </h3>
           <div className="flex flex-col gap-4 mt-5">
             <div className="flex gap-2 items-center">
