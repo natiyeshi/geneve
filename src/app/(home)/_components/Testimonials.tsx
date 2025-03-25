@@ -49,8 +49,8 @@ const Testimonials: React.FC = () => {
         }
       />
       <div className="mt-14 grid grid-cols-2 max-md:grid-cols-1 pb-8 gap-12 px-12 max-md:px-4 ">
-        {t.map((d) => (
-          <Testimony name={d.topic} content={d.content} />
+        {t.map((d,ind) => (
+          <Testimony key={ind} name={d.topic} content={d.content} />
         ))}
       </div>
     </Section>
