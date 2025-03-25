@@ -12,7 +12,7 @@ import prt6 from "@/../public/assets/partners/image 6.png";
 import prt7 from "@/../public/assets/partners/image 7.png";
 import prt8 from "@/../public/assets/partners/image 8.png";
 import prt9 from "@/../public/assets/partners/image 9.png";
-import prt10 from "@/../public/assets/partners/image 10.png";
+import prt10 from "@/../public/assets/partners/image.png";
 
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";

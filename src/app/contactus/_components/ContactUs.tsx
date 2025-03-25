@@ -131,6 +131,10 @@ export default function ContactUs() {
               <div className="">+251966205139</div>
             </div>
             <div className="flex gap-2 items-center">
+              <FaPhoneAlt size={20} className="text-primary " />
+              <div className="">+251953206159</div>
+            </div>
+            <div className="flex gap-2 items-center">
               <IoLocationOutline size={20} className="text-primary " />
               <div className="">Addis Ababa, Ethiopia</div>
             </div>
