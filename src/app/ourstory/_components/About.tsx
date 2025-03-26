@@ -110,7 +110,7 @@ export default function About() {
         >
           <h3 className="font-bold text-xl max-md:mt-4">To Encourage More Women</h3>
           <p className="lg:max-w-lg m w-full mt-5">
-            At the peak COVID-19, Gaber was also among 12 SME's consortium
+            At the peak COVID-19, Gaber was also among 12 SME&apos;s consortium
             selected by Mastercard Foundation to repurpose their factories and
             manufacture PPE materials. The consortium successfully completing
             the program and collectively saved 1,060 jobs. Gaber Wear has been
