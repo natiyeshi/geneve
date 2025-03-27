@@ -11,7 +11,7 @@ const HotPicks = () => {
       <h1 className="text-3xl  py-6  font-semibold text-background">
         Hot Picks
       </h1>
-      <div className="grid grid-cols-3 max-md:grid-cols-2 gap-4 flex1  h-[600px]">
+      <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-4 flex-1  ">
         <Image
           data-aos="fade-up-right"
           data-aos-offset="150"
@@ -53,7 +53,7 @@ const HotPicks = () => {
             alt="image"
           />
         </div>
-        <div className="flex md:flex-col gap-4 h-[600px] max-md:w-full max-md:flex  ">
+        <div className="flex max-md:flexrow flex-col gap-4 md:h-[600px] max-md:w-full ">
           <Image
             data-aos="fade-up-left"
             data-aos-offset="150"
@@ -63,7 +63,7 @@ const HotPicks = () => {
             data-aos-mirror="false"
             data-aos-once="false"
             unoptimized
-            className="h-[322px] col-span-2 max-md:h-fit object-cover w-full rounded-xl flex-1"
+            className="md:h-[322px]  max-md:h-[300px] object-cover w-full rounded-xl flex-1"
             src={bg4}
             alt="image"
           />
@@ -76,7 +76,7 @@ const HotPicks = () => {
             data-aos-mirror="false"
             data-aos-once="false"
             unoptimized
-            className="h-[262px] col-span-2 max-md:h-fit  object-cover w-full rounded-xl flex-1"
+            className="md:h-[262px]  max-md:h-[300px]  object-cover w-full rounded-xl flex-1"
             src={bg5}
             alt="image"
           />

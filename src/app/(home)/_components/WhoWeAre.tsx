@@ -28,8 +28,8 @@ const WhoWeAre: React.FC = () => {
             />
             <div className="border-[1.5px] max-md:hidden border-black w-[450px] rounded-3xl h-[330px] absolute top-7 left-7  "></div>
           </div>
-          <div className="mt-32 max-md:mt-12 md:pe-12 flex-1 ">
-            <p className="lg:max-w-lg pt-12 w-full mb-5">
+          <div className="mt-32 max-md:mt-0 md:pe-12  flex-1 ">
+            <p className="lg:max-w-lg pt-12 max-md:pt-4 w-full mb-5">
               As a woman owned company established in 2016, women empowerment is
               at the core of what we do. We hire on average 150 employees of
               which 85% are women and some are in managerial positions.

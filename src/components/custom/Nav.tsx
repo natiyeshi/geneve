@@ -24,9 +24,9 @@ export default function Page() {
       {" "}
       {/* Ensuring highest z-index */}
       <div className="flex z-50 justify-between items-center padding relative">
-        <div className="w-20 h-fit px-4 p-4 flex bg-background shadow shadow-primary">
+        <Link href="/" className="w-20 h-fit px-4 p-4 flex bg-background shadow shadow-primary">
           <Image className="m-auto" src={logo} alt="logo" />
-        </div>
+        </Link>
 
         <div className="flex gap-8 w-auto max-md:hidden">
           {links.map((link) => (

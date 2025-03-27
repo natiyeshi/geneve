@@ -15,15 +15,14 @@ finalized
 - Compaany company spelling
 - products
 - adding blog
-
-todo
 - contact us everywhere
-
 - check gaps
     - in our story
 
+todo
+
 - email
-- keywords , seo
 - check link
+- keywords , seo
 
 

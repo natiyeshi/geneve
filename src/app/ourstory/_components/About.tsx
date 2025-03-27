@@ -108,7 +108,9 @@ export default function About() {
           data-aos-once="false"
           className=" content-center max-md:12 md:pe-12 flex-1 items-center "
         >
-          <h3 className="font-bold text-xl max-md:mt-4">To Encourage More Women</h3>
+          <h3 className="font-bold text-xl max-md:mt-4">
+            To Encourage More Women
+          </h3>
           <p className="lg:max-w-lg m w-full mt-5">
             At the peak COVID-19, Gaber was also among 12 SME&apos;s consortium
             selected by Mastercard Foundation to repurpose their factories and
@@ -141,18 +143,20 @@ export default function About() {
         <h2 className="text-3xl mb-5 font-semibold text-center">
           Our Core Values
         </h2>
-        <div className="flex  px-12 mt-4  max-md:px-4 w-full justify-center gap-10 overflow-auto">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="150"
+          data-aos-delay="30"
+          data-aos-duration={`1000`}
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="false"
+          data-aos-once="false"
+          className="flex  px-12 mt-4  max-md:px-4 w-full md:justify-center gap-10 overflow-auto"
+        >
           {list.map(({ name, Icon }, ind) => (
             <div
-              data-aos={ind < 2 ? "fade-up-right" : "fade-up-left"}
-              data-aos-offset="150"
-              data-aos-delay="30"
-              data-aos-duration={`1000`}
-              data-aos-easing="ease-in-out"
-              data-aos-mirror="false"
-              data-aos-once="false"
               key={ind}
-              className="flex border hover:shadow-lg duration-200 min-w-[200px]  rounded-md border-primary p-4  flex-col items-center"
+              className="flex border hover:shadow-lg duration-200 min-w-[200px]  rounded-md border-primary p-4  flex-col"
             >
               <div className="p-3 w-14 h-14 flex rounded-full bg-primary/40">
                 <GiHanger className="text-yellow-500 m-auto text-4xl mb-4" />

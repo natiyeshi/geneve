@@ -9,7 +9,7 @@ import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
 
 export default function Services() {
   return (
-    <Section className="pt-12  pb-6 relative" childClassName="my-32">
+    <Section className="pt-12  pb-6 relative" childClassName="my-32 max-md:mt-12">
       <div
         data-aos="fade-up"
         data-aos-offset="150"

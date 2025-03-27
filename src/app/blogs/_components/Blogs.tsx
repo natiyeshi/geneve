@@ -18,10 +18,10 @@ export default function Blogs() {
           </Button>
         ))}
       </div> */}
-      <div className="flex mx-auto mt-4 max-w-[70%] gap-5">
+      {/* <div className="flex mx-auto mt-4 max-w-[70%] gap-5">
         <Input placeholder="search..." className="border" />
         <Button>Search</Button>
-      </div>
+      </div> */}
       <div
         data-aos="fade-up"
         data-aos-offset="150"
@@ -30,7 +30,7 @@ export default function Blogs() {
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
         data-aos-once="false"
-        className="grid grid-cols-3 max-md:grid-cols-1 mt-12 px-12 gap-12"
+        className="grid grid-cols-3 max-md:grid-cols-1 mt-12 px-12 max-md:px-4 gap-12"
       >
         {blogs.map((blog, ind) => (
           <Blog key={ind} blog={blog} />
