@@ -73,7 +73,7 @@ const Footer = () => {
                 <Link className="hover:text-primary" href={"/contactus"}>
                   Contact Us
                 </Link>
-                <Link className="hover:text-primary" href={"/blog"}>
+                <Link className="hover:text-primary" href={"/blogs"}>
                   Blog
                 </Link>
               </div>

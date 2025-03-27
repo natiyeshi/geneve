@@ -59,7 +59,7 @@ const BlogCarousel = () => {
 const Blog = ({ blog }: { blog: BI }) => {
   return (
     <Link
-      href={blog.link}
+      href={"/blogs/" + blog.link}
       className="w-fit flex-[0_0_100%] basis-1/3 max-md:basis-1/2 max-lg:basis-1/3 max-sm:basis-full min-w-0 p-1 rounded-lg flex flex-col gap-2 select-none"
     >
       <Image

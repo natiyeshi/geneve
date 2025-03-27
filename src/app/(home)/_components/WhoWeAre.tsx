@@ -25,11 +25,10 @@ const WhoWeAre: React.FC = () => {
               className="h-[320px] object-cover 2xl:w-[400px]  z-10 rounded-3xl  w-[450px]   shadow-primary"
               src={pr}
               alt="abcd"
-              loading="lazy"
             />
             <div className="border-[1.5px] max-md:hidden border-black w-[450px] rounded-3xl h-[330px] absolute top-7 left-7  "></div>
           </div>
-          <div className="mt-32 max-md:12 md:pe-12 flex-1 ">
+          <div className="mt-32 max-md:mt-12 md:pe-12 flex-1 ">
             <p className="lg:max-w-lg pt-12 w-full mb-5">
               As a woman owned company established in 2016, women empowerment is
               at the core of what we do. We hire on average 150 employees of

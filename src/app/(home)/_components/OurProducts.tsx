@@ -75,7 +75,6 @@ export const Product = ({ pr }: { pr: PI }) => {
         <Image
           src={pr.img}
           alt="img"
-          loading="lazy"
           className="w-full hover:scale-110 duration-300 h-[300px] object-cover rounded-xl"
         />
         <div className="absolute right-3 top-4 w-fit px-2 rounded-xl text-xs bg-primary text-white py-[2px]">

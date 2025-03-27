@@ -14,7 +14,7 @@ export default function Page() {
     { name: "products", href: "/products" },
     { name: "Our Story", href: "/ourstory" },
     { name: "Services", href: "/services" },
-    { name: "Blogs", href: "/blogs" },
+    { name: "Blog", href: "/blogs" },
   ];
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
