@@ -6,4 +6,24 @@ backend
     - blog
     - partners
     - products
-blog 
+
+
+- blog 
+- products
+
+finalized 
+- Compaany company spelling
+- products
+- adding blog
+
+todo
+- contact us everywhere
+
+- check gaps
+    - in our story
+
+- email
+- keywords , seo
+- check link
+
+

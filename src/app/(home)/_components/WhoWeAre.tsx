@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/custom/Section";
 import Topic from "@/components/custom/Topic";
 import Link from "next/link";
+import pr from "@/../public/assets/images/product/IMG_0661.jpg";
 
 const WhoWeAre: React.FC = () => {
   return (
@@ -21,9 +22,10 @@ const WhoWeAre: React.FC = () => {
         <div className="flex w-full px-12 max-md:px-4 max-md:flex-col gap-0 flex-1">
           <div className="flex relative flex-1 mt-24  pb-12">
             <Image
-              className="  2xl:w-[400px]  z-10 rounded-3xl  w-[450px]   shadow-primary"
-              src={img}
+              className="h-[320px] object-cover 2xl:w-[400px]  z-10 rounded-3xl  w-[450px]   shadow-primary"
+              src={pr}
               alt="abcd"
+              loading="lazy"
             />
             <div className="border-[1.5px] max-md:hidden border-black w-[450px] rounded-3xl h-[330px] absolute top-7 left-7  "></div>
           </div>

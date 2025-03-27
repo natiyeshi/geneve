@@ -1,11 +1,12 @@
 "use client";
 import { IoArrowBackOutline } from "react-icons/io5";
 import Image from "next/image";
-
+import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/custom/Section";
+import { blogs, BI } from "@/components/custom/datas";
 
 const BlogCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [
@@ -46,8 +47,8 @@ const BlogCarousel = () => {
           ref={emblaRef}
         >
           <div className="flex h-full ">
-            {[...Array(8)].map((b, key) => (
-              <Blog key={key} />
+            {blogs.map((blog, ind) => (
+              <Blog key={ind} blog={blog} />
             ))}
           </div>
         </div>
@@ -55,24 +56,28 @@ const BlogCarousel = () => {
     </Section>
   );
 };
-const Blog = () => {
+const Blog = ({ blog }: { blog: BI }) => {
   return (
-    <div className="w-fit flex-[0_0_100%] basis-1/4 max-md:basis-1/2 max-lg:basis-1/3 max-sm:basis-full min-w-0 p-1 rounded-lg flex flex-col gap-2 select-none">
+    <Link
+      href={blog.link}
+      className="w-fit flex-[0_0_100%] basis-1/3 max-md:basis-1/2 max-lg:basis-1/3 max-sm:basis-full min-w-0 p-1 rounded-lg flex flex-col gap-2 select-none"
+    >
       <Image
-        src="https://picsum.photos/200/300"
+        src={blog.img}
         alt="Random"
         className="rounded-lg w-full h-[250px] object-cover"
         width={100}
         height={100}
+        unoptimized
       />
-      <div className="font-semibold">Blog Title</div>
+      <div className="font-semibold">{blog.topic}</div>
       <p className="text-sm">
-        Lorem ipsum dolor sit amet, Sed cursus ante dapibus diam.
+        {blog.desc.split(" ").slice(0, 20).join(" ")}...
       </p>
       <Button variant={"outline"} className="w-fit">
         Read
       </Button>
-    </div>
+    </Link>
   );
 };
 

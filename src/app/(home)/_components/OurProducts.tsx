@@ -7,38 +7,26 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/custom/Section";
 import Topic from "@/components/custom/Topic";
 
-import pr1 from "@/../public/assets/images/product/IMG_0659.jpg";
-import pr3 from "@/../public/assets/images/product/IMG_0661.jpg";
-import pr4 from "@/../public/assets/images/product/IMG_0662.jpg";
-import pr5 from "@/../public/assets/images/product/IMG_0664.jpg";
-import pr6 from "@/../public/assets/images/product/IMG_0665.jpg";
-import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
-import pr15 from "@/../public/assets/images/product/IMG_0674.jpg";
-import pr16 from "@/../public/assets/images/product/IMG_0675.jpg";
-import pr17 from "@/../public/assets/images/product/IMG_0676.jpg";
-import pr18 from "@/../public/assets/images/product/IMG_0686.jpg";
-import pr19 from "@/../public/assets/images/product/IMG_0688.jpg";
-import pr20 from "@/../public/assets/images/product/IMG_0693.jpg";
+// import pr1 from "@/../public/assets/images/product/IMG_0659.jpg";
+// import pr3 from "@/../public/assets/images/product/IMG_0661.jpg";
+// import pr4 from "@/../public/assets/images/product/IMG_0662.jpg";
+// import pr5 from "@/../public/assets/images/product/IMG_0664.jpg";
+// import pr6 from "@/../public/assets/images/product/IMG_0665.jpg";
+// import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
+// import pr15 from "@/../public/assets/images/product/IMG_0674.jpg";
+// import pr16 from "@/../public/assets/images/product/IMG_0675.jpg";
+// import pr17 from "@/../public/assets/images/product/IMG_0676.jpg";
+// import pr18 from "@/../public/assets/images/product/IMG_0686.jpg";
+// import pr19 from "@/../public/assets/images/product/IMG_0688.jpg";
+// import pr20 from "@/../public/assets/images/product/IMG_0693.jpg";
+import { PI, products } from "@/components/custom/datas";
 
 const OurProducts: React.FC = () => {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
-  const products = [
-    pr1,
-    pr3,
-    pr4,
-    pr5,
-    pr6,
-    pr9,
-    pr15,
-    pr16,
-    pr17,
-    pr18,
-    pr19,
-    pr20,
-  ];
   const [curr, setCurr] = useState("All");
+
   return (
-    <Section className="pt-32  min-h-screen flex flex-col">
+    <Section className="pt-32  min-h-screen flex flex-col relative">
       <Topic
         child={
           <>
@@ -62,9 +50,16 @@ const OurProducts: React.FC = () => {
           ))}
         </div>
         <div className="flex-1 w-full items-center py-3 mb-12 grid grid-cols-3 max-sm:grid-cols-1 max-xl:grid-cols-2 gap-4">
-          {products.map((pr, ind) => (
-            <Product key={ind} img={pr} />
-          ))}
+          {products.filter((pr) => curr === "All" || pr.group === curr).length >
+          0 ? (
+            products
+              .filter((pr) => curr === "All" || pr.group === curr)
+              .map((pr, ind) => <Product key={ind} pr={pr} />)
+          ) : (
+            <div className="text-center col-span-full text-gray-500">
+              Nothing found
+            </div>
+          )}
         </div>
       </div>
     </Section>
@@ -73,21 +68,19 @@ const OurProducts: React.FC = () => {
 
 export default OurProducts;
 
-const Product = ({ img }: { img: any }) => {
+export const Product = ({ pr }: { pr: PI }) => {
   return (
     <div className="flex h-fit gap-3  flex-col ">
-      <div className="flex relative">
+      <div className="flex relative h-[300px] rounded-xl overflow-hidden">
         <Image
-          src={img}
-          alt="left pattern"
-          className="w-full h-[300px] object-cover rounded-xl"
+          src={pr.img}
+          alt="img"
+          loading="lazy"
+          className="w-full hover:scale-110 duration-300 h-[300px] object-cover rounded-xl"
         />
-      </div>
-      <div className="font-semibold break-words whitespace-normal">
-        Product Name
-      </div>
-      <div className="whitespace-normal">
-        Little description about the product goes here.
+        <div className="absolute right-3 top-4 w-fit px-2 rounded-xl text-xs bg-primary text-white py-[2px]">
+          {pr.tag}
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,13 @@ import logo from "@/../public/assets/logo/logo.svg";
 import { AiOutlineMail } from "react-icons/ai";
 import { LuPhone } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedin,
+} from "react-icons/fa";
 import { Section } from "@/components/custom/Section";
 import Link from "next/link";
 const Footer = () => {
@@ -51,7 +57,10 @@ const Footer = () => {
                   Branded Apparel
                 </Link>
                 <Link className="hover:text-primary" href={"/products"}>
-                  Uniform Solutions
+                  Workwear
+                </Link>
+                <Link className="hover:text-primary" href={"/products"}>
+                  Retail Brand
                 </Link>
               </div>
             </div>
@@ -94,10 +103,27 @@ const Footer = () => {
           <div className="mt-auto max-md:pt-12 max-md:flex-col max-md:gap-10  items-center flex justify-around">
             <div>© 2025 Gaber Wear. All rights reserved.</div>
             <div className="flex gap-12">
-              <FaFacebookF className="text-primary text-xl" />
-              <FaTwitter className="text-primary text-xl" />
-              <FaInstagram className="text-primary text-xl" />
-              <FaYoutube className="text-primary text-xl" />
+              <Link
+                href="https://et.linkedin.com/in/gaber-wear-b533aa240"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-primary text-xl" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/gaberwear/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-primary text-xl" />
+              </Link>
+              <Link
+                href="https://www.facebook.com/gabergarment/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookF className="text-primary text-xl" />
+              </Link>
             </div>
           </div>
         </div>

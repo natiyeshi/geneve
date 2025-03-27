@@ -24,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <ClientSessionProvider>
         <body className={`antialiased bg-white ${montserrat.className}`}>
+          <span id="top"></span>
           <NextTopLoader />
           {children}
         </body>

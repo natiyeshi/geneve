@@ -11,7 +11,6 @@ type FormData = {
   name: string;
   email: string;
   phone?: string;
-  subject: string;
   message: string;
 };
 export default function ContactUs() {
@@ -65,18 +64,7 @@ export default function ContactUs() {
               <label htmlFor="phone">Phone</label>
               <Input id="phone" {...register("phone")} />
             </div>
-            <div>
-              <label htmlFor="subject">Subject</label>
-              <Input
-                id="subject"
-                {...register("subject", { required: "Subject is required" })}
-              />
-              {errors.subject && (
-                <span className="text-sm text-orange-500">
-                  {errors.subject.message}
-                </span>
-              )}
-            </div>
+
             <div>
               <label htmlFor="message">Message</label>
               <Textarea

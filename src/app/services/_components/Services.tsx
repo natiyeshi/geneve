@@ -3,6 +3,10 @@ import img from "@/../public/assets/images/random/movie-card (1).png";
 import Image from "next/image";
 import { FaCheck } from "react-icons/fa";
 
+import pr4 from "@/../public/assets/images/product/IMG_0662.jpg";
+import pr5 from "@/../public/assets/images/product/IMG_0664.jpg";
+import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
+
 export default function Services() {
   return (
     <Section className="pt-12  pb-6 relative" childClassName="my-32">
@@ -18,8 +22,8 @@ export default function Services() {
       >
         <div className="md:w-1/2">
           <Image
-            className="rounded-2xl hover:shadow-xl duration-200"
-            src={img}
+            className="rounded-2xl h-[400px] object-cover md:me-4 shadow hover:shadow-xl duration-200"
+            src={pr9}
             alt="image"
           />
         </div>
@@ -87,8 +91,8 @@ export default function Services() {
         </div>
         <div className="md:w-1/2">
           <Image
-            className="rounded-2xl hover:shadow-xl duration-200"
-            src={img}
+            className="rounded-2xl h-[400px] hover:shadow-xl duration-200"
+            src={pr5}
             alt="image"
           />
         </div>

@@ -6,6 +6,7 @@ import OurClients from "../../components/custom/OurClients";
 import OurProducts from "./_components/OurProducts";
 import Testimonials from "./_components/Testimonials";
 import WhoWeAre from "./_components/WhoWeAre";
+import Contact from "@/components/custom/Contact";
 
 export default async function Home() {
   return (
@@ -17,8 +18,8 @@ export default async function Home() {
       <Testimonials />
       <OurClients />
       <BlogCarousel />
-      <Footer /> 
-     
+      <Footer />
+      <Contact />
     </div>
   );
 }
