@@ -20,7 +20,6 @@ finalized
     - in our story
 
 todo
-
 - email
 - check link
 - keywords , seo

@@ -19,12 +19,30 @@ import Topic from "@/components/custom/Topic";
 // import pr18 from "@/../public/assets/images/product/IMG_0686.jpg";
 // import pr19 from "@/../public/assets/images/product/IMG_0688.jpg";
 // import pr20 from "@/../public/assets/images/product/IMG_0693.jpg";
-import { PI, products } from "@/components/custom/datas";
+import { PI } from "@/components/custom/datas";
+import { useEffect } from "react";
+import { IProduct } from "@/interfaces/product.interface";
 
 const OurProducts: React.FC = () => {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const [curr, setCurr] = useState("All");
+  const [products, setProducts] = useState<IProduct[]>([]);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/product/`
+        );
+        const data: IProduct[] = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <Section className="pt-32  min-h-screen flex flex-col relative">
       <Topic
@@ -68,14 +86,18 @@ const OurProducts: React.FC = () => {
 
 export default OurProducts;
 
-export const Product = ({ pr }: { pr: PI }) => {
+export const Product = ({ pr }: { pr: IProduct }) => {
   return (
     <div className="flex h-fit gap-3  flex-col ">
       <div className="flex relative h-[300px] rounded-xl overflow-hidden">
+      
         <Image
-          src={pr.img}
-          alt="img"
+          src={pr.image}
           className="w-full hover:scale-110 duration-300 h-[300px] object-cover rounded-xl"
+          width={100}
+          height={100}
+          unoptimized
+          alt="Image"
         />
         <div className="absolute right-3 top-4 w-fit px-2 rounded-xl text-xs bg-primary text-white py-[2px]">
           {pr.tag}

@@ -1,16 +1,33 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Section } from "@/components/custom/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import { PI, products } from "@/components/custom/datas";
 import { Product } from "@/app/(home)/_components/OurProducts";
+import { IProduct } from "@/interfaces/product.interface";
 
 export default function Products() {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const [curr, setCurr] = useState("All");
+  const [products, setProducts] = useState<IProduct[]>([]);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/product/`
+        );
+        const data: IProduct[] = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+  
   return (
     <Section className="pt-12 pb-6 relative">
       <div className="flex justify-center max-md:mb-8 overflow-auto relative gap-10 max-md:ps-3 ">

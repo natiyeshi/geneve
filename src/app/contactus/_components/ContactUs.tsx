@@ -2,28 +2,12 @@
 import { Section } from "@/components/custom/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
-type FormData = {
-  name: string;
-  email: string;
-  phone?: string;
-  message: string;
-};
+import ContactForm from "./ContactForm";
+
 export default function ContactUs() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
-
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-  };
-
   return (
     <Section childClassName="flex mb-32 flex-col relative">
       <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:px-4 px-12 max-md:gap-10">
@@ -32,55 +16,7 @@ export default function ContactUs() {
             Contact <span className="text-primary">Us</span>
           </h1>
           <div className="mt-4">Get in Touch Now</div>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-4 flex flex-col gap-3"
-          >
-            <div>
-              <label htmlFor="name">Name</label>
-              <Input
-                id="name"
-                {...register("name", { required: "Name is required" })}
-              />
-              {errors.name && (
-                <span className="text-sm text-orange-500">
-                  {errors.name.message}
-                </span>
-              )}
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <Input
-                id="email"
-                {...register("email", { required: "Email is required" })}
-              />
-              {errors.email && (
-                <span className="text-sm text-orange-500">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-            <div>
-              <label htmlFor="phone">Phone</label>
-              <Input id="phone" {...register("phone")} />
-            </div>
-
-            <div>
-              <label htmlFor="message">Message</label>
-              <Textarea
-                id="message"
-                {...register("message", { required: "Message is required" })}
-              />
-              {errors.message && (
-                <span className="text-sm text-orange-500">
-                  {errors.message.message}
-                </span>
-              )}
-            </div>
-            <Button type="submit" className="w-fit mt-3">
-              Submit
-            </Button>
-          </form>
+          <ContactForm />
         </div>
         <div className="flex flex-col ">
           <h3 className="text-2xl my-auto font-semibold pt4">

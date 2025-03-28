@@ -1,6 +1,7 @@
 export interface IMessage {
     name: string;
-    email?: string; 
+    phoneNumber : string;
+    email: string; 
     message: string;
     createdAt?: string; 
     updatedAt?: string;
