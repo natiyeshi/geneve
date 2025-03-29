@@ -21,8 +21,12 @@ import Image from "next/image";
 import { uploadImage } from "@/utils/helper";
 import { useToast } from "@/hooks/use-toast";
 import { IBlog } from "@/interfaces/blog.interface";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic"; // Import dynamic
+import "react-quill/dist/quill.snow.css"; // Keep styles
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false }); // Load only on client
 
 const AddBlog = ({ setBlogs }: { setBlogs: Function }) => {
   const [isOpen, setIsOpen] = useState(false);
