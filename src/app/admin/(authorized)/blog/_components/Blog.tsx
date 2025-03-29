@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import AreYouSureDelete from "../../_components/AreYouSureDelete";
 import img from "@/../public/assets/admin/template.png";
