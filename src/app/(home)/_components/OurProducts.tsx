@@ -32,7 +32,7 @@ const OurProducts: React.FC = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/product/`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/product`
         );
         const data: IProduct[] = await response.json();
         setProducts(data);
@@ -90,7 +90,6 @@ export const Product = ({ pr }: { pr: IProduct }) => {
   return (
     <div className="flex h-fit gap-3  flex-col ">
       <div className="flex relative h-[300px] rounded-xl overflow-hidden">
-      
         <Image
           src={pr.image}
           className="w-full hover:scale-110 duration-300 h-[300px] object-cover rounded-xl"

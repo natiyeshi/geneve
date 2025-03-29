@@ -1,14 +1,39 @@
 "use client";
-import { blogs, BI } from "@/components/custom/datas";
 import { Section } from "@/components/custom/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ICBlog } from "@/interfaces/blog.interface";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
+
+const fetchBlogs = async () => {
+  const response = await fetch("/api/blog");
+  if (!response.ok) {
+    throw new Error("Failed to fetch blogs");
+  }
+  return response.json();
+};
 export default function Blogs() {
   // const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
+  const [blogs, setBlogs] = useState<ICBlog[]>([]);
 
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/blog`
+        );
+        const data: ICBlog[] = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
   return (
     <Section className="pt-12 pb-6">
       {/* <div className="flex justify-center relative gap-5 overflow-auto">
@@ -40,12 +65,12 @@ export default function Blogs() {
   );
 }
 
-const Blog = ({ blog }: { blog: BI }) => {
+const Blog = ({ blog }: { blog: ICBlog }) => {
   return (
     <Link href={"/blogs/" + blog.link} className="flex flex-col">
       <div className="h-[250px] overflow-hidden  rounded-lg">
         <Image
-          src={blog.img}
+          src={blog.image}
           className="rounded-lg w-full h-[250px] object-cover hover:scale-110 duration-300"
           width={100}
           height={100}

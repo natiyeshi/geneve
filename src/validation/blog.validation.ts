@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
 // Define the validation schema for the Blog model
-const blogValidationSchema = yup.object().shape({
+export const blogValidationSchema = yup.object().shape({
     topic: yup.string().required('Topic is required'),
-    desc: yup.string().default('Image'),
+    image: yup.string().required('Image is required'),
+    desc: yup.string().required('Description is required'),
+    content: yup.string().required('Content is required'),
 });
-
-export default blogValidationSchema;

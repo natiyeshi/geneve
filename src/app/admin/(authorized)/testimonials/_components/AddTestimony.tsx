@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
-import { testimonialValidation } from "@/validation/testimonial.validation";
+// import { testimonialValidation } from "@/validation/testimonial.validation";
 import { ITestimonial } from "@/interfaces/testimoial.interface";
 import { useToast } from "@/hooks/use-toast";
 
@@ -32,7 +32,7 @@ const AddTestimony = ({ setTestimonials }: { setTestimonials: Function }) => {
   const { toast } = useToast();
   const formik = useFormik({
     initialValues,
-    validationSchema: testimonialValidation,
+    // validationSchema: testimonialValidation,
     onSubmit: async (values) => {
       setLoading(true);
       try {

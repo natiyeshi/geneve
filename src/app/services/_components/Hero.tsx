@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/custom/Section";
 export default function Page() {
   return (
-    <Section className="relative bg-gradient-to-b w-full from-background via-background to-white text-white">
+    <Section
+      h={false}
+      className="relative min-h-[70vh] bg-gradient-to-b w-full from-background via-background to-white text-white"
+    >
       <Pattern />
       <Nav />
       <div className="relative z-10 flex flex-col items-center capitalize">

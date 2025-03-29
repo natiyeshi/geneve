@@ -7,7 +7,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/custom/Section";
 import { blogs, BI } from "@/components/custom/datas";
-
+import { useEffect, useState } from "react";
+import { ICBlog } from "@/interfaces/blog.interface";
+const fetchBlogs = async () => {
+  const response = await fetch("/api/blog");
+  if (!response.ok) {
+    throw new Error("Failed to fetch blogs");
+  }
+  return response.json();
+};
 const BlogCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [
     Autoplay({
@@ -25,6 +33,24 @@ const BlogCarousel = () => {
     if (!emblaApi) return;
     emblaApi.scrollNext();
   };
+
+  const [blogs, setBlogs] = useState<ICBlog[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/blog`
+        );
+        const data: ICBlog[] = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
   return (
     <Section className=" px-12 pb-12 max-md:px-4 ">
       <div className="flex justify-between  max-md:mt-6">
@@ -56,14 +82,14 @@ const BlogCarousel = () => {
     </Section>
   );
 };
-const Blog = ({ blog }: { blog: BI }) => {
+const Blog = ({ blog }: { blog: ICBlog }) => {
   return (
     <Link
       href={"/blogs/" + blog.link}
       className="w-fit flex-[0_0_100%] basis-1/3 max-md:basis-1/2 max-lg:basis-1/3 max-sm:basis-full min-w-0 p-1 rounded-lg flex flex-col gap-2 select-none"
     >
       <Image
-        src={blog.img}
+        src={blog.image}
         alt="Random"
         className="rounded-lg w-full h-[250px] object-cover"
         width={100}

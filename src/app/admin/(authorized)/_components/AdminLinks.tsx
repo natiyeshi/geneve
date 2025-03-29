@@ -7,6 +7,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { LuBuilding2 } from "react-icons/lu";
 import { AiFillProduct } from "react-icons/ai";
 import { usePathname } from "next/navigation";
+import { FaBloggerB } from "react-icons/fa6";
 export interface Props {
   name: string;
   link: string;
@@ -33,6 +34,11 @@ const links: Props[] = [
     name: "Partners",
     link: "/admin/partners",
     Icon: FaPeopleGroup,
+  },
+  {
+    name: "Blog",
+    link: "/admin/blog",
+    Icon: FaBloggerB,
   },
 
 ];
