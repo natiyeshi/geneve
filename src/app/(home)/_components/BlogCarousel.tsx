@@ -9,13 +9,8 @@ import { Section } from "@/components/custom/Section";
 import { blogs, BI } from "@/components/custom/datas";
 import { useEffect, useState } from "react";
 import { ICBlog } from "@/interfaces/blog.interface";
-const fetchBlogs = async () => {
-  const response = await fetch("/api/blog");
-  if (!response.ok) {
-    throw new Error("Failed to fetch blogs");
-  }
-  return response.json();
-};
+import { Skeleton } from "@/components/ui/skeleton";
+
 const BlogCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [
     Autoplay({
@@ -35,6 +30,7 @@ const BlogCarousel = () => {
   };
 
   const [blogs, setBlogs] = useState<ICBlog[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -46,6 +42,8 @@ const BlogCarousel = () => {
         setBlogs(data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -73,9 +71,18 @@ const BlogCarousel = () => {
           ref={emblaRef}
         >
           <div className="flex h-full ">
-            {blogs.map((blog, ind) => (
-              <Blog key={ind} blog={blog} />
-            ))}
+            {isLoading ? (
+              <>
+                {[...Array(10)].map((ind) => (
+                  <Skeleton
+                    key={ind}
+                    className="w-fit flex-[0_0_100%] h-[400px] me-4 basis-1/3 max-md:basis-1/2 max-lg:basis-1/3 max-sm:basis-full min-w-0 p-1 rounded-lg flex flex-col gap-2 select-none"
+                  />
+                ))}
+              </>
+            ) : (
+              blogs.map((blog, ind) => <Blog key={ind} blog={blog} />)
+            )}
           </div>
         </div>
       </div>

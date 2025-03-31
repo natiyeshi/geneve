@@ -6,11 +6,13 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { Product } from "@/app/(home)/_components/OurProducts";
 import { IProduct } from "@/interfaces/product.interface";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Products() {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const [curr, setCurr] = useState("All");
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,12 +24,14 @@ export default function Products() {
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchProducts();
   }, []);
-  
+
   return (
     <Section className="pt-12 pb-6 relative">
       <div className="flex justify-center max-md:mb-8 overflow-auto relative gap-10 max-md:ps-3 ">
@@ -58,8 +62,14 @@ export default function Products() {
         data-aos-once="false"
         className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mt-12 px-12 max-md:px-4 gap-4"
       >
-        {products.filter((pr) => curr === "All" || pr.group === curr).length >
-        0 ? (
+        {isLoading ? (
+          <>
+            {[...Array(10)].map((ind) => (
+              <Skeleton key={ind} className="h-[300px] w-full" />
+            ))}
+          </>
+        ) : products.filter((pr) => curr === "All" || pr.group === curr)
+            .length > 0 ? (
           products
             .filter((pr) => curr === "All" || pr.group === curr)
             .map((pr, ind) => <Product key={ind} pr={pr} />)

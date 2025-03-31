@@ -18,10 +18,12 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Section } from "@/components/custom/Section";
 import Topic from "@/components/custom/Topic";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const OurClients: React.FC = () => {
   const [partners, setPartners] = React.useState<string[]>([]);
   const [partners2, setPartners2] = React.useState<string[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const fetchPartners = async () => {
@@ -41,6 +43,8 @@ const OurClients: React.FC = () => {
         setPartners2(images.slice(midIndex));
       } catch (error) {
         console.error("Failed to fetch partners:", error);
+      }finally {
+        setIsLoading(false);
       }
     };
 
@@ -70,19 +74,30 @@ const OurClients: React.FC = () => {
       />
       <div className=" overflow-hidden mt-12" ref={emblaRef}>
         <div className="flex h-full ">
-          {partners.map((b, key) => (
+          {isLoading ? (
             <>
-              <Image
-                key={key}
-                src={b}
-                className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
-                alt="a"
-                width={100}
-                height={100}
-                unoptimized
-              />
+              {[...Array(10)].map((ind) => (
+                <Skeleton
+                  key={ind}
+                  className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
+                />
+              ))}
             </>
-          ))}
+          ) : (
+            partners.map((b, key) => (
+              <>
+                <Image
+                  key={key}
+                  src={b}
+                  className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
+                  alt="a"
+                  width={100}
+                  height={100}
+                  unoptimized
+                />
+              </>
+            ))
+          )}
         </div>
       </div>
       <div
@@ -91,19 +106,30 @@ const OurClients: React.FC = () => {
         ref={emblaRef2}
       >
         <div className="flex h-full ">
-          {partners2.map((b, key) => (
+          {isLoading ? (
             <>
-              <Image
-                key={key}
-                src={b}
-                className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
-                alt="a"
-                width={100}
-                height={100}
-                unoptimized
-              />
+              {[...Array(10)].map((ind) => (
+                <Skeleton
+                  key={ind}
+                  className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
+                />
+              ))}
             </>
-          ))}
+          ) : (
+            partners2.map((b, key) => (
+              <>
+                <Image
+                  key={key}
+                  src={b}
+                  className="mx-7 w-[150px] h-[150px] object-contain relative  min-w-0 basis-1/5 max-lg:basis-1/4  max-md:basis-1/2 flex-[0_0_100%] "
+                  alt="a"
+                  width={100}
+                  height={100}
+                  unoptimized
+                />
+              </>
+            ))
+          )}
         </div>
       </div>
     </Section>

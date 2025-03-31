@@ -2,11 +2,11 @@
 import { Section } from "@/components/custom/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ICBlog } from "@/interfaces/blog.interface";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 
 const fetchBlogs = async () => {
   const response = await fetch("/api/blog");
@@ -18,6 +18,7 @@ const fetchBlogs = async () => {
 export default function Blogs() {
   // const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const [blogs, setBlogs] = useState<ICBlog[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -29,6 +30,8 @@ export default function Blogs() {
         setBlogs(data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -57,9 +60,15 @@ export default function Blogs() {
         data-aos-once="false"
         className="grid grid-cols-3 max-md:grid-cols-1 mt-12 px-12 max-md:px-4 gap-12"
       >
-        {blogs.map((blog, ind) => (
-          <Blog key={ind} blog={blog} />
-        ))}
+        {isLoading ? (
+          <>
+            {[...Array(3)].map((ind) => (
+              <Skeleton key={ind} className="h-[250px] me-4 w-full" />
+            ))}
+          </>
+        ) : (
+          blogs.map((blog, ind) => <Blog key={ind} blog={blog} />)
+        )}
       </div>
     </Section>
   );

@@ -22,12 +22,13 @@ import Topic from "@/components/custom/Topic";
 import { PI } from "@/components/custom/datas";
 import { useEffect } from "react";
 import { IProduct } from "@/interfaces/product.interface";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const OurProducts: React.FC = () => {
   const types = ["All", "Branded Apparels", "Workwear", "Retail Brand"];
   const [curr, setCurr] = useState("All");
   const [products, setProducts] = useState<IProduct[]>([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -38,6 +39,8 @@ const OurProducts: React.FC = () => {
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -68,8 +71,14 @@ const OurProducts: React.FC = () => {
           ))}
         </div>
         <div className="flex-1 w-full items-center py-3 mb-12 grid grid-cols-3 max-sm:grid-cols-1 max-xl:grid-cols-2 gap-4">
-          {products.filter((pr) => curr === "All" || pr.group === curr).length >
-          0 ? (
+          {isLoading ? (
+            <>
+              {[...Array(10)].map((ind) => (
+                <Skeleton key={ind} className="h-[300px] w-full" />
+              ))}
+            </>
+          ) : products.filter((pr) => curr === "All" || pr.group === curr)
+              .length > 0 ? (
             products
               .filter((pr) => curr === "All" || pr.group === curr)
               .map((pr, ind) => <Product key={ind} pr={pr} />)
