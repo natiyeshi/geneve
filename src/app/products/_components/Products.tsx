@@ -13,7 +13,12 @@ export default function Products() {
   const [curr, setCurr] = useState("All");
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const desc = {
+    "Branded Apparels":
+      "Branded Apparel, also known as promotional clothing is fundamental marketing tool for businesses. We believe it is part of a business brand elements and can help elevate the brand. dition, branded Apparels can be valuable assets to promote your business at events such as trade shows, sporting events and can help as give-away items.",
+    Workwear:
+      "We provide specialized corporate uniform, industrial clothing and school uniform. Make your workwear unique by adding  your company logo by using our embroidery or printing service.",
+  };
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -48,10 +53,10 @@ export default function Products() {
           </div>
         ))}
       </div>
-      <div className=" flex mx-auto mt-4 px-2 md:max-w-[70%] max-md:w-full gap-5 ">
+      {/* <div className=" flex mx-auto mt-4 px-2 md:max-w-[70%] max-md:w-full gap-5 ">
         <Input placeholder="search..." className="border" />
         <Button>Search</Button>
-      </div>
+      </div> */}
       <div
         data-aos="fade-up"
         data-aos-offset="150"
@@ -59,7 +64,7 @@ export default function Products() {
         data-aos-duration={`1000`}
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mt-12 px-12 max-md:px-4 gap-4"
       >
         {isLoading ? (

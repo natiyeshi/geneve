@@ -40,7 +40,7 @@ export default function About() {
         data-aos-duration={`1000`}
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         className="mx-auto max-w-[50rem] text-center my-12 "
       >
         Gaber Wear is an Ethiopian apparel brand dedicated to empowering women
@@ -57,7 +57,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="flex relative flex-1 mt-24  "
         >
           <Image
@@ -74,7 +74,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="mt-32 max-md:12 md:pe-12 flex-1 "
         >
           <h3 className="font-bold text-xl ">
@@ -105,7 +105,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className=" content-center max-md:12 md:pe-12 flex-1 items-center "
         >
           <h3 className="font-bold text-xl max-md:mt-4">
@@ -128,7 +128,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="flex relative flex-1 mt-24  "
         >
           <Image
@@ -150,7 +150,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="flex  px-12 mt-4  max-md:px-4 w-full md:justify-center gap-10 overflow-auto"
         >
           {list.map(({ name, Icon }, ind) => (
@@ -174,7 +174,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="flex relative flex-1 mt-24  "
         >
           <Image
@@ -191,7 +191,7 @@ export default function About() {
           data-aos-duration={`1000`}
           data-aos-easing="ease-in-out"
           data-aos-mirror="false"
-          data-aos-once="false"
+          data-aos-once="true"
           className="mt-32 max-md:12 md:pe-12 flex-1 "
         >
           <h3 className="font-bold text-xl ">

@@ -23,7 +23,7 @@ export default function Services() {
         data-aos-duration={`1000`}
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         className="flex max-md:flex-col-reverse max-md:gap-10 gap-5 px-12 max-md:px-4"
       >
         <div className="md:w-1/2">
@@ -63,7 +63,7 @@ export default function Services() {
         data-aos-duration={`1000`}
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         className="flex mt-12 max-md:flex-col max-md:gap-10 gap-5 px-12 max-md:px-4"
       >
         <div className="md:w-1/2">

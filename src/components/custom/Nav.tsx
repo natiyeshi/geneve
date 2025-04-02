@@ -24,7 +24,10 @@ export default function Page() {
       {" "}
       {/* Ensuring highest z-index */}
       <div className="flex z-50 justify-between items-center padding relative">
-        <Link href="/" className="w-20 h-fit px-4 p-4 flex bg-background shadow shadow-primary">
+        <Link
+          href="/"
+          className="w-20 h-fit px-4 p-4 flex bg-background shadow shadow-primary"
+        >
           <Image className="m-auto" src={logo} alt="logo" />
         </Link>
 
@@ -67,7 +70,9 @@ export default function Page() {
         <div className="flex bg-background text-black flex-col gap-2 mt-2 px-4 py-4">
           {links.map((link) => (
             <Link
-              className="py-2 bg-blue-700 text-white ps-2"
+              className={`py-2 border border-white rounded-lg  text-white ps-2 ${
+                pathname === link.href && "text-primary border-primary"
+              }`}
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}

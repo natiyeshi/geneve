@@ -57,7 +57,7 @@ export default function Blogs() {
         data-aos-duration={`1000`}
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         className="grid grid-cols-3 max-md:grid-cols-1 mt-12 px-12 max-md:px-4 gap-12"
       >
         {isLoading ? (

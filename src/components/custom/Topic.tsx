@@ -19,7 +19,7 @@ export default function Topic({ child, className }: Pr) {
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         src={leftPattern}
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-[70px]"
@@ -34,7 +34,7 @@ export default function Topic({ child, className }: Pr) {
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         src={leftPattern}
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-full"
@@ -55,7 +55,7 @@ export function TopicBlue({ child, className }: Pr) {
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         src={bluepattern}
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-[70px]"
@@ -70,7 +70,7 @@ export function TopicBlue({ child, className }: Pr) {
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
         data-aos-mirror="false"
-        data-aos-once="false"
+        data-aos-once="true"
         src={bluepattern}
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-full"

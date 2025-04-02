@@ -20,7 +20,7 @@ const Widget = ({
       data-aos-duration="1000"
       data-aos-easing="ease-in-out"
       data-aos-mirror="false"
-      data-aos-once="false"
+      data-aos-once="true"
       className={`${cls} flex w-fit gap-2 px-2 py-1 rounded-3xl border shadow hover:shadow hover:shadow-primary duration-150  shadow-primary border-blue-500  text-black text-sm -right-[10%] ${cls} ${className}`}
     >
       <div

@@ -13,13 +13,6 @@ const HotPicks = () => {
       </h1>
       <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-4 flex-1  ">
         <Image
-          data-aos="fade-up-right"
-          data-aos-offset="150"
-          data-aos-delay="30"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="false"
-          data-aos-once="false"
           unoptimized
           className="h-[600px] w-full rounded-xl object-cover"
           src={bg3}
@@ -27,26 +20,12 @@ const HotPicks = () => {
         />
         <div className="flex flex-col gap-4 h-[600px]">
           <Image
-            data-aos="fade-up-top"
-            data-aos-offset="150"
-            data-aos-delay="30"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="false"
-            data-aos-once="false"
             unoptimized
             className="h-[262px] object-cover w-full rounded-xl flex-1"
             src={bg1}
             alt="image"
           />
           <Image
-            data-aos="fade-up-bottom"
-            data-aos-offset="150"
-            data-aos-delay="30"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="false"
-            data-aos-once="false"
             unoptimized
             className="h-[322px] object-cover w-full rounded-xl flex-1"
             src={bg2}
@@ -55,26 +34,12 @@ const HotPicks = () => {
         </div>
         <div className="flex max-md:flexrow flex-col gap-4 md:h-[600px] max-md:w-full ">
           <Image
-            data-aos="fade-up-left"
-            data-aos-offset="150"
-            data-aos-delay="30"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="false"
-            data-aos-once="false"
             unoptimized
             className="md:h-[322px]  max-md:h-[300px] object-cover w-full rounded-xl flex-1"
             src={bg4}
             alt="image"
           />
           <Image
-            data-aos="fade-up-left"
-            data-aos-offset="150"
-            data-aos-delay="30"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="false"
-            data-aos-once="false"
             unoptimized
             className="md:h-[262px]  max-md:h-[300px]  object-cover w-full rounded-xl flex-1"
             src={bg5}
