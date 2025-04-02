@@ -18,11 +18,11 @@ finalized
 - contact us everywhere
 - check gaps
     - in our story
-
-todo
-- footer
 - email
 - check link
 - keywords , seo
+
+todo
+- footer
 
 

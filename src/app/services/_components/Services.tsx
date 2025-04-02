@@ -6,10 +6,16 @@ import { FaCheck } from "react-icons/fa";
 import pr4 from "@/../public/assets/images/product/IMG_0662.jpg";
 import pr5 from "@/../public/assets/images/product/IMG_0664.jpg";
 import pr9 from "@/../public/assets/images/product/IMG_0668.jpg";
+import pr1 from "@/../public/assets/images/new/IMG_0665.jpg";
+import pr2 from "@/../public/assets/images/new/IMG_0660.jpg";
+import pr3 from "@/../public/assets/images/new/image.jpg";
 
 export default function Services() {
   return (
-    <Section className="pt-12  pb-6 relative" childClassName="my-32 max-md:mt-12">
+    <Section
+      className="pt-12  pb-6 relative"
+      childClassName="my-32 max-md:mt-12"
+    >
       <div
         data-aos="fade-up"
         data-aos-offset="150"
@@ -23,12 +29,12 @@ export default function Services() {
         <div className="md:w-1/2">
           <Image
             className="rounded-2xl h-[400px] object-cover md:me-4 shadow hover:shadow-xl duration-200"
-            src={pr9}
+            src={pr1}
             alt="image"
           />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-semibold">Branded Apparels</h2>
+          <h2 className="text-3xl font-semibold">Branding Service</h2>
           <p className="mt-5">
             Whether you are preparing for a corporate event, need branded
             garments for giveaways, or outfitting your staff, Gaber has you
@@ -39,18 +45,13 @@ export default function Services() {
           <ul className="mt-3">
             <li className="flex items-center gap-4">
               <FaCheck />
-              <span>Custom embroidery or print branding</span>
+              <span> Custom embroidery or print branding service</span>
             </li>
             <li className="flex items-center gap-4">
               <FaCheck />
               <span>
-                High-quality fabrics suitable for professional and casual
-                settings.
+                Bring your own Garment and obtain an embroidery only Service
               </span>
-            </li>
-            <li className="flex items-center gap-4">
-              <FaCheck />
-              <span>Versatile designs tailored to your needs.</span>
             </li>
           </ul>
         </div>
@@ -66,13 +67,15 @@ export default function Services() {
         className="flex mt-12 max-md:flex-col max-md:gap-10 gap-5 px-12 max-md:px-4"
       >
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-semibold">Uniform Solutions</h2>
+          <h2 className="text-3xl font-semibold">
+            Cut, Make, Trim (CMT) Service
+          </h2>
           <p className="mt-5">
-            Say goodbye to boring, one-size-fits-all uniforms. Gaber specializes
-            in creating functional workwear without compromising quality or
-            style. From adding extra pockets for functionality to
-            color-coordinating staff uniforms, we provide solutions that enhance
-            productivity and maintain a polished corporate look.
+            manufacturing service is provided by our factory and our team will
+            essentially cut, make and trim your designs into fully produced
+            products. This service requires customers to provide fabrics,
+            accessories and sample. Gaber will provide the full stitching
+            service. Minimum order quantity applies.
           </p>
           <ul className="mt-3">
             <li className="flex items-center gap-4">
@@ -91,8 +94,8 @@ export default function Services() {
         </div>
         <div className="md:w-1/2">
           <Image
-            className="rounded-2xl h-[400px] hover:shadow-xl duration-200"
-            src={pr5}
+            className="rounded-2xl h-[400px] object-cover hover:shadow-xl duration-200"
+            src={pr3}
             alt="image"
           />
         </div>

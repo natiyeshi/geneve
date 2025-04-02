@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast"; // Adjust import based on your fol
 import { Button } from "@/components/ui/button";
 import { BiMessageRounded, BiChevronUp } from "react-icons/bi";
 import { IoCloseSharp } from "react-icons/io5";
+import { messageValidation } from "@/validation/message.validation";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,14 +15,6 @@ const Contact = () => {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   // Validation Schema
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Full Name is required"),
-    phoneNumber: Yup.string().required("Phone Number is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    message: Yup.string().required("Message is required"),
-  });
 
   const handleSubmit = async (
     values: any,
@@ -55,6 +48,8 @@ const Contact = () => {
       toast({
         title: "Error",
         description: (error as any).message || "Failed to send message.",
+        variant: "destructive",
+        
       });
     } finally {
       setSubmitting(false);
@@ -82,7 +77,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative  z-20">
+    <div className="relative  z-[100]">
       {/* Floating Message Button */}
       <Button
         className="fixed bottom-5 right-5 bg-primary text-white rounded-full w-14 h-14 shadow-lg hover:bg-yellow-500 focus:outline-none flex items-center justify-center"
@@ -112,12 +107,17 @@ const Contact = () => {
             Send Us a <span className="text-primary">Message</span>.
           </h2>
           <Formik
-            initialValues={{ name: "", email: "", message: "" }}
-            validationSchema={validationSchema}
+            initialValues={{
+              name: "",
+              email: "",
+              message: "",
+              phoneNumber: "",
+            }}
+            validationSchema={messageValidation}
             onSubmit={handleSubmit}
           >
             {({ isSubmitting }) => (
-              <Form className="space-y-6">
+              <Form className="space-y-3">
                 {/* Name Field */}
                 <div>
                   <Field

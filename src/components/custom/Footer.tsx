@@ -26,7 +26,7 @@ const Footer = () => {
                   <Image
                     key={index}
                     src={icongold}
-                    className="w-7"
+                    className="w-7 scale-x-[-1]"
                     alt="icon"
                   />
                 ))}
@@ -95,13 +95,15 @@ const Footer = () => {
                 </div>
                 <div className="flex  items-center">
                   <LuPhone className="inline-block mr-2 text-lg" />
-                  <span>+251953206159</span>
+                  <span>+251953205139</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="mt-auto max-md:pt-12 max-md:flex-col max-md:gap-10  items-center flex justify-around">
-            <div>© 2025 Gaber Wear. All rights reserved.</div>
+            <div>
+              © {new Date().getFullYear()} Gaber Wear. All rights reserved.
+            </div>
             <div className="flex gap-12">
               <Link
                 href="https://et.linkedin.com/in/gaber-wear-b533aa240"

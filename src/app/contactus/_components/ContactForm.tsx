@@ -4,6 +4,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { messageValidation } from "@/validation/message.validation";
+
 type FormData = {
   name: string;
   email: string;
@@ -56,7 +58,9 @@ const ContactForm = () => {
       className="mt-4 flex flex-col gap-3"
     >
       <div>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">
+          Name <span className="text-red-500">*</span>
+        </label>
         <Input
           id="name"
           {...register("name", { required: "Name is required" })}
@@ -66,7 +70,9 @@ const ContactForm = () => {
         )}
       </div>
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          Email <span className="text-red-500">*</span>
+        </label>
         <Input
           id="email"
           {...register("email", { required: "Email is required" })}
@@ -78,8 +84,15 @@ const ContactForm = () => {
         )}
       </div>
       <div>
-        <label htmlFor="phoneNumber">Phone Number</label>
-        <Input id="phoneNumber" {...register("phoneNumber")} />
+        <label htmlFor="phoneNumber">
+          Phone Number <span className="text-red-500">*</span>
+        </label>
+        <Input
+          id="phoneNumber"
+          {...register("phoneNumber", {
+            required: "Phone Number is required!"
+          })}
+        />
         {errors.phoneNumber && (
           <span className="text-sm text-orange-500">
             {errors.phoneNumber.message}
@@ -88,10 +101,22 @@ const ContactForm = () => {
       </div>
 
       <div>
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">
+          Message <span className="text-red-500">*</span>
+        </label>
         <Textarea
           id="message"
-          {...register("message", { required: "Message is required" })}
+          {...register("message", {
+            required: "Message is required",
+            minLength: {
+              value: 5,
+              message: "Message must be at least 5 characters long",
+            },
+            maxLength: {
+              value: 2000,
+              message: "Message cannot exceed 2000 characters",
+            },
+          })}
         />
         {errors.message && (
           <span className="text-sm text-orange-500">

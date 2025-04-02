@@ -10,11 +10,11 @@ export default function Page() {
       <Pattern />
       <Nav />
       <div className="relative z-10 flex flex-col items-center capitalize max-md:px-2">
-        <h2 className="text-[50px] text-center text-primary max-md:py-4 max-lg:text-[50px] max-md:text-[40px] mt-5 italic">
-          Sewed With
-          <span className=""> passion For You</span>
+        <h2 className="text-[50px] flex flex-col leading-[2.6rem] mb-8 text-center text-primary max-md:py-4 max-lg:text-[50px] max-md:text-[40px] mt-5 ">
+          <span>Sewed With passion</span> 
+          <span className="amalfi text-white text-[35px] -rotate-[5deg]">  For You.</span>
         </h2>
-        <div className="text-center max-w-[500px]">
+        <div className="text-center my-3 max-w-[500px]">
           Transform your creative ideas into reality and start your journey
           today!
         </div>

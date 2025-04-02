@@ -24,7 +24,7 @@ export default function Topic({ child, className }: Pr) {
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-[70px]"
       />
-      <h1 className="text-4xl font-bold px-12 text-background whitespace-nowrap max-md:px-0 max-md:text-3xl">
+      <h1 className="text-4xl font-semibold px-12 text-background whitespace-nowrap max-md:px-0 max-md:text-3xl">
         {child}
       </h1>
       <Image
@@ -60,7 +60,7 @@ export function TopicBlue({ child, className }: Pr) {
         alt="left pattern"
         className="w-full h-[50px] object-cover max-md:h-[30px] max-lg:w-[70px]"
       />
-      <h1 className="text-4xl font-bold px-12 text-white whitespace-nowrap max-md:px-0 max-md:text-3xl">
+      <h1 className="text-4xl font-semibold px-12 text-white whitespace-nowrap max-md:px-0 max-md:text-3xl">
         {child}
       </h1>
       <Image

@@ -4,13 +4,31 @@
 
 @layer base {
   @font-face {
+    font-family: "Amalfi";
+    src: url("/fonts/Amalfi Coast.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
     font-family: "GeorgiaCustom";
     src: url("/fonts/Georgia.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: "BortonScriptBold";
+    src: url("/fonts/BortonScriptBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
 
   
+  .amalfi {
+    font-family: "Amalfi", serif; /* Use BortonScriptBold for headings */
+  }
+  .bortonScriptBold {
+    font-family: "BortonScriptBold", serif; /* Use BortonScriptBold for headings */
+  }
   .georgiaFont {
     font-family: "GeorgiaCustom", serif; /* Use Georgia for headings */
   }
