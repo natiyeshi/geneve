@@ -70,7 +70,7 @@ export default function Page() {
         <div className="flex bg-background text-black flex-col gap-2 mt-2 px-4 py-4">
           {links.map((link) => (
             <Link
-              className={`py-2 border border-white rounded-lg  text-white ps-2 ${
+              className={`py-2 capitalize border border-white rounded-lg  text-white ps-2 ${
                 pathname === link.href && "text-primary border-primary"
               }`}
               key={link.name}

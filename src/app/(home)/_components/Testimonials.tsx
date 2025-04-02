@@ -49,7 +49,7 @@ const Testimonials: React.FC = () => {
         }
       />
       <div className="mt-14 grid grid-cols-2 max-md:grid-cols-1 pb-8 gap-12 px-12 max-md:px-4 ">
-        {t.map((d,ind) => (
+        {t.map((d, ind) => (
           <Testimony key={ind} name={d.topic} content={d.content} />
         ))}
       </div>
@@ -59,16 +59,7 @@ const Testimonials: React.FC = () => {
 
 const Testimony = ({ name, content }: { name: string; content: string }) => {
   return (
-    <div
-      data-aos="fade-up-top"
-      data-aos-offset="30"
-      data-aos-delay="10"
-      data-aos-duration="500"
-      data-aos-easing="ease-in-out"
-      // data-aos-mirror="true"
-      data-aos-once="true"
-      className="border border-white rounded-lg px-3 py-2 flex flex-col gap-3"
-    >
+    <div className="border border-white rounded-lg px-3 py-2 flex flex-col gap-3">
       <FaQuoteRight className="text-primary text-[3rem]" />
       <p>{content}</p>
       <div className="font-semibold mt-auto">{name}</div>

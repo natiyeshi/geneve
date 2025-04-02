@@ -77,20 +77,6 @@ export default function Services() {
             accessories and sample. Gaber will provide the full stitching
             service. Minimum order quantity applies.
           </p>
-          <ul className="mt-3">
-            <li className="flex items-center gap-4">
-              <FaCheck />
-              <span>Customization designs for enhanced functionality.</span>
-            </li>
-            <li className="flex items-center gap-4">
-              <FaCheck />
-              <span>High-quality stitching and durable materials.</span>
-            </li>
-            <li className="flex items-center gap-4">
-              <FaCheck />
-              <span>Options for color coordination by department or role.</span>
-            </li>
-          </ul>
         </div>
         <div className="md:w-1/2">
           <Image
