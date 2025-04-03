@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import ClientSessionProvider from "@/providers/ClientSessionProvider";
 import { Montserrat } from "next/font/google";
@@ -9,6 +10,8 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
+
+const GA_TRACKING_ID = "G-YZN0BMDHST"; // Your Google Analytics ID
 
 export const metadata: Metadata = {
   title: {
@@ -60,6 +63,28 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Google Analytics Scripts */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
+        {/* Favicon & Apple Icons */}
         <link
           rel="apple-touch-icon"
           sizes="57x57"
