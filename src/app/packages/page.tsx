@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
@@ -88,7 +88,8 @@ const allPackages = [
   },
 ]
 
-export default function PackagesPage() {
+// Create a client component for the search functionality
+function PackageSearch() {
   const searchParams = useSearchParams()
   const query = searchParams.get("q")
   const [sortOption, setSortOption] = useState("featured")
@@ -141,6 +142,232 @@ export default function PackagesPage() {
   const featuredPackage = allPackages.find((pkg) => pkg.featured)
 
   return (
+    <div className="container mx-auto">
+      {/* Search Results */}
+      {query && (
+        <div className="mb-12 slide-up">
+          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-6">Search Results for &ldquo;{query}&rdquo;</h2>
+          {displayedPackages.length === 0 ? (
+            <div className="text-center py-12 bg-gray-50 rounded-lg">
+              <p className="text-lg text-gray-600">No packages found matching your search criteria.</p>
+              <Button className="mt-4 bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
+                <Link href="/packages">View All Packages</Link>
+              </Button>
+            </div>
+          ) : (
+            <p className="text-gray-600 mb-8">Found {displayedPackages.length} packages matching your search.</p>
+          )}
+        </div>
+      )}
+
+      {/* Featured Package (only show if not searching) */}
+      {!query && featuredPackage && (
+        <div className="mb-20 slide-up">
+          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Featured Package</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-3 relative aspect-[16/9] lg:aspect-auto">
+              <Image
+                src={featuredPackage.imageSrc || "/placeholder.svg"}
+                alt={featuredPackage.title}
+                fill
+                className="object-cover rounded-md"
+              />
+              <Badge className="absolute top-4 left-4 bg-[#EE1D46]">Featured</Badge>
+            </div>
+            <div className="lg:col-span-2">
+              <h3 className="text-2xl font-serif text-[#09163A] mb-2">{featuredPackage.title}</h3>
+              <p className="text-[#EE1D46] font-medium mb-4">
+                {featuredPackage.duration} | {featuredPackage.location}
+              </p>
+              <p className="text-gray-700 mb-6">{featuredPackage.description}</p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46] mr-2 mt-1"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Luxury accommodations in 5-star hotels and boutique properties</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46] mr-2 mt-1"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Private guided tours of iconic landmarks and hidden gems</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46] mr-2 mt-1"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Exclusive culinary experiences, including cooking classes and wine tastings</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-sm text-gray-500">Starting from</span>
+                  <p className="text-2xl font-serif text-[#09163A]">{featuredPackage.price} per person</p>
+                </div>
+                <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
+                  <Link href={`/packages/${featuredPackage.id}`}>View Details</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Package Categories (only show if not searching) */}
+      {!query && (
+        <div className="mb-16 slide-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Browse by Category</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link
+              href="/packages?q=cultural"
+              className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
+            >
+              <Image
+                src={packageLanding}
+                alt="Cultural Journeys"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-2xl font-serif">Cultural Journeys</h3>
+              </div>
+            </Link>
+            <Link
+              href="/packages?q=adventure"
+              className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
+            >
+              <Image
+                src={packageLanding}
+                alt="Adventure Expeditions"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-2xl font-serif">Adventure Expeditions</h3>
+              </div>
+            </Link>
+            <Link
+              href="/packages?q=wellness"
+              className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
+            >
+              <Image
+                src={packageLanding}
+                alt="Wellness Retreats"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-2xl font-serif">Wellness Retreats</h3>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* All Packages */}
+      <div className="slide-up" style={{ animationDelay: "0.3s" }}>
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-serif font-light text-[#09163A]">
+            {query ? "Matching Packages" : "All Packages"}
+          </h2>
+          <div className="flex items-center space-x-2">
+            <span className="text-sm text-gray-500">Sort by:</span>
+            <select
+              className="border border-gray-300 rounded-sm p-2 text-sm"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+            >
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="duration-short">Duration: Shortest to Longest</option>
+              <option value="duration-long">Duration: Longest to Shortest</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedPackages.map((pkg) => (
+            <PackageCard
+              key={pkg.id}
+              title={pkg.title}
+              location={pkg.location}
+              duration={pkg.duration}
+              description={pkg.description}
+              price={pkg.price}
+              imageSrc={pkg.imageSrc}
+              id={pkg.id}
+            />
+          ))}
+        </div>
+
+        {/* Pagination - only show if we have enough packages */}
+        {displayedPackages.length > 6 && (
+          <div className="flex justify-center mt-12">
+            <div className="flex space-x-2">
+              <Button variant="outline" className="border-[#09163A] text-[#09163A]">
+                Previous
+              </Button>
+              <Button className="bg-[#09163A] text-white hover:bg-[#09163A]/90">1</Button>
+              <Button variant="outline" className="border-[#09163A] text-[#09163A]">
+                2
+              </Button>
+              <Button variant="outline" className="border-[#09163A] text-[#09163A]">
+                3
+              </Button>
+              <Button variant="outline" className="border-[#09163A] text-[#09163A]">
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default function PackagesPage() {
+  return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[60vh]">
@@ -169,235 +396,9 @@ export default function PackagesPage() {
 
       {/* Main Content */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto mb-16 slide-up">
-            <p className="text-lg text-center">
-              Our expertly crafted travel packages combine the finest accommodations, exclusive experiences, and
-              personalized service to create unforgettable journeys. While each package can be customized to your
-              preferences, they offer a curated starting point for your luxury travel experience.
-            </p>
-          </div>
-
-          {/* Search Results */}
-          {query && (
-            <div className="mb-12 slide-up">
-              <h2 className="text-3xl font-serif font-light text-[#09163A] mb-6">Search Results for &ldquo;{query}&rdquo;</h2>
-              {displayedPackages.length === 0 ? (
-                <div className="text-center py-12 bg-gray-50 rounded-lg">
-                  <p className="text-lg text-gray-600">No packages found matching your search criteria.</p>
-                  <Button className="mt-4 bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
-                    <Link href="/packages">View All Packages</Link>
-                  </Button>
-                </div>
-              ) : (
-                <p className="text-gray-600 mb-8">Found {displayedPackages.length} packages matching your search.</p>
-              )}
-            </div>
-          )}
-
-          {/* Featured Package (only show if not searching) */}
-          {!query && featuredPackage && (
-            <div className="mb-20 slide-up">
-              <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Featured Package</h2>
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                <div className="lg:col-span-3 relative aspect-[16/9] lg:aspect-auto">
-                  <Image
-                    src={featuredPackage.imageSrc || "/placeholder.svg"}
-                    alt={featuredPackage.title}
-                    fill
-                    className="object-cover rounded-md"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-[#EE1D46]">Featured</Badge>
-                </div>
-                <div className="lg:col-span-2">
-                  <h3 className="text-2xl font-serif text-[#09163A] mb-2">{featuredPackage.title}</h3>
-                  <p className="text-[#EE1D46] font-medium mb-4">
-                    {featuredPackage.duration} | {featuredPackage.location}
-                  </p>
-                  <p className="text-gray-700 mb-6">{featuredPackage.description}</p>
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-[#EE1D46] mr-2 mt-1"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                      </svg>
-                      <span>Luxury accommodations in 5-star hotels and boutique properties</span>
-                    </div>
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-[#EE1D46] mr-2 mt-1"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                      </svg>
-                      <span>Private guided tours of iconic landmarks and hidden gems</span>
-                    </div>
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-[#EE1D46] mr-2 mt-1"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                      </svg>
-                      <span>Exclusive culinary experiences, including cooking classes and wine tastings</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-sm text-gray-500">Starting from</span>
-                      <p className="text-2xl font-serif text-[#09163A]">{featuredPackage.price} per person</p>
-                    </div>
-                    <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
-                      <Link href={`/packages/${featuredPackage.id}`}>View Details</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Package Categories (only show if not searching) */}
-          {!query && (
-            <div className="mb-16 slide-up" style={{ animationDelay: "0.2s" }}>
-              <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Browse by Category</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Link
-                  href="/packages?q=cultural"
-                  className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
-                >
-                  <Image
-                    src={packageLanding}
-                    alt="Cultural Journeys"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6 text-white">
-                    <h3 className="text-2xl font-serif">Cultural Journeys</h3>
-                  </div>
-                </Link>
-                <Link
-                  href="/packages?q=adventure"
-                  className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
-                >
-                  <Image
-                    src={packageLanding}
-                    alt="Adventure Expeditions"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6 text-white">
-                    <h3 className="text-2xl font-serif">Adventure Expeditions</h3>
-                  </div>
-                </Link>
-                <Link
-                  href="/packages?q=wellness"
-                  className="group block relative aspect-[4/3] overflow-hidden rounded-md hover-lift"
-                >
-                  <Image
-                    src={packageLanding}
-                    alt="Wellness Retreats"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6 text-white">
-                    <h3 className="text-2xl font-serif">Wellness Retreats</h3>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* All Packages */}
-          <div className="slide-up" style={{ animationDelay: "0.3s" }}>
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-serif font-light text-[#09163A]">
-                {query ? "Matching Packages" : "All Packages"}
-              </h2>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-gray-500">Sort by:</span>
-                <select
-                  className="border border-gray-300 rounded-sm p-2 text-sm"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                >
-                  <option value="featured">Featured</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="duration-short">Duration: Shortest to Longest</option>
-                  <option value="duration-long">Duration: Longest to Shortest</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {displayedPackages.map((pkg) => (
-                <PackageCard
-                  key={pkg.id}
-                  title={pkg.title}
-                  location={pkg.location}
-                  duration={pkg.duration}
-                  description={pkg.description}
-                  price={pkg.price}
-                  imageSrc={pkg.imageSrc}
-                  id={pkg.id}
-                />
-              ))}
-            </div>
-
-            {/* Pagination - only show if we have enough packages */}
-            {displayedPackages.length > 6 && (
-              <div className="flex justify-center mt-12">
-                <div className="flex space-x-2">
-                  <Button variant="outline" className="border-[#09163A] text-[#09163A]">
-                    Previous
-                  </Button>
-                  <Button className="bg-[#09163A] text-white hover:bg-[#09163A]/90">1</Button>
-                  <Button variant="outline" className="border-[#09163A] text-[#09163A]">
-                    2
-                  </Button>
-                  <Button variant="outline" className="border-[#09163A] text-[#09163A]">
-                    3
-                  </Button>
-                  <Button variant="outline" className="border-[#09163A] text-[#09163A]">
-                    Next
-                  </Button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <PackageSearch />
+        </Suspense>
       </section>
 
       {/* Custom Package CTA */}
