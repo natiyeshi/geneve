@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
@@ -32,7 +31,7 @@ export default function AboutPage() {
           <div className="max-w-4xl px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-6 fade-in">About Genève</h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto slide-up">
-              Inspired by the "Peace Capital" of the world
+              Inspired by the &ldquo;Peace Capital&rdquo; of the world
             </p>
           </div>
         </div>
