@@ -1,46 +1,54 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { SearchIcon, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { SearchIcon, X } from "lucide-react";
 
-export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
-  const [searchQuery, setSearchQuery] = useState("")
-  const router = useRouter()
+export function SearchDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchQuery.trim()) {
       // Close the dialog
-      onOpenChange(false)
+      onOpenChange(false);
       // Redirect to packages page with query parameter
-      router.push(`/packages?q=${encodeURIComponent(searchQuery.trim())}`)
+      router.push(`/packages?q=${encodeURIComponent(searchQuery.trim())}`);
     }
-  }
+  };
 
   // Handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (open && e.key === "Enter" && searchQuery.trim()) {
-        router.push(`/packages?q=${encodeURIComponent(searchQuery.trim())}`)
-        onOpenChange(false)
+        router.push(`/packages?q=${encodeURIComponent(searchQuery.trim())}`);
+        onOpenChange(false);
       }
-    }
+    };
 
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [open, searchQuery, router, onOpenChange])
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open, searchQuery, router, onOpenChange]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px] p-6">
         <form onSubmit={handleSearch}>
-          <div className="text-2xl font-serif text-[#09163A] mb-6">Search Genève</div>
+          <div className="text-2xl font-serif text-[#09163A] mb-6">
+            Search Geneve
+          </div>
           <div className="relative mb-6">
             <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <Input
@@ -62,7 +70,8 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
           </div>
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-500">
-              Press <kbd className="px-2 py-1 bg-gray-100 rounded">Enter</kbd> to search
+              Press <kbd className="px-2 py-1 bg-gray-100 rounded">Enter</kbd>{" "}
+              to search
             </div>
             <Button
               type="submit"
@@ -75,5 +84,5 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

@@ -13,11 +13,10 @@ const montserrat = Montserrat({
 
 const GA_TRACKING_ID = "G-YZN0BMDHST"; // Your Google Analytics ID
 
-
 export const metadata: Metadata = {
-  title: "Genève - Luxury Travel",
+  title: "Geneve - Luxury Travel",
   description: "Hallmark of Luxury Travel",
-}
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +49,7 @@ export default function RootLayout({
         />
 
         {/* Favicon & Apple Icons */}
-   </head>
+      </head>
       <ClientSessionProvider>
         <body className={`antialiased bg-white ${montserrat.className}`}>
           <span id="top"></span>
