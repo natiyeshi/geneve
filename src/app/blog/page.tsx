@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
 
+import terara from "@/../public/images/terara.jpg"
+
 import blog1 from "@/../public/assets/image/blog-1.jpg"
 import blog2 from "@/../public/assets/image/blog-2.jpg"
 import blog3 from "@/../public/assets/image/blog-3.jpg"
@@ -105,7 +107,7 @@ export default function BlogPage() {
       {/* Hero Section */}
       <div className="relative h-[55vh]">
         <Image
-          src={blog1}
+          src={terara}
           alt="Blog and Press"
           fill
           className="object-cover brightness-75"

@@ -1,9 +1,20 @@
-import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Send, Clock } from "lucide-react"
-import { FaTiktok } from "react-icons/fa6"
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+} from "lucide-react";
+import { FaTiktok } from "react-icons/fa6";
 
-import logo from "@/../public/assets/logo/Group 6 (2).svg"
-import Image from "next/image"
+import logo from "@/../public/assets/logo/Group 6 (2).svg";
+import Image from "next/image";
 
 export function SiteFooter() {
   return (
@@ -25,7 +36,7 @@ export function SiteFooter() {
           {/* Company info */}
           <div className="space-y-8">
             <div className="flex items-center space-x-3">
-            <Link href="/" className="relative z-10">
+              <Link href="/" className="relative z-10">
                 <Image
                   src={logo}
                   alt="Geneva Logo"
@@ -33,12 +44,14 @@ export function SiteFooter() {
                   height={100}
                   className="w-[11rem]"
                 />
-            </Link>
+              </Link>
             </div>
             <p className="text-white/80 leading-relaxed">
-              Inspired by Geneva, the &ldquo;Peace Capital,&rdquo; Geneve Getaway represents unity, excellence, and
-              internationalism. We provide comprehensive travel services with a vision to build a large-scale, peaceful,
-              and high-performing company that reflects the spirit of Geneva itself.
+              Inspired by Geneva, the &ldquo;Peace Capital,&rdquo; Geneve
+              Getaway represents unity, excellence, and internationalism. We
+              provide comprehensive travel services with a vision to build a
+              large-scale, peaceful, and high-performing company that reflects
+              the spirit of Geneva itself.
             </p>
             <div className="flex space-x-4">
               <Link
@@ -84,8 +97,6 @@ export function SiteFooter() {
               >
                 <Instagram className="h-8 w-8" />
               </Link> */}
-              
-              
             </div>
           </div>
 
@@ -218,7 +229,10 @@ export function SiteFooter() {
                 <Mail className="h-5 w-5 text-[#EE1D46] mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium mb-1">Email</p>
-                  <a href="mailto:info@genevegetaway.com" className="text-white/80 hover:text-[#EE1D46] transition-colors">
+                  <a
+                    href="mailto:info@genevegetaway.com"
+                    className="text-white/80 hover:text-[#EE1D46] transition-colors"
+                  >
                     info@genevegetaway.com
                   </a>
                 </div>
@@ -227,7 +241,12 @@ export function SiteFooter() {
                 <Phone className="h-5 w-5 text-[#EE1D46] mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium mb-1">Phone</p>
-                  <p className="text-white/80">+251 911 20 5953</p>
+                  <a
+                    href="tel:+251989111111"
+                    className="text-white/80 hover:text-[#EE1D46] transition-colors"
+                  >
+                    +251989111111
+                  </a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -235,7 +254,9 @@ export function SiteFooter() {
                 <div>
                   <p className="font-medium mb-1">Working Hours</p>
                   <p className="text-white/80">Online Support: 24/7</p>
-                  <p className="text-white/80">Office Hours: 2:30 PM - 11:30 PM</p>
+                  <p className="text-white/80">
+                    Office Hours: 2:30 PM - 11:30 PM
+                  </p>
                 </div>
               </div>
             </div>
@@ -255,5 +276,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -15,7 +15,12 @@ import { BackToTop } from "@/components/back-to-top";
 import { SearchDialog } from "@/components/search-dialog";
 import { SiteHeader } from "@/components/site-header";
 
-import landingImage from "@/../public/assets/image/landing.jpg";
+
+import landingImage from "@/../public/images/fasil.jpg";
+import ertu from "@/../public/images/ertu.jpg";
+import fuafuate from "@/../public/images/fafuate.png";
+
+// import landingImage from "@/../public/images/land.jpg";
 import travel1 from "@/../public/assets/image/travel-1.png";
 import travel2 from "@/../public/assets/image/travel-2.png";
 import travel3 from "@/../public/assets/image/travel-3.jpg";
@@ -51,19 +56,16 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
             <h1 className="text-5xl md:text-7xl font-serif font-light text-white mb-6 fade-in">
-              Geneve
+              Geneve Getaway
             </h1>
-            <p className="text-3xl md:text-5xl font-serif font-light text-white mb-6 slide-up">
-              Hallmark of Luxury Travel
-            </p>
-            <p
+            {/* <p
               className="text-xl text-white/90 max-w-2xl mx-auto mb-12 slide-up"
               style={{ animationDelay: "0.2s" }}
             >
               Inspired by Geneva, the &ldquo;Peace Capital,&rdquo; representing
               unity, excellence, and internationalism
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            </p> */}
+            <div className="flex flex-wrap justify-center mt-12 gap-6">
               <ExperienceButton label="OUR PACKAGES" href="/packages" />
               <ExperienceButton
                 label="CONTACT US"
@@ -86,7 +88,7 @@ export default function Home() {
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="slide-up">
             <Image
-              src={travel1}
+              src={ertu}
               alt="Scenic travel destination"
               width={800}
               height={600}
@@ -250,7 +252,7 @@ export default function Home() {
               </div>
               <div className="absolute bottom-0 left-0 w-4/5 h-4/5 bg-gray-300 rounded-md shadow-lg overflow-hidden">
                 <Image
-                  src={travel2}
+                  src={fuafuate}
                   alt="Airport transfer"
                   fill
                   className="object-cover"

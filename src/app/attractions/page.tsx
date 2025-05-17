@@ -6,6 +6,9 @@ import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
 import attractionLanding from "@/../public/assets/image/attraction-landing.jpg"
 
+import gmel from "@/../public/images/gmel.jpg"
+
+
 import uk from "@/../public/assets/image/attraction/uk.jpg"
 import ireland from "@/../public/assets/image/attraction/ireland.jpg"
 import europe from "@/../public/assets/image/attraction/europe.jpg"
@@ -22,7 +25,7 @@ export default function AttractionsPage() {
       {/* Hero Section */}
       <div className="relative h-[60vh]">
         <Image
-          src={attractionLanding}
+          src={gmel}
           alt="Luxury attractions"
           fill
           className="object-cover brightness-75"

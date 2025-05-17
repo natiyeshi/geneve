@@ -6,6 +6,8 @@ import { CTASection } from "@/components/cta-section";
 import { SisterCompany } from "@/components/sister-company";
 import Team from "./Team";
 
+import abay from "@/../public/images/abay.jpg";
+
 import img from "@/../public/assets/image/landing.jpg";
 import img3 from "@/../public/assets/image/blog-3.jpg";
 import img2 from "@/../public/assets/image/blog-2.jpg";
@@ -16,7 +18,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-[60vh]">
         <Image
-          src={img}
+          src={abay}
           alt="About Geneve"
           fill
           className="object-cover brightness-75"
