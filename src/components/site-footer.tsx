@@ -69,7 +69,7 @@ export function SiteFooter() {
                 <Phone className="h-8 w-8" />
               </Link>
               <Link
-                href="https://t.me/0911205953"
+                href="https://t.me/Geneve_getaway"
                 className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
                 aria-label="Telegram"
                 target="_blank"
@@ -160,7 +160,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/about"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
@@ -169,7 +169,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/about"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
@@ -178,7 +178,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/about"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
@@ -187,7 +187,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/about"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
