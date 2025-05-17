@@ -47,7 +47,7 @@ export default function Home() {
           className="object-cover brightness-75"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09163A]/60 to-[#09163A]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09163A]/40 to-[#09163A]/20" />
 
         {/* Header/Navigation */}
         <SiteHeader />
@@ -55,7 +55,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
-            <h1 className="text-5xl md:text-7xl font-serif font-light text-white mb-6 fade-in">
+            <h1 className="d uppercase text-5xl md:text-7xl font-serif font-light text-white mb-6 fade-in">
               Geneve Getaway
             </h1>
             {/* <p

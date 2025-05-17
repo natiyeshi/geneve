@@ -11,11 +11,11 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const GA_TRACKING_ID = "G-YZN0BMDHST"; // Your Google Analytics ID
+const GA_TRACKING_ID = ""; // Your Google Analytics ID
 
 export const metadata: Metadata = {
   title: "Geneve - Luxury Travel",
-  description: "Hallmark of Luxury Travel",
+  // description: "Hallmark of Luxury Travel",
 };
 export default function RootLayout({
   children,
