@@ -73,7 +73,7 @@ export function SiteFooter() {
                 <FaTiktok className="text-xl" />
               </Link>
               <Link
-                href="https://wa.me/0911205953"
+                href="https://wa.me/0989111111"
                 className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
                 aria-label="WhatsApp"
                 target="_blank"
