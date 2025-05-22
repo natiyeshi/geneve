@@ -3,6 +3,8 @@ import Image from "next/image";
 import ts from "@/../public/images/ts.png";
 import ab from "@/../public/images/ab.png";
 import fr from "@/../public/images/fr.png";
+import yabtsega from "@/../public/images/team/Yabtsega.png";
+import Evangeline from "@/../public/images/team/Evangeline.png";
 
 const Team = () => {
   return (
@@ -27,22 +29,20 @@ const Team = () => {
               delay: "0.2s",
               img: ts,
             },
-            // {
-            //   name: "Sarah Williams",
-            //   role: "Culinary Expert",
-            //   description:
-            //     "A former chef with a love for travel, Sarah creates journeys that highlight the world's most exceptional culinary experiences.",
-            //   delay: "0.3s",
-            //   img: null,
-            // },
-            // {
-            //   name: "David Chen",
-            //   role: "Luxury Accommodations",
-            //   description:
-            //     "David's extensive knowledge of luxury properties worldwide ensures our clients stay at the finest accommodations available.",
-            //   delay: "0.4s",
-            //   img: null,
-            // },
+            {
+              name: "Yabtsega behailu mamo",
+              role: "Office Assistant",
+              description: "",
+              delay: "0.3s",
+              img: yabtsega,
+            },
+            {
+              name: "Evangeline Guinto Ramelo",
+              role: "Tour and Travel, Dubai Operation Head",
+              description: "",
+              delay: "0.4s",
+              img: Evangeline,
+            },
           ].map((member, index) => (
             <div
               key={index}

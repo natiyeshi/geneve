@@ -14,11 +14,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { BackToTop } from "@/components/back-to-top";
 import { SearchDialog } from "@/components/search-dialog";
 import { SiteHeader } from "@/components/site-header";
-
+import { HeroCarousel } from "@/components/hero-carousel";
 
 import landingImage from "@/../public/images/fasil.jpg";
 import ertu from "@/../public/images/ertu.jpg";
 import fuafuate from "@/../public/images/fafuate.png";
+import axum from "@/../public/images/axum.png";
+import abay from "@/../public/images/abay.jpg";
 
 // import landingImage from "@/../public/images/land.jpg";
 import travel1 from "@/../public/assets/image/travel-1.png";
@@ -26,6 +28,8 @@ import travel2 from "@/../public/assets/image/travel-2.png";
 import travel3 from "@/../public/assets/image/travel-3.jpg";
 import travel4 from "@/../public/assets/image/travel-4.jpg";
 import travel5 from "@/../public/assets/image/travel-5.jpg";
+
+
 
 import uk from "@/../public/assets/image/attraction/uk.jpg";
 import ireland from "@/../public/assets/image/attraction/ireland.jpg";
@@ -36,18 +40,17 @@ import america from "@/../public/assets/image/attraction/america.jpg";
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
 
+  const heroImages = [
+    { src: landingImage, alt: "Luxury travel destination" },
+    { src: axum, alt: "Travel experience 1" },
+    { src: abay, alt: "Travel experience 2" },
+  ];
+
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <div className="relative h-screen">
-        <Image
-          src={landingImage}
-          alt="Luxury travel destination"
-          fill
-          className="object-cover brightness-75"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09163A]/40 to-[#09163A]/20" />
+        <HeroCarousel images={heroImages} interval={6000} />
 
         {/* Header/Navigation */}
         <SiteHeader />
