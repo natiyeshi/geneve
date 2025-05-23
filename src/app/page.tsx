@@ -21,6 +21,7 @@ import ertu from "@/../public/images/ertu.jpg";
 import fuafuate from "@/../public/images/fafuate.png";
 import axum from "@/../public/images/axum.png";
 import abay from "@/../public/images/abay.jpg";
+import dashen from "@/../public/images/dashen.png";
 
 // import landingImage from "@/../public/images/land.jpg";
 import travel1 from "@/../public/assets/image/travel-1.png";
@@ -44,6 +45,7 @@ export default function Home() {
     { src: landingImage, alt: "Luxury travel destination" },
     { src: axum, alt: "Travel experience 1" },
     { src: abay, alt: "Travel experience 2" },
+    { src: dashen, alt: "Travel experience 3" },
   ];
 
   return (
@@ -58,16 +60,15 @@ export default function Home() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
-            <h1 className="d uppercase text-5xl md:text-7xl font-serif font-light text-white mb-6 fade-in">
+            <h1 className="d uppercase text-2xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
               Geneve Getaway
             </h1>
-            {/* <p
-              className="text-xl text-white/90 max-w-2xl mx-auto mb-12 slide-up"
+            <p
+              className="d text-2xl text-white/90 max-w-2xl mx-auto mb-12 slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Inspired by Geneva, the &ldquo;Peace Capital,&rdquo; representing
-              unity, excellence, and internationalism
-            </p> */}
+              Your passport to the extraordinary
+            </p>
             <div className="flex flex-wrap justify-center mt-12 gap-6">
               <ExperienceButton label="OUR PACKAGES" href="/packages" />
               <ExperienceButton

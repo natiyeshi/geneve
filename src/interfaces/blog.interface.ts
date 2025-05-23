@@ -9,8 +9,17 @@ export interface IBlog {
 }
 
 
-export interface ICBlog extends IBlog {
-    link: string; 
+export interface ICBlog {
+  _id: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  slug: string;
+  author: string;
+  image: string;
+  published: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 

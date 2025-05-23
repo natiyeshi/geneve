@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import ClientSessionProvider from "@/providers/ClientSessionProvider";
 import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
+import { ClientSessionProvider } from "@/components/client-session-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const GA_TRACKING_ID = ""; // Your Google Analytics ID
 
 export const metadata: Metadata = {
-  title: "Geneve - Luxury Travel",
-  // description: "Hallmark of Luxury Travel",
+  title: "Geneve Getaway",
+  description: "Your luxury travel partner",
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -72,8 +72,17 @@ export default function RootLayout({
       </head>
       <ClientSessionProvider>
         <body className={`antialiased bg-white ${montserrat.className}`}>
-          <span id="top"></span>
-          <NextTopLoader />
+          <NextTopLoader
+            color="#EE1D46"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
+          />
           {children}
         </body>
       </ClientSessionProvider>

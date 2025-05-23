@@ -1,40 +1,42 @@
-"use server";
-import AdminLinks, { type Props } from "./_components/AdminLinks";
-import { getServerSession } from "next-auth/next";
-import { options } from "@/app/api/auth/[...nextauth]/options";
-import { redirect } from "next/navigation";
-import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
+"use client";
 
-const Layout = async ({ children }: any) => {
-  const session = await getServerSession(options);
-  if (!session) {
-    redirect("/api/auth/signin?callbackUrl=/admin");
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import AdminNav from "./_components/AdminNav";
+
+export default function AuthorizedLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#09163A]"></div>
+      </div>
+    );
   }
+
+  if (!session) {
+    return null;
+  }
+
   return (
-    <div className="w-full shadow flex gap-5 px-4 py-4 h-[100vh] bg-adminMainBg">
-      <div className="w-[450px] flex flex-col bg-gray-50 rounded-xl h-full">
-        <div className="pt-5 ps-5 text-xl font-black">Dashboards</div>
-        <Link
-          href={"https://gaber-wear.com/"}
-          target="_blank"
-          className="pt-2 ps-5 text-sm hover:text-primary duration-150 flex gap-2  items-center"
-        >
-          <span>gaber-wear.com</span>
-          <FaArrowRight className="-rotate-[40deg] text-xs" />
-        </Link>
-        <div className="mt-12 w-full flex flex-col gap-1 overflow-auto">
-          <AdminLinks />
-        </div>
-        <div className="mt-auto my-2 text-center text-xs">
-          Powered By <span className="font-bold">Dama Solutions</span>
-        </div>
-      </div>
-      <div className="w-full bg-gray-50  rounded-xl h-full shadow overflow-hidden">
+    <div className="min-h-screen bg-gray-50">
+      <AdminNav />
+      <main className="p-6 md:p-8">
         {children}
-      </div>
+      </main>
     </div>
   );
-};
-
-export default Layout;
+}
