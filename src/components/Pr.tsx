@@ -13,10 +13,10 @@ export default function RovePartnerSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-serif font-light font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
-            Our Trusted Partner
+            Our Trusted Partners
           </h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            We're proud to partner with industry leaders who share our commitment to exceptional experiences
+            We are proud to partner with industry leaders who share our commitment to exceptional experiences
           </p>
         </div>
 
