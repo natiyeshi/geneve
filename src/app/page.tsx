@@ -38,7 +38,7 @@ import europe from "@/../public/assets/image/attraction/europe.jpg";
 import africa from "@/../public/assets/image/attraction/africa.jpg";
 import america from "@/../public/assets/image/attraction/america.jpg";
 
-import RovePartnerSection from "@/components/pr.tsx";
+import RovePartnerSection from "@/components/Pr.tsx";
 
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
