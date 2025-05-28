@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { clientPromise } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
-import slugify from "
-";
+import slugify from "slugify";
 
 // GET /api/blog - Get all blog posts
 export async function GET() {
