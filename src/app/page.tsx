@@ -38,6 +38,8 @@ import europe from "@/../public/assets/image/attraction/europe.jpg";
 import africa from "@/../public/assets/image/attraction/africa.jpg";
 import america from "@/../public/assets/image/attraction/america.jpg";
 
+import RovePartnerSection from "@/components/pr.tsx";
+
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -323,6 +325,8 @@ export default function Home() {
 
       {/* Experience Designers Section */}
       <ExperienceDesigners />
+
+      <RovePartnerSection />
 
       {/* What Sets Us Apart */}
       <section className="py-20 bg-gray-50">
