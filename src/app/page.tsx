@@ -62,7 +62,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
-            <h1 className="d uppercase text-2xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
+            <h1 className="d uppercase text-3xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
               Geneve Getaway
             </h1>
             <p
