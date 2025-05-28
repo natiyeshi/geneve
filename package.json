@@ -55,6 +55,7 @@
     "react-icons": "^5.5.0",
     "react-quill": "^2.0.0",
     "rechart": "^0.0.1",
+    "recharts": "^2.15.3",
     "slugify": "^1.6.6",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
