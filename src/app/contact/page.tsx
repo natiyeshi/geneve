@@ -25,6 +25,7 @@ import { FaWhatsapp, FaTelegram } from "react-icons/fa";
 
 import land from "@/../public/images/land.jpg";
 
+import qr from "@/../public/assets/qr-genevegetaway.png"
 // Add styles for the water bubble animation
 const styles = `
   @keyframes bubble {
@@ -129,7 +130,7 @@ export default function ContactPage() {
       {/* Main Content */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto mb-20 slide-up">
+          {/* <div className="max-w-3xl mx-auto mb-20 slide-up">
             <h2 className="text-4xl font-serif font-light text-[#09163A] mb-6 text-center">
               Let&apos;s Connect
             </h2>
@@ -139,10 +140,27 @@ export default function ContactPage() {
               distinction, enjoying truly exclusive and authentic cultural
               experiences.
             </p>
-          </div>
+          </div> */}
 
-          {/* Contact Icons */}
-          <div className="flex flex-wrap justify-center items-center gap-12 mb-24">
+          
+
+          {/* QR Code Section */}
+          <div className="max-w-lg mx-auto mb-24 bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h3 className="text-2xl font-medium text-[#09163A] mb-6 text-center">Connect With Us</h3>
+            <p className="text-gray-600 text-center mb-6">
+              Scan our QR code to access all our social media links and contact information in one place
+            </p>
+            <div className="flex justify-center">
+              <Image
+                src={qr}
+                alt="Geneve Getaway QR Code"
+                width={200}
+                height={200}
+                className="rounded-lg"
+              />
+            </div>
+            {/* Contact Icons */}
+          <div className="flex flex-wrap justify-center items-center gap-10 mb-24">
             {/* WhatsApp */}
             <a
               href="https://wa.me/251989111111"
@@ -202,6 +220,7 @@ export default function ContactPage() {
               <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#09163A]/10 rounded-full animate-ripple-3"></div>
               <p className="text-sm font-medium text-gray-600 mt-2 text-center">Phone</p>
             </a>
+          </div>
           </div>
 
           {/* Contact Information */}

@@ -16,15 +16,18 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[60vh]">
-        <Image
-          src={abay}
-          alt="About Geneve"
-          fill
-          className="object-cover brightness-75"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09163A]/60 to-[#09163A]/30" />
+      <div className="relative h-[75vh]">
+        <video
+          className="absolute inset-0 w-full h-full object-cover brightness-75"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/assets/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09163A]/30 to-[#09163A]/30" />
 
         {/* Header */}
         <SiteHeader />
@@ -41,6 +44,20 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* Video Section */}
+      {/* <div className="w-full bg-black">
+        <video
+          className="w-full h-[60vh] object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/assets/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div> */}
 
       {/* Our Story */}
       <section className="py-20 bg-white" id="story">
