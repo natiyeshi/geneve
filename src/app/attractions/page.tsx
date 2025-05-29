@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { AttractionCardShow } from "@/components/attraction-card"
@@ -8,18 +12,35 @@ import attractionLanding from "@/../public/assets/image/attraction-landing.jpg"
 
 import gmel from "@/../public/images/gmel.jpg"
 
+// Import new attraction images
+import dubai from "@/../public/images/ni/SaudiArabia.jpg" // Using Saudi image for Dubai temporarily
+import china from "@/../public/images/ni/china.jpg"
+import istanbul from "@/../public/images/ni/Istanbul.jpg"
+import usa from "@/../public/images/ni/USA.jpg"
+import jerusalem from "@/../public/images/ni/Jerusalem.jpg"
+import saudiArabia from "@/../public/images/ni/SaudiArabia.jpg"
+import france from "@/../public/images/ni/france.jpeg"
 
-import uk from "@/../public/assets/image/attraction/uk.jpg"
-import ireland from "@/../public/assets/image/attraction/ireland.jpg"
-import europe from "@/../public/assets/image/attraction/europe.jpg"
-import africa from "@/../public/assets/image/attraction/africa.jpg"
-import america from "@/../public/assets/image/attraction/america.jpg"
-import asia from "@/../public/assets/image/attraction/asia.jpg"
-import islands from "@/../public/assets/image/attraction/iceland.jpg"
-import polar from "@/../public/assets/image/attraction/polar.jpg"
 import Link from "next/link"
 
 export default function AttractionsPage() {
+  const searchParams = useSearchParams();
+  const destination = searchParams.get('q');
+
+  useEffect(() => {
+    if (destination) {
+      const element = document.getElementById(`attraction-${destination}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add a highlight effect
+        element.classList.add('highlight-attraction');
+        setTimeout(() => {
+          element.classList.remove('highlight-attraction');
+        }, 2000);
+      }
+    }
+  }, [destination]);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -53,29 +74,42 @@ export default function AttractionsPage() {
           <div className="max-w-3xl mx-auto mb-16">
             <p className="text-lg text-center">
               Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your
-              travels. Whatever your travel preference may be, whether you are looking for a cultural city break, a
-              child friendly family holiday, unlimited adventure, a romantic getaway or just to escape and uncover, we
-              are here to create a seamless experience while handcrafting your bespoke journey.
+              travels. Whether you're seeking cultural experiences, luxury shopping, historical landmarks, or modern
+              marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these
+              extraordinary destinations.
             </p>
           </div>
 
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12">Featured Attractions</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <AttractionCardShow title="Ireland" imageSrc={ireland} href="/attractions?q=ireland" large />
-            <AttractionCardShow title="UK" imageSrc={uk} href="/attractions?q=uk" large />
+            <div id="attraction-dubai">
+              <AttractionCardShow title="Dubai" imageSrc={dubai} href="/attractions?q=dubai" large />
+            </div>
+            <div id="attraction-usa">
+              <AttractionCardShow title="USA" imageSrc={usa} href="/attractions?q=usa" large />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <AttractionCardShow title="Classic Europe" imageSrc={europe} href="/attractions?q=europe" />
-            <AttractionCardShow title="Africa" imageSrc={africa} href="/attractions?q=africa" />
-            <AttractionCardShow title="The Americas" imageSrc={america} href="/attractions?q=americas" />
+            <div id="attraction-china">
+              <AttractionCardShow title="China" imageSrc={china} href="/attractions?q=china" />
+            </div>
+            <div id="attraction-istanbul">
+              <AttractionCardShow title="Istanbul" imageSrc={istanbul} href="/attractions?q=istanbul" />
+            </div>
+            <div id="attraction-jerusalem">
+              <AttractionCardShow title="Jerusalem" imageSrc={jerusalem} href="/attractions?q=jerusalem" />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <AttractionCardShow title="Asia" imageSrc={asia} href="/attractions?q=asia" />
-            <AttractionCardShow title="Exotic Islands" imageSrc={islands} href="/attractions?q=islands" />
-            <AttractionCardShow title="Polar Regions" imageSrc={polar} href="/attractions?q=polar" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div id="attraction-saudi-arabia">
+              <AttractionCardShow title="Saudi Arabia" imageSrc={saudiArabia} href="/attractions?q=saudi-arabia" />
+            </div>
+            <div id="attraction-france">
+              <AttractionCardShow title="France" imageSrc={france} href="/attractions?q=france" />
+            </div>
           </div>
 
           <div className="text-center">
@@ -97,4 +131,26 @@ export default function AttractionsPage() {
       <BackToTop />
     </div>
   )
+}
+
+// Add this CSS to your global styles or create a new style block
+const styles = `
+  @keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .highlight-attraction {
+    animation: highlight 1s ease-in-out;
+    box-shadow: 0 0 20px rgba(238, 29, 70, 0.3);
+    border-radius: 8px;
+  }
+`;
+
+// Add the styles to the document
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
 }
