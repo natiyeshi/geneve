@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-hot-toast";
 
 export default function SignUp() {
   const router = useRouter();
@@ -19,8 +20,16 @@ export default function SignUp() {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setLoading(false);
+      return;
+    }
 
     try {
+      console.log("Sending registration request...");
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
@@ -33,14 +42,18 @@ export default function SignUp() {
         }),
       });
 
-      if (res.ok) {
-        router.push("/auth/signin");
-      } else {
-        const data = await res.json();
-        setError(data.message || "Something went wrong");
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
       }
-    } catch (error) {
-      setError("An error occurred. Please try again.");
+
+      toast.success("Account created successfully! Please sign in.");
+      router.push("/auth/signin");
+    } catch (error: any) {
+      const message = error.message || "An error occurred. Please try again.";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -64,6 +77,7 @@ export default function SignUp() {
                 id="name"
                 name="name"
                 type="text"
+                autoComplete="name"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#09163A] focus:border-[#09163A] focus:z-10 sm:text-sm"
                 placeholder="Full name"
@@ -93,14 +107,36 @@ export default function SignUp() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#09163A] focus:border-[#09163A] focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#09163A] focus:border-[#09163A] focus:z-10 sm:text-sm"
                 placeholder="Password"
+              />
+            </div>
+            <div>
+              <label htmlFor="confirmPassword" className="sr-only">
+                Confirm password
+              </label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                autoComplete="new-password"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#09163A] focus:border-[#09163A] focus:z-10 sm:text-sm"
+                placeholder="Confirm password"
               />
             </div>
           </div>
 
           {error && (
-            <div className="text-red-500 text-sm text-center">{error}</div>
+            <div className="rounded-md bg-red-50 p-4">
+              <div className="flex">
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-red-800">
+                    {error}
+                  </h3>
+                </div>
+              </div>
+            </div>
           )}
 
           <div>

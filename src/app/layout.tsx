@@ -4,6 +4,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ClientSessionProvider } from "@/components/client-session-provider";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -84,6 +85,7 @@ export default function RootLayout({
             shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
           />
           {children}
+          <Toaster position="top-center" />
         </body>
       </ClientSessionProvider>
     </html>

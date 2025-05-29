@@ -1,15 +1,45 @@
 "use client";
 
-import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-hot-toast";
 
 export default function SignIn() {
   const router = useRouter();
+  const { data: session, status } = useSession();
+  const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    console.log("Session status:", status);
+    console.log("Current session:", session);
+
+    // Handle error from URL parameters
+    const error = searchParams.get("error");
+    if (error) {
+      console.log("Error from URL:", error);
+      switch (error) {
+        case "CredentialsSignin":
+          setError("Invalid email or password");
+          break;
+        case "AccessDenied":
+          setError("You don't have permission to access this page");
+          break;
+        default:
+          setError("An error occurred during sign in");
+      }
+    }
+
+    // Redirect if already authenticated
+    if (session) {
+      console.log("User is authenticated, redirecting to admin");
+      router.push("/admin");
+    }
+  }, [session, status, searchParams, router]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,21 +50,37 @@ export default function SignIn() {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
+    console.log("Attempting sign in for:", email);
+
     try {
       const result = await signIn("credentials", {
         email,
         password,
         redirect: false,
+        callbackUrl: "/admin",
       });
 
+      console.log("Sign in result:", result);
+
       if (result?.error) {
-        setError("Invalid email or password");
-      } else {
+        console.error("Sign in error:", result.error);
+        setError(result.error);
+        toast.error(result.error);
+      } else if (result?.ok) {
+        console.log("Sign in successful");
+        toast.success("Signed in successfully");
         router.push("/admin");
         router.refresh();
+      } else {
+        console.error("Unexpected sign in result:", result);
+        setError("An unexpected error occurred");
+        toast.error("An unexpected error occurred");
       }
-    } catch (error) {
-      setError("An error occurred. Please try again.");
+    } catch (error: any) {
+      console.error("Sign in exception:", error);
+      const message = error.message || "An error occurred. Please try again.";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -81,7 +127,15 @@ export default function SignIn() {
           </div>
 
           {error && (
-            <div className="text-red-500 text-sm text-center">{error}</div>
+            <div className="rounded-md bg-red-50 p-4">
+              <div className="flex">
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-red-800">
+                    {error}
+                  </h3>
+                </div>
+              </div>
+            </div>
           )}
 
           <div>
