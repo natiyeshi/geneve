@@ -58,7 +58,6 @@ export default function Home() {
     { src: landingImage, alt: "Luxury travel destination" },
     { src: axum, alt: "Travel experience 1" },
     { src: abay, alt: "Travel experience 2" },
-    { src: dashen, alt: "Travel experience 3" },
   ];
 
   return (
