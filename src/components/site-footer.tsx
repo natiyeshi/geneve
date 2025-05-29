@@ -108,47 +108,65 @@ export function SiteFooter() {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/attractions?q=ireland"
+                  href="/attractions?q=dubai"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Ireland
+                  Dubai
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/attractions?q=uk"
+                  href="/attractions?q=usa"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  UK
+                  USA
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/attractions?q=africa"
+                  href="/attractions?q=china"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Africa
+                  China
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/attractions?q=europe"
+                  href="/attractions?q=istanbul"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Classic Europe
+                  Istanbul
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/attractions?q=asia"
+                  href="/attractions?q=jerusalem"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Asia
+                  Jerusalem
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/attractions?q=saudi-arabia"
+                  className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
+                >
+                  <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
+                  Saudi Arabia
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/attractions?q=france"
+                  className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
+                >
+                  <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
+                  France
                 </Link>
               </li>
             </ul>

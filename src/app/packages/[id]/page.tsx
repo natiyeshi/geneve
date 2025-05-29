@@ -21,7 +21,7 @@ const packageData = {
   description:
     "Experience the best of Italy on this comprehensive luxury journey. From the ancient ruins of Rome to the Renaissance treasures of Florence, the romantic canals of Venice, and the breathtaking beauty of the Amalfi Coast, this package offers a perfect blend of culture, history, art, and cuisine.",
   longDescription:
-    "Immerse yourself in the rich tapestry of Italian culture, history, and cuisine on this meticulously crafted 14-day journey through Italy's most iconic destinations. Begin your adventure in the Eternal City of Rome, where ancient history comes alive as you explore the Colosseum, Roman Forum, and Vatican Museums with your private guide. Then travel to Florence, the birthplace of the Renaissance, where masterpieces by Michelangelo, Botticelli, and Leonardo da Vinci await your discovery. Continue to Venice, the floating city of canals and bridges, where you'll stay in a historic palazzo and enjoy a private gondola ride at sunset. Your journey concludes along the stunning Amalfi Coast, with its colorful cliffside villages, azure waters, and Mediterranean charm. Throughout your travels, you'll enjoy exclusive experiences, from private after-hours museum visits to cooking classes with renowned chefs, all while staying in Italy's finest luxury accommodations.",
+    "Immerse yourself in the rich tapestry of Italian culture, history, and cuisine on this meticulously crafted 14-day journey through Italy&apos;s most iconic destinations. Begin your adventure in the Eternal City of Rome, where ancient history comes alive as you explore the Colosseum, Roman Forum, and Vatican Museums with your private guide. Then travel to Florence, the birthplace of the Renaissance, where masterpieces by Michelangelo, Botticelli, and Leonardo da Vinci await your discovery. Continue to Venice, the floating city of canals and bridges, where you&apos;ll stay in a historic palazzo and enjoy a private gondola ride at sunset. Your journey concludes along the stunning Amalfi Coast, with its colorful cliffside villages, azure waters, and Mediterranean charm. Throughout your travels, you&apos;ll enjoy exclusive experiences, from private after-hours museum visits to cooking classes with renowned chefs, all while staying in Italy&apos;s finest luxury accommodations.",
   price: "$12,500",
   priceDetail: "per person, based on double occupancy",
   images: [
@@ -65,7 +65,7 @@ const packageData = {
       day: "8-10",
       title: "Venice",
       description:
-        "Experience the magic of the floating city with a private gondola ride, visits to St. Mark's Basilica and Doge's Palace, and a day trip to the colorful islands of Murano and Burano.",
+        "Experience the magic of the floating city with a private gondola ride, visits to St. Mark&apos;s Basilica and Doge&apos;s Palace, and a day trip to the colorful islands of Murano and Burano.",
     },
     {
       day: "11-14",
@@ -84,7 +84,7 @@ const packageData = {
       name: "Four Seasons Hotel Firenze",
       location: "Florence",
       description:
-        "A Renaissance palazzo with stunning gardens, located just a short walk from Florence's main attractions.",
+        "A Renaissance palazzo with stunning gardens, located just a short walk from Florence&apos;s main attractions.",
     },
     {
       name: "Gritti Palace",
@@ -101,7 +101,7 @@ const packageData = {
 
 export default function PackageDetailPage({ params }: { params: { id: string } }) {
   // In a real application, you would fetch the package data based on the ID
-  // For now, we'll just use our mock data
+  // For now, we&apos;ll just use our mock data
 
   return (
     <div className="min-h-screen">

@@ -16,6 +16,8 @@ import { SearchDialog } from "@/components/search-dialog";
 import { SiteHeader } from "@/components/site-header";
 import { HeroCarousel } from "@/components/hero-carousel";
 
+import gmel from "@/../public/images/gmel.jpg"
+
 import landingImage from "@/../public/images/fasil.jpg";
 import ertu from "@/../public/images/ertu.jpg";
 import fuafuate from "@/../public/images/fafuate.png";
@@ -40,10 +42,19 @@ import america from "@/../public/assets/image/attraction/america.jpg";
 
 import RovePartnerSection from "@/components/Pr";
 
+import dubai from "@/../public/images/ni/SaudiArabia.jpg" // Using Saudi image for Dubai temporarily
+import china from "@/../public/images/ni/china.jpg"
+import istanbul from "@/../public/images/ni/Istanbul.jpg"
+import usa from "@/../public/images/ni/USA.jpg"
+import jerusalem from "@/../public/images/ni/Jerusalem.jpg"
+import saudiArabia from "@/../public/images/ni/SaudiArabia.jpg"
+import france from "@/../public/images/ni/france.jpeg"
+
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const heroImages = [
+    { src: gmel, alt: "Luxury travel destination" },
     { src: landingImage, alt: "Luxury travel destination" },
     { src: axum, alt: "Travel experience 1" },
     { src: abay, alt: "Travel experience 2" },
@@ -54,7 +65,7 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <div className="relative h-screen">
-        <HeroCarousel images={heroImages} interval={6000} />
+        <HeroCarousel images={heroImages} interval={5000} />
 
         {/* Header/Navigation */}
         <SiteHeader />
@@ -280,44 +291,55 @@ export default function Home() {
             style={{ animationDelay: "0.1s" }}
           >
             Let Geneve open up a world of wonders and create magical memories
-            that will stay with you far beyond your travels. Whatever your
-            travel preference may be, whether you are looking for a cultural
-            city break, a child friendly family holiday, unlimited adventure, a
-            romantic getaway or just to escape and uncover, we are here to
-            create a seamless experience while handcrafting your bespoke
-            journey.
+            that will stay with you far beyond your travels. Whether you&apos;re seeking
+            cultural experiences, luxury shopping, historical landmarks, or modern
+            marvels, we are here to create a seamless experience while handcrafting
+            your bespoke journey to these extraordinary destinations.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <AttractionCard
-              title="Ireland"
-              imageSrc={ireland}
-              href="/attractions?q=ireland"
+              title="Dubai"
+              imageSrc={dubai}
+              href="/attractions?q=dubai"
               large
             />
             <AttractionCard
-              title="UK"
-              imageSrc={uk}
-              href="/attractions?q=uk"
+              title="USA"
+              imageSrc={usa}
+              href="/attractions?q=usa"
               large
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <AttractionCard
-              title="Classic Europe"
-              imageSrc={europe}
-              href="/attractions?q=europe"
+              title="China"
+              imageSrc={china}
+              href="/attractions?q=china"
             />
             <AttractionCard
-              title="Africa"
-              imageSrc={africa}
-              href="/attractions?q=africa"
+              title="Istanbul"
+              imageSrc={istanbul}
+              href="/attractions?q=istanbul"
             />
             <AttractionCard
-              title="The Americas"
-              imageSrc={america}
-              href="/attractions?q=americas"
+              title="Jerusalem"
+              imageSrc={jerusalem}
+              href="/attractions?q=jerusalem"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <AttractionCard
+              title="Saudi Arabia"
+              imageSrc={saudiArabia}
+              href="/attractions?q=saudi-arabia"
+            />
+            <AttractionCard
+              title="France"
+              imageSrc={france}
+              href="/attractions?q=france"
             />
           </div>
         </div>
