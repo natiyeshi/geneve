@@ -131,7 +131,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto mb-20 slide-up">
             <h2 className="text-4xl font-serif font-light text-[#09163A] mb-6 text-center">
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-lg text-center text-gray-600">
               Our team of highly experienced travel designers will guide you

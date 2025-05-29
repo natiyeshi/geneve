@@ -291,7 +291,7 @@ export default function Home() {
             style={{ animationDelay: "0.1s" }}
           >
             Let Geneve open up a world of wonders and create magical memories
-            that will stay with you far beyond your travels. Whether you're seeking
+            that will stay with you far beyond your travels. Whether you&apos;re seeking
             cultural experiences, luxury shopping, historical landmarks, or modern
             marvels, we are here to create a seamless experience while handcrafting
             your bespoke journey to these extraordinary destinations.

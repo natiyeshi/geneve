@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -9,7 +9,6 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
 import attractionLanding from "@/../public/assets/image/attraction-landing.jpg"
-
 import gmel from "@/../public/images/gmel.jpg"
 
 // Import new attraction images
@@ -23,7 +22,8 @@ import france from "@/../public/images/ni/france.jpeg"
 
 import Link from "next/link"
 
-export default function AttractionsPage() {
+// Create a client component for the attractions content
+function AttractionsContent() {
   const searchParams = useSearchParams();
   const destination = searchParams.get('q');
 
@@ -41,6 +41,66 @@ export default function AttractionsPage() {
     }
   }, [destination]);
 
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto mb-16">
+          <p className="text-lg text-center">
+            Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your
+            travels. Whether you&apos;re seeking cultural experiences, luxury shopping, historical landmarks, or modern
+            marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these
+            extraordinary destinations.
+          </p>
+        </div>
+
+        <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12">Featured Attractions</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div id="attraction-dubai">
+            <AttractionCardShow title="Dubai" imageSrc={dubai} href="/attractions?q=dubai" large />
+          </div>
+          <div id="attraction-usa">
+            <AttractionCardShow title="USA" imageSrc={usa} href="/attractions?q=usa" large />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div id="attraction-china">
+            <AttractionCardShow title="China" imageSrc={china} href="/attractions?q=china" />
+          </div>
+          <div id="attraction-istanbul">
+            <AttractionCardShow title="Istanbul" imageSrc={istanbul} href="/attractions?q=istanbul" />
+          </div>
+          <div id="attraction-jerusalem">
+            <AttractionCardShow title="Jerusalem" imageSrc={jerusalem} href="/attractions?q=jerusalem" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div id="attraction-saudi-arabia">
+            <AttractionCardShow title="Saudi Arabia" imageSrc={saudiArabia} href="/attractions?q=saudi-arabia" />
+          </div>
+          <div id="attraction-france">
+            <AttractionCardShow title="France" imageSrc={france} href="/attractions?q=france" />
+          </div>
+        </div>
+
+        <div className="text-center">
+          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Ready to Explore?</h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Our travel designers are ready to craft your perfect journey to any of our luxury attractions.
+          </p>
+          <Link href="/contact">
+            <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white">Contact Us</Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Main page component
+export default function AttractionsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -68,61 +128,10 @@ export default function AttractionsPage() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto mb-16">
-            <p className="text-lg text-center">
-              Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your
-              travels. Whether you're seeking cultural experiences, luxury shopping, historical landmarks, or modern
-              marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these
-              extraordinary destinations.
-            </p>
-          </div>
-
-          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12">Featured Attractions</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div id="attraction-dubai">
-              <AttractionCardShow title="Dubai" imageSrc={dubai} href="/attractions?q=dubai" large />
-            </div>
-            <div id="attraction-usa">
-              <AttractionCardShow title="USA" imageSrc={usa} href="/attractions?q=usa" large />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div id="attraction-china">
-              <AttractionCardShow title="China" imageSrc={china} href="/attractions?q=china" />
-            </div>
-            <div id="attraction-istanbul">
-              <AttractionCardShow title="Istanbul" imageSrc={istanbul} href="/attractions?q=istanbul" />
-            </div>
-            <div id="attraction-jerusalem">
-              <AttractionCardShow title="Jerusalem" imageSrc={jerusalem} href="/attractions?q=jerusalem" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div id="attraction-saudi-arabia">
-              <AttractionCardShow title="Saudi Arabia" imageSrc={saudiArabia} href="/attractions?q=saudi-arabia" />
-            </div>
-            <div id="attraction-france">
-              <AttractionCardShow title="France" imageSrc={france} href="/attractions?q=france" />
-            </div>
-          </div>
-
-          <div className="text-center">
-            <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Ready to Explore?</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Our travel designers are ready to craft your perfect journey to any of our luxury attractions.
-            </p>
-            <Link href="/contact">
-              <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white">Contact Us</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Main Content with Suspense */}
+      <Suspense fallback={<div className="min-h-screen bg-white" />}>
+        <AttractionsContent />
+      </Suspense>
 
       {/* Footer */}
       <SiteFooter />
@@ -130,7 +139,7 @@ export default function AttractionsPage() {
       {/* Back to Top Button */}
       <BackToTop />
     </div>
-  )
+  );
 }
 
 // Add this CSS to your global styles or create a new style block
