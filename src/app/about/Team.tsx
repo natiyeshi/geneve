@@ -62,7 +62,10 @@ const Team = () => {
     {
       name: "Mr. Abraham Lemma",
       role: "CEO",
-      description: "",
+      description: `
+      With a business journey that began in 2008, our CEO brings over 15 years of entrepreneurial experience across multiple industries. He started in hotel management and ownership, then expanded into importing and selling cars. He became the first person in Ethiopia to put his own company name on  engine oil and lubricants that manufactured by Dubai company ,He also imported and distributed car batteries throughout Ethiopia.
+
+Throughout his journey, he has consistently demonstrated a sharp eye for opportunity and sustainable growth. Today, he is expanding his operations on a global scale, with new ventures including a world-class travel agency that aims to redefine international travel experiences. His leadership is rooted in vision, versatility, and a deep commitment to excellence across every venture.`,
       delay: "0.1s",
       img: ab,
       isCEO: true,
@@ -77,7 +80,7 @@ const Team = () => {
       isCEO: false,
     },
     {
-      name: "Yabtsega behailu mamo",
+      name: "YEABTSEGA BEHAILU",
       role: "Office Assistant",
       description: "",
       delay: "0.3s",
@@ -123,7 +126,7 @@ const Team = () => {
 
         {/* CEO Section */}
         {ceo && (
-          <div className="max-w-md mx-auto mb-20 slide-up" style={{ animationDelay: ceo.delay }}>
+          <div className="max-w-2xl mx-auto mb-20 slide-up" style={{ animationDelay: ceo.delay }}>
             <div className="text-center">
               <div className="image-container w-44 h-44 mx-auto mb-8 rounded-full overflow-hidden bg-gradient-to-br from-[#EE1D46]/10 to-[#09163A]/10 floating">
                 {ceo.img ? (
@@ -153,7 +156,11 @@ const Team = () => {
               <h3 className="text-2xl font-serif text-[#09163A] mb-3">
                 {ceo.name}
               </h3>
+             
               <p className="text-[#EE1D46] font-medium mb-6 text-lg">{ceo.role}</p>
+              {ceo.description && (
+                <p className="text-gray-600 mb-4 w-full ">{ceo.description}</p>
+              )}
               {ceo.phone && (
                 <a
                   href={`tel:${ceo.phone.replace(/\s+/g, '')}`}

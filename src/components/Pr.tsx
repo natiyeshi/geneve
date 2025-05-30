@@ -12,7 +12,7 @@ export default function RovePartnerSection() {
       <div className="container px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-light font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
+          <h2 className="text-3xl font-serif  font-light tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
             Our Trusted Partner
           </h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -30,7 +30,7 @@ export default function RovePartnerSection() {
                   <Star className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-primary">ROVE HOTELS</h3>
+                  <h3 className="text-2xl font-bold text-primary font-serif">ROVE HOTELS IN DUBAI</h3>
                   <p className="text-secondary font-medium">Premium Hospitality Partner</p>
                 </div>
               </div>

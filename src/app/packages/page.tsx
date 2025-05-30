@@ -11,81 +11,356 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
 import packageLanding from "@/../public/assets/image/package-landing.jpg"
+import { Hotel, Utensils, Plane } from "lucide-react"
 
-// Sample package data
-const allPackages = [
+// Define a proper interface for the package data with optional properties
+interface Package {
+  id: string;
+  name?: string;
+  tagline?: string;
+  locations?: string[];
+  mapUrl?: string;
+  duration?: string;
+  inclusions?: {
+    flights?: boolean;
+    accommodation?: string;
+    airportTransfers?: boolean;
+    guidedTours?: boolean;
+    meals?: string;
+    travelInsurance?: boolean;
+  };
+  exclusions?: string[];
+  itinerary?: Array<{ day: number; description: string }>;
+  pricing?: {
+    pricePerPerson?: number;
+    doubleOccupancy?: number;
+    tripleOccupancy?: number;
+    earlyBirdDiscount?: number;
+    groupDiscount?: number;
+    paymentPlans?: string[];
+  };
+  bookingInfo?: {
+    bookingMethods?: string[];
+    consultantName?: string;
+    officeAddress?: string;
+    bookingLink?: string;
+  };
+  termsAndConditions?: {
+    cancellationPolicy?: string;
+    refundPolicy?: string;
+    passportRequirements?: string;
+    visaRequirements?: string;
+  };
+  images?: any[];
+  activityIcons?: string[];
+  category?: string;
+  featured?: boolean;
+}
+
+// Update the package data with proper typing
+export const allPackages: Package[] = [
   {
     id: "italian-splendor",
-    title: "Italian Splendor",
-    location: "Rome, Florence, Venice",
-    duration: "14 Days",
-    description:
-      "Experience the best of Italy on this comprehensive luxury journey through Rome, Florence, Venice, and the Amalfi Coast.",
-    price: "$12,500",
-    imageSrc: packageLanding,
+    name: "Italian Splendor",
+    tagline: "Experience the Art, Culture, and Cuisine of Italy",
+    locations: ["Rome", "Florence", "Venice", "Amalfi Coast"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "14 Days / 13 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "5-Star Luxury Hotels",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Breakfast & Dinner",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Rome, Welcome Dinner" },
+      { day: 2, description: "Vatican City & Colosseum Tour" },
+      { day: 3, description: "Roman Forum & City Exploration" },
+      { day: 4, description: "Transfer to Florence, Uffizi Gallery" }
+    ],
+    pricing: {
+      pricePerPerson: 12500,
+      doubleOccupancy: 11500,
+      tripleOccupancy: 10500,
+      earlyBirdDiscount: 1000,
+      groupDiscount: 1500,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "Sarah Johnson",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/italian-splendor"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "Schengen visa required for non-EU citizens"
+    },
+    images: [packageLanding],
+    activityIcons: ["culture", "food", "history", "shopping"],
     category: "cultural",
-    featured: true,
+    featured: true
   },
   {
     id: "african-safari",
-    title: "African Safari Adventure",
-    location: "Kenya & Tanzania",
-    duration: "10 Days",
-    description:
-      "Experience the magic of East Africa on this unforgettable safari adventure through Kenya and Tanzania's most iconic wildlife reserves.",
-    price: "$9,800",
-    imageSrc: packageLanding,
+    name: "African Safari Adventure",
+    tagline: "Experience the magic of East Africa",
+    locations: ["Kenya", "Tanzania"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "10 Days / 9 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "Luxury Safari Lodges",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Full Board",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Nairobi" },
+      { day: 2, description: "Transfer to Masai Mara" }
+    ],
+    pricing: {
+      pricePerPerson: 9800,
+      doubleOccupancy: 8800,
+      tripleOccupancy: 7800,
+      earlyBirdDiscount: 800,
+      groupDiscount: 1200,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "John Smith",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/african-safari"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "East African visa required"
+    },
+    images: [packageLanding],
+    activityIcons: ["safari", "wildlife", "adventure"],
     category: "adventure",
-    featured: false,
+    featured: false
   },
   {
     id: "japan-journey",
-    title: "Japan Journey",
-    location: "Tokyo, Kyoto, Hakone",
-    duration: "12 Days",
-    description:
-      "Discover the perfect balance of ancient traditions and modern wonders on this comprehensive tour of Japan.",
-    price: "$10,500",
-    imageSrc: packageLanding,
+    name: "Japan Journey",
+    tagline: "Discover the perfect balance of ancient traditions and modern wonders",
+    locations: ["Tokyo", "Kyoto", "Hakone"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "12 Days / 11 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "4-Star Hotels & Ryokan",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Breakfast & Select Dinners",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Tokyo" },
+      { day: 2, description: "Tokyo City Tour" }
+    ],
+    pricing: {
+      pricePerPerson: 10500,
+      doubleOccupancy: 9500,
+      tripleOccupancy: 8500,
+      earlyBirdDiscount: 900,
+      groupDiscount: 1300,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "Emma Wilson",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/japan-journey"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "Visa-free for most countries"
+    },
+    images: [packageLanding],
+    activityIcons: ["culture", "food", "history"],
     category: "cultural",
-    featured: false,
+    featured: false
   },
   {
     id: "greek-islands",
-    title: "Greek Islands Escape",
-    location: "Athens, Santorini, Mykonos",
-    duration: "9 Days",
-    description:
-      "Indulge in the beauty of the Greek Islands with this luxury escape to Athens, Santorini, and Mykonos.",
-    price: "$8,900",
-    imageSrc: packageLanding,
+    name: "Greek Islands Escape",
+    tagline: "Indulge in the beauty of the Greek Islands",
+    locations: ["Athens", "Santorini", "Mykonos"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "9 Days / 8 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "Luxury Boutique Hotels",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Breakfast & Select Dinners",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Athens" },
+      { day: 2, description: "Athens City Tour" }
+    ],
+    pricing: {
+      pricePerPerson: 8900,
+      doubleOccupancy: 7900,
+      tripleOccupancy: 6900,
+      earlyBirdDiscount: 700,
+      groupDiscount: 1100,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "Michael Brown",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/greek-islands"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "Schengen visa required for non-EU citizens"
+    },
+    images: [packageLanding],
+    activityIcons: ["beach", "culture", "relaxation"],
     category: "wellness",
-    featured: false,
+    featured: false
   },
   {
     id: "peruvian-expedition",
-    title: "Peruvian Expedition",
-    location: "Lima, Cusco, Machu Picchu",
-    duration: "11 Days",
-    description:
-      "Journey through Peru's most iconic destinations, from the vibrant capital of Lima to the ancient ruins of Machu Picchu.",
-    price: "$7,900",
-    imageSrc: packageLanding,
+    name: "Peruvian Expedition",
+    tagline: "Journey through Peru's most iconic destinations",
+    locations: ["Lima", "Cusco", "Machu Picchu"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "11 Days / 10 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "Boutique Hotels & Luxury Lodge",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Breakfast & Select Meals",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Lima" },
+      { day: 2, description: "Lima City Tour" }
+    ],
+    pricing: {
+      pricePerPerson: 7900,
+      doubleOccupancy: 6900,
+      tripleOccupancy: 5900,
+      earlyBirdDiscount: 600,
+      groupDiscount: 1000,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "David Lee",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/peruvian-expedition"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "Visa-free for most countries"
+    },
+    images: [packageLanding],
+    activityIcons: ["adventure", "culture", "history"],
     category: "adventure",
-    featured: false,
+    featured: false
   },
   {
     id: "thai-wellness",
-    title: "Thai Wellness Retreat",
-    location: "Bangkok, Chiang Mai, Phuket",
-    duration: "13 Days",
-    description:
-      "Rejuvenate your mind, body, and soul on this wellness-focused journey through Thailand's most serene destinations.",
-    price: "$9,200",
-    imageSrc: packageLanding,
+    name: "Thai Wellness Retreat",
+    tagline: "Rejuvenate your mind, body, and soul",
+    locations: ["Bangkok", "Chiang Mai", "Phuket"],
+    mapUrl: "https://maps.google.com/...",
+    duration: "13 Days / 12 Nights",
+    inclusions: {
+      flights: true,
+      accommodation: "Luxury Wellness Resorts",
+      airportTransfers: true,
+      guidedTours: true,
+      meals: "Full Board with Wellness Menu",
+      travelInsurance: true
+    },
+    exclusions: [
+      "Visa fees",
+      "Personal expenses",
+      "Tips and gratuities",
+      "Optional activities"
+    ],
+    itinerary: [
+      { day: 1, description: "Arrival in Bangkok" },
+      { day: 2, description: "Bangkok Temple Tour" }
+    ],
+    pricing: {
+      pricePerPerson: 9200,
+      doubleOccupancy: 8200,
+      tripleOccupancy: 7200,
+      earlyBirdDiscount: 800,
+      groupDiscount: 1200,
+      paymentPlans: ["Full Payment", "50% Deposit + Balance"]
+    },
+    bookingInfo: {
+      bookingMethods: ["Website", "Phone", "Email"],
+      consultantName: "Lisa Chen",
+      officeAddress: "123 Travel Street, New York",
+      bookingLink: "https://booking.example.com/thai-wellness"
+    },
+    termsAndConditions: {
+      cancellationPolicy: "Free cancellation up to 30 days before departure",
+      refundPolicy: "Full refund minus processing fees",
+      passportRequirements: "Valid passport with 6 months validity",
+      visaRequirements: "Visa-free for most countries"
+    },
+    images: [packageLanding],
+    activityIcons: ["wellness", "spa", "relaxation"],
     category: "wellness",
-    featured: false,
-  },
+    featured: false
+  }
 ]
 
 // Create a client component for the search functionality
@@ -93,7 +368,7 @@ function PackageSearch() {
   const searchParams = useSearchParams()
   const query = searchParams.get("q")
   const [sortOption, setSortOption] = useState("featured")
-  const [displayedPackages, setDisplayedPackages] = useState(allPackages)
+  const [displayedPackages, setDisplayedPackages] = useState<Package[]>(allPackages)
 
   // Filter and sort packages based on query and sort option
   useEffect(() => {
@@ -104,30 +379,34 @@ function PackageSearch() {
       const searchTerms = query.toLowerCase()
       filtered = filtered.filter(
         (pkg) =>
-          pkg.title.toLowerCase().includes(searchTerms) ||
-          pkg.location.toLowerCase().includes(searchTerms) ||
-          pkg.description.toLowerCase().includes(searchTerms) ||
-          pkg.category.toLowerCase().includes(searchTerms),
+          pkg.name?.toLowerCase().includes(searchTerms) ||
+          pkg.locations?.some((location) => location.toLowerCase().includes(searchTerms)) ||
+          pkg.tagline?.toLowerCase().includes(searchTerms) ||
+          pkg.category?.toLowerCase().includes(searchTerms)
       )
     }
 
     // Sort packages
     switch (sortOption) {
       case "price-low":
-        filtered.sort(
-          (a, b) => Number.parseInt(a.price.replace(/\D/g, "")) - Number.parseInt(b.price.replace(/\D/g, "")),
-        )
+        filtered.sort((a, b) => (a.pricing?.pricePerPerson ?? 0) - (b.pricing?.pricePerPerson ?? 0))
         break
       case "price-high":
-        filtered.sort(
-          (a, b) => Number.parseInt(b.price.replace(/\D/g, "")) - Number.parseInt(a.price.replace(/\D/g, "")),
-        )
+        filtered.sort((a, b) => (b.pricing?.pricePerPerson ?? 0) - (a.pricing?.pricePerPerson ?? 0))
         break
       case "duration-short":
-        filtered.sort((a, b) => Number.parseInt(a.duration) - Number.parseInt(b.duration))
+        filtered.sort((a, b) => {
+          const aDays = parseInt(a.duration?.split(" ")[0] ?? "0")
+          const bDays = parseInt(b.duration?.split(" ")[0] ?? "0")
+          return aDays - bDays
+        })
         break
       case "duration-long":
-        filtered.sort((a, b) => Number.parseInt(b.duration) - Number.parseInt(a.duration))
+        filtered.sort((a, b) => {
+          const aDays = parseInt(a.duration?.split(" ")[0] ?? "0")
+          const bDays = parseInt(b.duration?.split(" ")[0] ?? "0")
+          return bDays - aDays
+        })
         break
       case "featured":
       default:
@@ -160,86 +439,53 @@ function PackageSearch() {
         </div>
       )}
 
-      {/* Featured Package (only show if not searching) */}
+      {/* Featured Package */}
       {!query && featuredPackage && (
         <div className="mb-20 slide-up">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Featured Package</h2>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-3 relative aspect-[16/9] lg:aspect-auto">
               <Image
-                src={featuredPackage.imageSrc || "/placeholder.svg"}
-                alt={featuredPackage.title}
+                src={featuredPackage.images?.[0] || "/placeholder.svg"}
+                alt={featuredPackage.name || "Featured Package"}
                 fill
                 className="object-cover rounded-md"
               />
               <Badge className="absolute top-4 left-4 bg-[#EE1D46]">Featured</Badge>
             </div>
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif text-[#09163A] mb-2">{featuredPackage.title}</h3>
-              <p className="text-[#EE1D46] font-medium mb-4">
-                {featuredPackage.duration} | {featuredPackage.location}
-              </p>
-              <p className="text-gray-700 mb-6">{featuredPackage.description}</p>
+              <h3 className="text-2xl font-serif text-[#09163A] mb-2">{featuredPackage.name || "Featured Package"}</h3>
+              <p className="text-[#EE1D46] font-medium mb-2">{featuredPackage.duration || "Duration not specified"}</p>
+              <p className="text-gray-600 italic mb-4">{featuredPackage.tagline || "No tagline available"}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {featuredPackage.locations?.map((location, index) => (
+                  <Badge key={index} variant="outline" className="border-[#09163A] text-[#09163A]">
+                    {location}
+                  </Badge>
+                ))}
+              </div>
               <div className="space-y-4 mb-6">
-                <div className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>Luxury accommodations in 5-star hotels and boutique properties</span>
+                <div className="flex items-center">
+                  <Hotel className="h-5 w-5 text-[#EE1D46] mr-3" />
+                  <span>{featuredPackage.inclusions?.accommodation || "Accommodation not specified"}</span>
                 </div>
-                <div className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>Private guided tours of iconic landmarks and hidden gems</span>
+                <div className="flex items-center">
+                  <Utensils className="h-5 w-5 text-[#EE1D46] mr-3" />
+                  <span>{featuredPackage.inclusions?.meals || "Meals not specified"}</span>
                 </div>
-                <div className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>Exclusive culinary experiences, including cooking classes and wine tastings</span>
-                </div>
+                {featuredPackage.inclusions?.flights && (
+                  <div className="flex items-center">
+                    <Plane className="h-5 w-5 text-[#EE1D46] mr-3" />
+                    <span>Flights Included</span>
+                  </div>
+                )}
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-sm text-gray-500">Starting from</span>
-                  <p className="text-2xl font-serif text-[#09163A]">{featuredPackage.price} per person</p>
+                  <p className="text-2xl font-serif text-[#09163A]">
+                    ${featuredPackage.pricing?.pricePerPerson?.toLocaleString() ?? 0} per person
+                  </p>
                 </div>
                 <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
                   <Link href={`/packages/${featuredPackage.id}`}>View Details</Link>
@@ -251,7 +497,7 @@ function PackageSearch() {
       )}
 
       {/* Package Categories (only show if not searching) */}
-      {!query && (
+      {/* {!query && (
         <div className="mb-16 slide-up" style={{ animationDelay: "0.2s" }}>
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Browse by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -302,7 +548,7 @@ function PackageSearch() {
             </Link>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* All Packages */}
       <div className="slide-up" style={{ animationDelay: "0.3s" }}>
@@ -330,13 +576,14 @@ function PackageSearch() {
           {displayedPackages.map((pkg) => (
             <PackageCard
               key={pkg.id}
-              title={pkg.title}
-              location={pkg.location}
+              name={pkg.name}
+              tagline={pkg.tagline}
+              locations={pkg.locations}
               duration={pkg.duration}
-              description={pkg.description}
-              price={pkg.price}
-              imageSrc={pkg.imageSrc}
+              pricing={pkg.pricing}
+              images={pkg.images}
               id={pkg.id}
+              inclusions={pkg.inclusions}
             />
           ))}
         </div>
@@ -425,54 +672,73 @@ export default function PackagesPage() {
 }
 
 interface PackageCardProps {
-  title: string
-  location: string
-  duration: string
-  description: string
-  price: string
-  imageSrc: any
-  id: string
+  name?: string;
+  tagline?: string;
+  locations?: string[];
+  duration?: string;
+  pricing?: Package['pricing'];
+  images?: any[];
+  id: string;
+  inclusions?: Package['inclusions'];
 }
 
-// Update the PackageCard component to link to the detail page
-function PackageCard({ title, location, duration, description, price, imageSrc, id }: PackageCardProps) {
+// Update the PackageCard component to handle optional props
+function PackageCard({ 
+  name = "Package Name", 
+  tagline = "Package Description", 
+  locations = [], 
+  duration = "Duration not specified", 
+  pricing = { pricePerPerson: 0 }, 
+  images = [], 
+  id,
+  inclusions = {} 
+}: PackageCardProps) {
   return (
     <Card className="overflow-hidden hover-lift">
       <div className="relative aspect-[4/3]">
-        <Image src={imageSrc || "/placeholder.svg"} alt={title} fill className="object-cover" />
+        <Image src={images?.[0] || "/placeholder.svg"} alt={name} fill className="object-cover" />
+        {inclusions?.flights && (
+          <Badge className="absolute top-4 right-4 bg-[#EE1D46]">Flights Included</Badge>
+        )}
       </div>
       <CardHeader>
-        <CardTitle className="text-xl font-serif text-[#09163A]">{title}</CardTitle>
+        <CardTitle className="text-xl font-serif text-[#09163A]">{name}</CardTitle>
         <CardDescription>
-          <span className="text-[#EE1D46] font-medium">
-            {duration} | {location}
-          </span>
+          <p className="text-[#EE1D46] font-medium mb-2">{duration}</p>
+          <p className="text-gray-600 italic">{tagline}</p>
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-700 mb-4">{description}</p>
-        <div className="flex items-center space-x-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-[#EE1D46]"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-          </svg>
-          <span className="text-sm">Luxury Accommodations</span>
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            {locations.map((location, index) => (
+              <Badge key={index} variant="outline" className="border-[#09163A] text-[#09163A]">
+                {location}
+              </Badge>
+            ))}
+          </div>
+          <div className="space-y-2">
+            {inclusions?.accommodation && (
+              <div className="flex items-center">
+                <Hotel className="h-4 w-4 text-[#EE1D46] mr-2" />
+                <span className="text-sm">{inclusions.accommodation}</span>
+              </div>
+            )}
+            {inclusions?.meals && (
+              <div className="flex items-center">
+                <Utensils className="h-4 w-4 text-[#EE1D46] mr-2" />
+                <span className="text-sm">{inclusions.meals}</span>
+              </div>
+            )}
+          </div>
         </div>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
         <div>
           <span className="text-sm text-gray-500">From</span>
-          <p className="text-lg font-serif text-[#09163A]">{price} per person</p>
+          <p className="text-lg font-serif text-[#09163A]">
+            ${pricing?.pricePerPerson?.toLocaleString() ?? 0} per person
+          </p>
         </div>
         <Button
           variant="outline"
@@ -483,5 +749,5 @@ function PackageCard({ title, location, duration, description, price, imageSrc, 
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
