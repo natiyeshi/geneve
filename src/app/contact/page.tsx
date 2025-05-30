@@ -160,7 +160,7 @@ export default function ContactPage() {
               />
             </div>
             {/* Contact Icons */}
-          <div className="flex flex-wrap justify-center items-center gap-10 mb-24">
+          <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
             {/* WhatsApp */}
             <a
               href="https://wa.me/251989111111"
