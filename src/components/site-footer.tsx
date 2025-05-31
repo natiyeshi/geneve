@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa6";
 
-import logo from "@/../public/assets/logo/Group 6 (2).svg";
+import logo from "@/../public/assets/logo/log.svg";
 import Image from "next/image";
 
 export function SiteFooter() {

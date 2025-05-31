@@ -1,66 +1,5 @@
-import packageLanding from "@/../public/assets/image/package-landing.jpg"
-
-import it1 from "@/../public/assets/image/p/it1.jpg"
-import it2 from "@/../public/assets/image/p/it2.jpg"
-import afr1 from "@/../public/assets/image/p/afr1.jpg"
-import afr2 from "@/../public/assets/image/p/afr2.jpg"
-import jp1 from "@/../public/assets/image/p/jp1.jpg"
-import jp2 from "@/../public/assets/image/p/jp2.jpg"
-import grk1 from "@/../public/assets/image/p/greek1.jpg"
-import grk2 from "@/../public/assets/image/p/greek2.jpg"
-import pe1 from "@/../public/assets/image/p/pe1.jpg"
-import pe2 from "@/../public/assets/image/p/pe2.jpg"
-import tw1 from "@/../public/assets/image/p/tw1.jpg"
-import tw2 from "@/../public/assets/image/p/tw2.jpg"
-
-
-export interface PackageInf {
-    _id: string;
-    name?: string;
-    tagline?: string;
-    locations?: string[];
-    mapUrl?: string;
-    duration?: string;
-    inclusions?: {
-      flights?: boolean;
-      accommodation?: string;
-      airportTransfers?: boolean;
-      guidedTours?: boolean;
-      meals?: string;
-      travelInsurance?: boolean;
-    };
-    exclusions?: string[];
-    itinerary?: Array<{ day: number; description: string }>;
-    pricing?: {
-      pricePerPerson?: number;
-      doubleOccupancy?: number;
-      tripleOccupancy?: number;
-      earlyBirdDiscount?: number;
-      groupDiscount?: number;
-      paymentPlans?: string[];
-    };
-    bookingInfo?: {
-      bookingMethods?: string[];
-      consultantName?: string;
-      officeAddress?: string;
-      bookingLink?: string;
-    };
-    termsAndConditions?: {
-      cancellationPolicy?: string;
-      refundPolicy?: string;
-      passportRequirements?: string;
-      visaRequirements?: string;
-    };
-    images?: any[];
-    activityIcons?: string[];
-    category?: string;
-    featured?: boolean;
-  }
-  
-  // Update the package data with proper typing
-  export const allPackages: PackageInf[] = [
+ const allPackages = [
     {
-      _id: "italian-splendor",
       name: "Italian Splendor",
       tagline: "Experience the Art, Culture, and Cuisine of Italy",
       locations: ["Rome", "Florence", "Venice", "Amalfi Coast"],
@@ -106,13 +45,12 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Schengen visa required for non-EU citizens"
       },
-      images: [it1, it2],
+      images:[],
       activityIcons: ["culture", "food", "history", "shopping"],
       category: "cultural",
       featured: true
     },
     {
-      _id: "african-safari",
       name: "African Safari Adventure",
       tagline: "Experience the magic of East Africa",
       locations: ["Kenya", "Tanzania"],
@@ -156,13 +94,12 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "East African visa required"
       },
-      images: [afr1, afr2],
+      images:[],
       activityIcons: ["safari", "wildlife", "adventure"],
       category: "adventure",
       featured: false
     },
     {
-      _id: "japan-journey",
       name: "Japan Journey",
       tagline: "Discover the perfect balance of ancient traditions and modern wonders",
       locations: ["Tokyo", "Kyoto", "Hakone"],
@@ -206,13 +143,12 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [jp1, jp2],
+      images:[],
       activityIcons: ["culture", "food", "history"],
       category: "cultural",
       featured: false
     },
     {
-      _id: "greek-islands",
       name: "Greek Islands Escape",
       tagline: "Indulge in the beauty of the Greek Islands",
       locations: ["Athens", "Santorini", "Mykonos"],
@@ -256,13 +192,12 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Schengen visa required for non-EU citizens"
       },
-      images: [grk1, grk2],
+      images:[],
       activityIcons: ["beach", "culture", "relaxation"],
       category: "wellness",
       featured: false
     },
     {
-      _id: "peruvian-expedition",
       name: "Peruvian Expedition",
       tagline: "Journey through Peru&apos;s most iconic destinations",
       locations: ["Lima", "Cusco", "Machu Picchu"],
@@ -306,13 +241,12 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [pe1, pe2],
+      images:[],
       activityIcons: ["adventure", "culture", "history"],
       category: "adventure",
       featured: false
     },
     {
-      _id: "thai-wellness",
       name: "Thai Wellness Retreat",
       tagline: "Rejuvenate your mind, body, and soul",
       locations: ["Bangkok", "Chiang Mai", "Phuket"],
@@ -356,9 +290,30 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [tw1, tw2],
+      images:[],
       activityIcons: ["wellness", "spa", "relaxation"],
       category: "wellness",
       featured: false
     }
   ]
+
+allPackages.forEach((pkg, idx) => {
+    fetch('http://localhost:3000/api/packages', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pkg)
+    })
+    .then(async response => {
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            console.error(`Error for package ${idx + 2}:`, response.status, data);
+        } else {
+            console.log(`Success for package ${idx + 2}:`, data);
+        }
+    })
+    .catch(error => {
+        console.error(`Network Error for package ${idx + 2}:`, error);
+    });
+});

@@ -6,7 +6,7 @@ import { Menu, Search, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { MainNav } from "@/components/main-nav"
 import { SearchDialog } from "@/components/search-dialog"
-import logo from "@/../public/assets/logo/Group 6 (2).svg"
+import logo from "@/../public/assets/logo/log.svg"
 import Image from "next/image"
 
 export function SiteHeader({ isDark = false }: { isDark?: boolean }) {

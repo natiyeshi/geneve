@@ -12,7 +12,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
 import packageLanding from "@/../public/assets/image/package-landing.jpg"
 import { Hotel, Utensils, Plane } from "lucide-react"
-import { allPackages, PackageInf } from "./data"
+import { PackageInf } from "./data"
 
 // Define a proper interface for the package data with optional properties
 
@@ -22,57 +22,62 @@ function PackageSearch() {
   const searchParams = useSearchParams()
   const query = searchParams.get("q")
   const [sortOption, setSortOption] = useState("featured")
-  const [displayedPackages, setDisplayedPackages] = useState<PackageInf[]>(allPackages)
+  const [displayedPackages, setDisplayedPackages] = useState<PackageInf[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState("")
 
-  // Filter and sort packages based on query and sort option
+  // Fetch and filter packages based on query and sort option
   useEffect(() => {
-    let filtered = [...allPackages]
-
-    // Filter by search query if present
-    if (query) {
-      const searchTerms = query.toLowerCase()
-      filtered = filtered.filter(
-        (pkg) =>
-          pkg.name?.toLowerCase().includes(searchTerms) ||
-          pkg.locations?.some((location) => location.toLowerCase().includes(searchTerms)) ||
-          pkg.tagline?.toLowerCase().includes(searchTerms) ||
-          pkg.category?.toLowerCase().includes(searchTerms)
-      )
+    const fetchPackages = async () => {
+      try {
+        setIsLoading(true)
+        setError("")
+        
+        // Build the API URL with query parameters
+        const params = new URLSearchParams()
+        if (query) params.append("q", query)
+        params.append("sortBy", sortOption)
+        
+        const response = await fetch(`/api/packages?${params.toString()}`)
+        if (!response.ok) {
+          throw new Error("Failed to fetch packages")
+        }
+        
+        const data = await response.json()
+        setDisplayedPackages(data)
+      } catch (err) {
+        console.error("Error fetching packages:", err)
+        setError("Failed to load packages. Please try again later.")
+      } finally {
+        setIsLoading(false)
+      }
     }
 
-    // Sort packages
-    switch (sortOption) {
-      case "price-low":
-        filtered.sort((a, b) => (a.pricing?.pricePerPerson ?? 0) - (b.pricing?.pricePerPerson ?? 0))
-        break
-      case "price-high":
-        filtered.sort((a, b) => (b.pricing?.pricePerPerson ?? 0) - (a.pricing?.pricePerPerson ?? 0))
-        break
-      case "duration-short":
-        filtered.sort((a, b) => {
-          const aDays = parseInt(a.duration?.split(" ")[0] ?? "0")
-          const bDays = parseInt(b.duration?.split(" ")[0] ?? "0")
-          return aDays - bDays
-        })
-        break
-      case "duration-long":
-        filtered.sort((a, b) => {
-          const aDays = parseInt(a.duration?.split(" ")[0] ?? "0")
-          const bDays = parseInt(b.duration?.split(" ")[0] ?? "0")
-          return bDays - aDays
-        })
-        break
-      case "featured":
-      default:
-        filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
-        break
-    }
-
-    setDisplayedPackages(filtered)
+    fetchPackages()
   }, [query, sortOption])
 
   // Get featured package
-  const featuredPackage = allPackages.find((pkg) => pkg.featured)
+  const featuredPackage = displayedPackages.find((pkg) => pkg.featured)
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto py-12 text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EE1D46] mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading packages...</p>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto py-12 text-center">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative">
+          <p className="font-medium">Error</p>
+          <p className="text-sm">{error}</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="container mx-auto">
@@ -142,7 +147,7 @@ function PackageSearch() {
                   </p>
                 </div>
                 <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
-                  <Link href={`/packages/${featuredPackage.id}`}>View Details</Link>
+                  <Link href={`/packages/${featuredPackage._id}`}>View Details</Link>
                 </Button>
               </div>
             </div>
@@ -229,14 +234,14 @@ function PackageSearch() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedPackages.map((pkg) => (
             <PackageCard
-              key={pkg.id}
+              key={pkg._id}
               name={pkg.name}
               tagline={pkg.tagline}
               locations={pkg.locations}
               duration={pkg.duration}
               pricing={pkg.pricing}
               images={pkg.images}
-              id={pkg.id}
+              id={pkg._id}
               inclusions={pkg.inclusions}
             />
           ))}

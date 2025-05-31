@@ -4,6 +4,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ClientSessionProvider } from "@/components/client-session-provider";
+import I18nProvider from '@/providers/I18nProvider';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -70,22 +71,25 @@ export default function RootLayout({
 
         {/* Favicon & Apple Icons */}
       </head>
-      <ClientSessionProvider>
-        <body className={`antialiased bg-white ${montserrat.className}`}>
-          <NextTopLoader
-            color="#EE1D46"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={3}
-            crawl={true}
-            showSpinner={false}
-            easing="ease"
-            speed={200}
-            shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
-          />
-          {children}
-        </body>
-      </ClientSessionProvider>
+      <I18nProvider>
+        <ClientSessionProvider>
+          <body className={`antialiased bg-white ${montserrat.className}`}>
+            <NextTopLoader
+              color="#EE1D46"
+              initialPosition={0.08}
+              crawlSpeed={200}
+              height={3}
+              crawl={true}
+              showSpinner={false}
+              easing="ease"
+              speed={200}
+              shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
+            />
+            {children}
+          </body>
+        </ClientSessionProvider>
+      </I18nProvider>
+
     </html>
   );
 }
