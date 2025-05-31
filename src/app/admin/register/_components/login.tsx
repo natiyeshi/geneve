@@ -135,7 +135,7 @@ export default function LoginForm() {
                   href="/admin/register?mode=signup"
                   className="font-medium text-[#EE1D46] hover:text-[#EE1D46]/90"
                 >
-                  Don't have an account? Sign up
+                  Don&apos;t have an account? Sign up
                 </Link>
               </div>
             </Form>
