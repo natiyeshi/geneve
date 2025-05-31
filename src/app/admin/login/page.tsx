@@ -2,4 +2,15 @@
 
 export const dynamic = 'force-dynamic';
 
-// ... rest of your login page code ... 
+import { useRouter } from "next/navigation";
+import LoginForm from "../register/_components/login";
+
+export default function LoginPage() {
+  const router = useRouter();
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <LoginForm />
+    </div>
+  );
+} 
