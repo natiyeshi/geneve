@@ -135,11 +135,11 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/attractions?q=istanbul"
+                  href="/attractions?q=turkey"
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Istanbul
+                  Turkey
                 </Link>
               </li>
               <li>

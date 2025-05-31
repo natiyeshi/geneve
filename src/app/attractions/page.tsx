@@ -14,7 +14,7 @@ import gmel from "@/../public/images/gmel.jpg"
 // Import new attraction images
 import dubai from "@/../public/images/ni/SaudiArabia.jpg" // Using Saudi image for Dubai temporarily
 import china from "@/../public/images/ni/china.jpg"
-import istanbul from "@/../public/images/ni/Istanbul.jpg"
+import istanbul from "@/../public/images/ni/Istanbul.jpg" // Using Istanbul image for Turkey temporarily
 import usa from "@/../public/images/ni/USA.jpg"
 import jerusalem from "@/../public/images/ni/Jerusalem.jpg"
 import saudiArabia from "@/../public/images/ni/SaudiArabia.jpg"
@@ -68,8 +68,8 @@ function AttractionsContent() {
           <div id="attraction-china">
             <AttractionCardShow title="China" imageSrc={china} href="/attractions?q=china" />
           </div>
-          <div id="attraction-istanbul">
-            <AttractionCardShow title="Istanbul" imageSrc={istanbul} href="/attractions?q=istanbul" />
+          <div id="attraction-turkey">
+            <AttractionCardShow title="Turkey" imageSrc={istanbul} href="/attractions?q=turkey" />
           </div>
           <div id="attraction-jerusalem">
             <AttractionCardShow title="Jerusalem" imageSrc={jerusalem} href="/attractions?q=jerusalem" />

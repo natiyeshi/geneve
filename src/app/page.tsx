@@ -44,7 +44,7 @@ import RovePartnerSection from "@/components/Pr";
 
 import dubai from "@/../public/images/ni/SaudiArabia.jpg" // Using Saudi image for Dubai temporarily
 import china from "@/../public/images/ni/china.jpg"
-import istanbul from "@/../public/images/ni/Istanbul.jpg"
+import istanbul from "@/../public/images/ni/Istanbul.jpg" // Using Istanbul image for Turkey temporarily
 import usa from "@/../public/images/ni/USA.jpg"
 import jerusalem from "@/../public/images/ni/Jerusalem.jpg"
 import saudiArabia from "@/../public/images/ni/SaudiArabia.jpg"
@@ -318,9 +318,9 @@ export default function Home() {
               href="/attractions?q=china"
             />
             <AttractionCard
-              title="Istanbul"
+              title="Turkey"
               imageSrc={istanbul}
-              href="/attractions?q=istanbul"
+              href="/attractions?q=turkey"
             />
             <AttractionCard
               title="Jerusalem"
