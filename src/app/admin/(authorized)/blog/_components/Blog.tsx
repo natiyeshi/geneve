@@ -10,7 +10,7 @@ import { getMaxString } from "@/utils/helper";
 const Blog = ({ blog, onDelete }: { blog: ICBlog; onDelete: Function }) => {
   return (
     <div className="bg-white rounded-xl text-adminText flex flex-col gap-2 w-[300px] px-2 py-2 shadow">
-      <div className="font-semibold text-lg capitalize">{blog.topic}</div>
+      <div className="font-semibold text-lg capitalize">{blog.title}</div>
       <Image
         src={blog.image}
         className="w-[300px] my-auto rounded-xl h-[200px] object-cover "
@@ -21,11 +21,11 @@ const Blog = ({ blog, onDelete }: { blog: ICBlog; onDelete: Function }) => {
       />
       <div className="flex flex-col gap-2 mt-auto">
         <div className="flex flex-col text-sm mt-4">
-          <div className="font-semibold">{getMaxString(blog.desc)}</div>
+          <div className="font-semibold">{getMaxString(blog.content)}</div>
         </div>
         <div className="flex justify-around">
           <Link
-            href={"/blogs/" + blog.link}
+            href={"/blogs/" + blog.title}
             target="_blank"
             rel="noopener noreferrer"
           >
