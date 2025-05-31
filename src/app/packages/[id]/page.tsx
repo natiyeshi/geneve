@@ -14,7 +14,7 @@ import p2 from "@/../public/assets/image/packages/p2.jpg"
 import p3 from "@/../public/assets/image/packages/p3.jpg"
 import p4 from "@/../public/assets/image/packages/p4.jpg"
 import p5 from "@/../public/assets/image/packages/p5.jpg"
-import { allPackages } from "../page" 
+import { allPackages } from "../data"
 // Updated package data structure
 // const packageData = {
 //   id: "italian-splendor",
