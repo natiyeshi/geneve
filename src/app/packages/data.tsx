@@ -1,5 +1,19 @@
 import packageLanding from "@/../public/assets/image/package-landing.jpg"
 
+import it1 from "@/../public/assets/image/p/it1.jpg"
+import it2 from "@/../public/assets/image/package-landing.jpg"
+import afr1 from "@/../public/assets/image/p/afr1.jpg"
+import afr2 from "@/../public/assets/image/p/afr2.jpg"
+import jp1 from "@/../public/assets/image/p/jp1.jpg"
+import jp2 from "@/../public/assets/image/p/jp2.jpg"
+import grk1 from "@/../public/assets/image/p/greek1.jpg"
+import grk2 from "@/../public/assets/image/p/greek2.jpg"
+import pe1 from "@/../public/assets/image/p/pe1.jpg"
+import pe2 from "@/../public/assets/image/p/pe2.jpg"
+import tw1 from "@/../public/assets/image/p/tw1.jpg"
+import tw2 from "@/../public/assets/image/p/tw2.jpg"
+
+
 export interface PackageInf {
     id: string;
     name?: string;
@@ -92,7 +106,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Schengen visa required for non-EU citizens"
       },
-      images: [packageLanding],
+      images: [it1, it2],
       activityIcons: ["culture", "food", "history", "shopping"],
       category: "cultural",
       featured: true
@@ -142,7 +156,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "East African visa required"
       },
-      images: [packageLanding],
+      images: [afr1],
       activityIcons: ["safari", "wildlife", "adventure"],
       category: "adventure",
       featured: false
@@ -192,7 +206,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [packageLanding],
+      images: [jp1],
       activityIcons: ["culture", "food", "history"],
       category: "cultural",
       featured: false
@@ -242,7 +256,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Schengen visa required for non-EU citizens"
       },
-      images: [packageLanding],
+      images: [grk1],
       activityIcons: ["beach", "culture", "relaxation"],
       category: "wellness",
       featured: false
@@ -292,7 +306,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [packageLanding],
+      images: [pe1, pe2],
       activityIcons: ["adventure", "culture", "history"],
       category: "adventure",
       featured: false
@@ -342,7 +356,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [packageLanding],
+      images: [tw1, tw2],
       activityIcons: ["wellness", "spa", "relaxation"],
       category: "wellness",
       featured: false
