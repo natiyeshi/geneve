@@ -4,6 +4,8 @@ import LoginForm from "./_components/login";
 import SignupForm from "./_components/signup";
 import { useEffect, useState } from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default function AuthPage() {
   const searchParams = useSearchParams();
   const [showSuccess, setShowSuccess] = useState(false);
