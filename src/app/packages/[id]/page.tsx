@@ -91,7 +91,7 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-serif text-[#09163A] mb-4">Package Not Found</h1>
-          <p className="text-gray-600 mb-6">The package you're looking for doesn't exist.</p>
+          <p className="text-gray-600 mb-6">The package you&apos;re looking for doesn&apos;t exist.</p>
           <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
             <Link href="/packages">View All Packages</Link>
           </Button>
@@ -146,7 +146,7 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
                 {/* Inclusions & Exclusions */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-2xl font-serif text-[#09163A] mb-4">What's Included</h3>
+                    <h3 className="text-2xl font-serif text-[#09163A] mb-4">What&apos;s Included</h3>
                     <div className="space-y-4">
                       {packageData.inclusions?.flights && (
                         <div className="flex items-center">
@@ -187,7 +187,7 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-serif text-[#09163A] mb-4">What's Not Included</h3>
+                    <h3 className="text-2xl font-serif text-[#09163A] mb-4">What&apos;s Not Included</h3>
                     <ul className="space-y-2">
                       {packageData.exclusions?.map((exclusion, index) => (
                         <li key={index} className="flex items-start">

@@ -264,7 +264,7 @@ export const allPackages: Package[] = [
   {
     id: "peruvian-expedition",
     name: "Peruvian Expedition",
-    tagline: "Journey through Peru's most iconic destinations",
+    tagline: "Journey through Peru&apos;s most iconic destinations",
     locations: ["Lima", "Cusco", "Machu Picchu"],
     mapUrl: "https://maps.google.com/...",
     duration: "11 Days / 10 Nights",
