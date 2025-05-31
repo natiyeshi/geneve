@@ -1,7 +1,7 @@
 import packageLanding from "@/../public/assets/image/package-landing.jpg"
 
 import it1 from "@/../public/assets/image/p/it1.jpg"
-import it2 from "@/../public/assets/image/package-landing.jpg"
+import it2 from "@/../public/assets/image/p/it2.jpg"
 import afr1 from "@/../public/assets/image/p/afr1.jpg"
 import afr2 from "@/../public/assets/image/p/afr2.jpg"
 import jp1 from "@/../public/assets/image/p/jp1.jpg"
@@ -156,7 +156,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "East African visa required"
       },
-      images: [afr1],
+      images: [afr1, afr2],
       activityIcons: ["safari", "wildlife", "adventure"],
       category: "adventure",
       featured: false
@@ -206,7 +206,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Visa-free for most countries"
       },
-      images: [jp1],
+      images: [jp1, jp2],
       activityIcons: ["culture", "food", "history"],
       category: "cultural",
       featured: false
@@ -256,7 +256,7 @@ export interface PackageInf {
         passportRequirements: "Valid passport with 6 months validity",
         visaRequirements: "Schengen visa required for non-EU citizens"
       },
-      images: [grk1],
+      images: [grk1, grk2],
       activityIcons: ["beach", "culture", "relaxation"],
       category: "wellness",
       featured: false
