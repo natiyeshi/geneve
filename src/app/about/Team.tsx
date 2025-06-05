@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import ts from "@/../public/images/ts.png";
 import ab from "@/../public/images/ab.png";
@@ -58,39 +59,38 @@ const styles = `
 `;
 
 const Team = () => {
+  const { t } = useTranslation();
+
   const teamMembers = [
     {
-      name: "Mr. Abraham Lemma",
-      role: "CEO",
-      description: `
-      With a business journey that began in 2008, our CEO brings over 15 years of entrepreneurial experience across multiple industries. He started in hotel management and ownership, then expanded into importing and selling cars. He became the first person in Ethiopia to put his own company name on  engine oil and lubricants that manufactured by Dubai company ,He also imported and distributed car batteries throughout Ethiopia.
-
-Throughout his journey, he has consistently demonstrated a sharp eye for opportunity and sustainable growth. Today, he is expanding his operations on a global scale, with new ventures including a world-class travel agency that aims to redefine international travel experiences. His leadership is rooted in vision, versatility, and a deep commitment to excellence across every venture.`,
+      name: t('about.team.ceo.name'),
+      role: t('about.team.ceo.role'),
+      description: t('about.team.ceo.description'),
       delay: "0.1s",
       img: ab,
       isCEO: true,
     },
     {
-      name: "Tsion Dereje Haile",
-      role: "Tour and Travel, Addis Ababa Operation Head",
-      phone: "+251 98 911 1112",
+      name: t('about.team.members.tsion.name'),
+      role: t('about.team.members.tsion.role'),
+      phone: "+251 98 911 1111",
       description: "",
       delay: "0.2s",
       img: ts,
       isCEO: false,
     },
     {
-      name: "YEABTSEGA BEHAILU",
-      role: "Office Assistant",
+      name: t('about.team.members.yeabtsega.name'),
+      role: t('about.team.members.yeabtsega.role'),
+      phone: "+251 98 911 1111",
       description: "",
       delay: "0.3s",
-      phone: "+251 98 911 1111",
       img: yabtsega,
       isCEO: false,
     },
     {
-      name: "Evangeline Guinto Ramelo",
-      role: "Tour and Travel, Dubai Operation Head",
+      name: t('about.team.members.evangeline.name'),
+      role: t('about.team.members.evangeline.role'),
       description: "",
       delay: "0.4s",
       img: Evangeline,
@@ -120,7 +120,7 @@ Throughout his journey, he has consistently demonstrated a sharp eye for opportu
       <style>{styles}</style>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-serif font-light text-[#09163A] mb-16 text-center slide-up relative">
-          Meet Our Team
+          {t('about.team.title')}
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 gradient-bg rounded-full"></div>
         </h2>
 

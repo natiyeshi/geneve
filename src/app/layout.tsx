@@ -85,6 +85,23 @@ export default function RootLayout({
               speed={200}
               shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
             />
+            {/* Referral Tracking Script */}
+            <Script
+              id="referral-tracking"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const ref = urlParams.get('ref');
+                    if (ref) {
+                      fetch('/api/referral?ref=' + ref)
+                        .catch(error => console.error('Error tracking referral:', error));
+                    }
+                  })();
+                `,
+              }}
+            />
             {children}
           </body>
         </ClientSessionProvider>

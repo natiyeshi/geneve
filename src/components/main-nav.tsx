@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -65,6 +66,7 @@ const aboutItems = [
 
 export function MainNav({ isDark = false }: { isDark?: boolean }) {
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   // Function to check if a path is active
   const isActive = (path: string) => {
@@ -103,7 +105,7 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
                 getTextColor("/attractions")
               )}
             >
-              Attractions
+              {t('header.navigation.attractions')}
             </NavigationMenuLink>
           </Link>
           <NavigationMenuContent>
@@ -129,7 +131,7 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
                 getTextColor("/packages")
               )}
             >
-              Packages
+              {t('header.navigation.packages')}
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -142,7 +144,7 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
                 getTextColor("/about")
               )}
             >
-              About Us
+              {t('header.navigation.about')}
             </NavigationMenuLink>
           </Link>
           <NavigationMenuContent>
@@ -164,7 +166,7 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
                 getTextColor("/blog")
               )}
             >
-              Blog & Press
+              {t('header.navigation.blog')}
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -177,7 +179,7 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
                 getTextColor("/contact")
               )}
             >
-              Contact Us
+              {t('header.navigation.contact')}
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

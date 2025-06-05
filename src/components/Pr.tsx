@@ -1,22 +1,27 @@
+"use client";
+
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, MapPin, Star, Users } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import hotel from "@/../public/images/hotel.png"
 
 export default function RovePartnerSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="w-full container py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif  font-light tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
-            Our Trusted Partner
+          <h2 className="text-3xl font-serif font-light tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
+            {t('partner.title')}
           </h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            We are proud to partner with industry leaders who share our commitment to exceptional experiences
+            {t('partner.subtitle')}
           </p>
         </div>
 
@@ -30,15 +35,13 @@ export default function RovePartnerSection() {
                   <Star className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-primary font-serif">ROVE HOTELS IN DUBAI</h3>
-                  <p className="text-secondary font-medium">Premium Hospitality Partner</p>
+                  <h3 className="text-2xl font-bold text-primary font-serif">{t('partner.hotel.title')}</h3>
+                  <p className="text-secondary font-medium">{t('partner.hotel.subtitle')}</p>
                 </div>
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Rove Hotels represents the blank page for your wanderlust story - your gateway to the path less
-                travelled. With their modern approach to hospitality, they create homey, fun, and different experiences
-                for every guest.
+                {t('partner.hotel.description')}
               </p>
             </div>
 
@@ -47,24 +50,24 @@ export default function RovePartnerSection() {
               <Card className="border-primary/20">
                 <CardContent className="p-4 text-center">
                   <MapPin className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">Multiple Locations</h4>
-                  <p className="text-sm text-muted-foreground">Strategic hotel placements</p>
+                  <h4 className="font-semibold text-primary">{t('partner.features.locations.title')}</h4>
+                  <p className="text-sm text-muted-foreground">{t('partner.features.locations.description')}</p>
                 </CardContent>
               </Card>
 
               <Card className="border-primary/20">
                 <CardContent className="p-4 text-center">
                   <Users className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">Guest Focused</h4>
-                  <p className="text-sm text-muted-foreground">Exceptional service standards</p>
+                  <h4 className="font-semibold text-primary">{t('partner.features.guests.title')}</h4>
+                  <p className="text-sm text-muted-foreground">{t('partner.features.guests.description')}</p>
                 </CardContent>
               </Card>
 
               <Card className="border-primary/20">
                 <CardContent className="p-4 text-center">
                   <Star className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">Premium Quality</h4>
-                  <p className="text-sm text-muted-foreground">Award-winning hospitality</p>
+                  <h4 className="font-semibold text-primary">{t('partner.features.quality.title')}</h4>
+                  <p className="text-sm text-muted-foreground">{t('partner.features.quality.description')}</p>
                 </CardContent>
               </Card>
             </div>
@@ -73,11 +76,10 @@ export default function RovePartnerSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild className="bg-primary hover:bg-primary/90">
                 <Link href="http://www.rovehotels.com/" target="_blank" rel="noopener noreferrer">
-                  Visit Rove Hotels
+                  {t('partner.cta.visit')}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-             
             </div>
           </div>
 
@@ -96,13 +98,13 @@ export default function RovePartnerSection() {
               {/* Overlay Content */}
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4">
-                  <h4 className="font-bold text-primary mb-1">The Rove Experience</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Homey • Fun • Different</p>
+                  <h4 className="font-bold text-primary mb-1">{t('partner.experience.title')}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{t('partner.experience.subtitle')}</p>
                   <div className="flex items-center space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-secondary text-secondary" />
                     ))}
-                    <span className="ml-2 text-sm font-medium text-primary">5.0 Partner Rating</span>
+                    <span className="ml-2 text-sm font-medium text-primary">{t('partner.experience.rating')}</span>
                   </div>
                 </div>
               </div>
@@ -118,19 +120,19 @@ export default function RovePartnerSection() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <div className="text-3xl font-bold text-primary mb-2">5+</div>
-            <div className="text-sm text-muted-foreground">Years Partnership</div>
+            <div className="text-sm text-muted-foreground">{t('partner.stats.partnership')}</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-secondary mb-2">50K+</div>
-            <div className="text-sm text-muted-foreground">Happy Guests</div>
+            <div className="text-sm text-muted-foreground">{t('partner.stats.guests')}</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-primary mb-2">15+</div>
-            <div className="text-sm text-muted-foreground">Hotel Locations</div>
+            <div className="text-sm text-muted-foreground">{t('partner.stats.locations')}</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-secondary mb-2">98%</div>
-            <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+            <div className="text-sm text-muted-foreground">{t('partner.stats.satisfaction')}</div>
           </div>
         </div>
       </div>

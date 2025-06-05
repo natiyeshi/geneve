@@ -8,23 +8,35 @@ import { CTASection } from "@/components/cta-section"
 import blog1 from "@/../public/assets/image/blog-2.jpg"
 import { Button } from "@/components/ui/button"
 
-interface BlogPost extends NewsCardProps {
+interface BlogPost {
+  _id: string
+  topic: string
+  desc: string
   content: string
-  date: string
-  author: string
+  image: string
+  link: string
+  createdAt: string
+  updatedAt: string
 }
 
-// This would typically come from your database or CMS
+// Fetch blog post from API
 const getBlogPost = async (id: string): Promise<BlogPost | null> => {
-  // Mock data for demonstration
-  return {
-    title: "Sample Blog Post",
-    category: "Travel",
-    imageSrc: blog1,
-    href: `/blog/${id}`,
-    content: "This is a sample blog post content. In a real application, this would be fetched from your database or CMS.",
-    date: "2024-03-20",
-    author: "John Doe"
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/${id}`, {
+      cache: 'no-store'
+    });
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        return null;
+      }
+      throw new Error('Failed to fetch blog post');
+    }
+    
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
+    return null;
   }
 }
 
@@ -38,7 +50,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 
   return {
-    title: post.title,
+    title: post.topic,
     description: post.content.substring(0, 160),
   }
 }
@@ -59,24 +71,24 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
             {/* Category and Date */}
             <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
               <span className="bg-[#EE1D46] text-white px-3 py-1 rounded-full">
-                {post.category}
+                Travel
               </span>
-              <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
+              <time dateTime={post.createdAt}>{new Date(post.createdAt).toLocaleDateString()}</time>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl font-serif font-bold mb-6">{post.title}</h1>
+            <h1 className="text-4xl font-serif font-bold mb-6">{post.topic}</h1>
 
             {/* Author */}
             <div className="flex items-center gap-2 mb-8">
-              <span className="text-gray-600">By {post.author}</span>
+              <span className="text-gray-600">By Admin</span>
             </div>
 
             {/* Featured Image */}
             <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
               <Image
-                src={post.imageSrc}
-                alt={post.title}
+                src={post.image}
+                alt={post.topic}
                 fill
                 className="object-cover"
                 priority
@@ -84,9 +96,10 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
             </div>
 
             {/* Content */}
-            <div className="prose prose-lg max-w-none">
-              <p>{post.content}</p>
-            </div>
+            <div 
+              className="prose prose-lg max-w-none [&>h2]:text-3xl [&>h2]:font-bold [&>h3]:text-2xl [&>h3]:font-bold" 
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            ></div>
           </div>
         </article>
 

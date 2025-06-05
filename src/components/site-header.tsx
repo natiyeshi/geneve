@@ -6,12 +6,23 @@ import { Menu, Search, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { MainNav } from "@/components/main-nav"
 import { SearchDialog } from "@/components/search-dialog"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { useTranslation } from "react-i18next"
 import logo from "@/../public/assets/logo/log.svg"
 import Image from "next/image"
 
 export function SiteHeader({ isDark = false }: { isDark?: boolean }) {
   const [searchOpen, setSearchOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t } = useTranslation()
+
+  const navItems = [
+    { href: "/attractions", key: "attractions" },
+    { href: "/packages", key: "packages" },
+    { href: "/about", key: "about" },
+    { href: "/blog", key: "blog" },
+    { href: "/contact", key: "contact" },
+  ]
 
   return (
     <>
@@ -34,6 +45,7 @@ export function SiteHeader({ isDark = false }: { isDark?: boolean }) {
             </div>
 
             <div className="flex items-center space-x-4">
+              <LanguageSwitcher />
               <Button
                 variant="ghost"
                 size="icon"
@@ -63,41 +75,16 @@ export function SiteHeader({ isDark = false }: { isDark?: boolean }) {
           <div className="md:hidden bg-[#09163A]/95 backdrop-blur-sm">
             <div className="container py-6">
               <nav className="flex flex-col space-y-4">
-                <Link
-                  href="/attractions"
-                  className="text-white hover:text-[#EE1D46] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Attractions
-                </Link>
-                <Link
-                  href="/packages"
-                  className="text-white hover:text-[#EE1D46] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Packages
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-white hover:text-[#EE1D46] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-white hover:text-[#EE1D46] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Blog & Press
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-white hover:text-[#EE1D46] py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact Us
-                </Link>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-white hover:text-[#EE1D46] py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {t(`header.navigation.${item.key}`)}
+                  </Link>
+                ))}
               </nav>
             </div>
           </div>

@@ -19,12 +19,30 @@
     "subjects": "Subjects",
     "teachers": "Teachers",
     "parents": "Parents",
-    "students": "Students"
+    "students": "Students",
+    "privacyPolicy": "Privacy and Policy",
+    "allRightsReserved": "All rights reserved",
+    "workingHours": "Working Hours",
+    "onlineSupport": "Online Support",
+    "officeHours": "Office Hours",
+    "email": "Email",
+    "phone": "Phone",
+    "contactUs": "Contact Us",
+    "explore": "Explore",
+    "services": "Services",
+    "visit": "Visit"
   },
   "header": {
     "search": "Search...",
     "openSidebar": "Open sidebar",
-    "closeSidebar": "Close sidebar"
+    "closeSidebar": "Close sidebar",
+    "navigation": {
+      "attractions": "Attractions",
+      "packages": "Packages",
+      "about": "About Us",
+      "blog": "Blog & Press",
+      "contact": "Contact Us"
+    }
   },
   "settings": {
     "languageAndRegion": "Language & Region",
@@ -40,5 +58,346 @@
     "lastName": "Last Name",
     "phone": "Phone",
     "changeProfilePicture": "Click on the camera icon to change your profile picture"
+  },
+  "home": {
+    "hero": {
+      "title": "Geneve Getaway",
+      "subtitle": "Your passport to the extraordinary"
+    },
+    "about": {
+      "title": "The Spirit of Geneva, The Art of Travel",
+      "paragraph1": "The name Geneve is inspired by the city of Geneva, a global center for diplomacy and international cooperation. Known as the \"Peace Capital,\" Geneva represents unity, excellence, and internationalism.",
+      "paragraph2": "Our vision is to build a large-scale, peaceful, and high-performing company that reflects the spirit of Geneva itself. We provide comprehensive travel services with a modern approach that communicates peace, movement, and exploration.",
+      "cta": "LEARN MORE ABOUT US"
+    },
+    "services": {
+      "title": "Comprehensive Travel Services",
+      "subtitle": "Geneve Getaway provides a comprehensive range of domestic and international travel services, including:",
+      "items": {
+        "flights": "Domestic and international flight booking",
+        "packages": "Tailored travel packages for weddings, exhibitions, and vacations",
+        "hotels": "Hotel reservations and bookings",
+        "visa": "Visa facilitation services",
+        "transport": "Airport shuttle and transport services"
+      },
+      "cta": "EXPLORE OUR SERVICES"
+    },
+    "attractions": {
+      "title": "Luxury Attractions",
+      "description": "Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your travels. Whether you're seeking cultural experiences, luxury shopping, historical landmarks, or modern marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these extraordinary destinations."
+    },
+    "features": {
+      "title": "What Sets Us Apart",
+      "global": {
+        "title": "Global Presence",
+        "description": "Our international offices enhance global support, ensuring you have assistance wherever your travels take you."
+      },
+      "response": {
+        "title": "Immediate Response",
+        "description": "Prompt and immediate response to any issues during ticketing or flight processes, ensuring peace of mind throughout your journey."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Strong 24/7 online presence ensuring continuous customer support whenever and wherever you need assistance."
+      }
+    },
+    "cta": {
+      "packages": "OUR PACKAGES",
+      "contact": "CONTACT US"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Geneve",
+      "subtitle": "Inspired by the \"Peace Capital\" of the world"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "The name Geneve is inspired by the city of Geneva, a global center for diplomacy and international cooperation. Known as the \"Peace Capital,\" Geneva represents unity, excellence, and internationalism. With family ties to the city and frequent visits, the founders were deeply influenced by its atmosphere and values.",
+      "paragraph2": "The vision for Geneve Getaway is to build a large-scale, peaceful, and high-performing company that reflects the spirit of Geneva itself. We strive to embody the principles of international cooperation and excellence in every aspect of our service.",
+      "paragraph3": "Our modern approach to travel services communicates peace, movement, and exploration, aligning perfectly with our vision. We believe that travel should not only enrich your perception, understanding, and appreciation of the world, but that it should also allow you to support the local communities you visit."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Geneve Getaway provides a comprehensive range of domestic and international travel services designed to meet the needs of both business travelers and vacationers.",
+      "items": {
+        "flights": {
+          "title": "Flight Booking",
+          "description": "Domestic and international flight booking services with special fare discounts for labor travelers and comprehensive support throughout your journey."
+        },
+        "hotels": {
+          "title": "Hotel Reservations",
+          "description": "Secure the best accommodations worldwide with our hotel reservation services, offering a range of options from luxury resorts to boutique properties."
+        },
+        "visa": {
+          "title": "Visa Services",
+          "description": "Comprehensive visa facilitation services to ensure smooth travel arrangements, with expert guidance through the application process."
+        },
+        "transfers": {
+          "title": "Airport Transfers",
+          "description": "Reliable airport shuttle and transport services ensuring comfortable and timely transfers to and from your accommodations."
+        },
+        "packages": {
+          "title": "Travel Packages",
+          "description": "Tailored travel packages for various occasions including weddings, exhibitions, and vacations, designed to meet your specific needs and preferences."
+        },
+        "cargo": {
+          "title": "Air Cargo Logistics",
+          "description": "Efficient air cargo logistics services for businesses and individuals requiring reliable transportation of goods internationally."
+        }
+      }
+    },
+    "features": {
+      "title": "What Sets Us Apart",
+      "global": {
+        "title": "Global Presence",
+        "description": "Our international offices enhance global support, ensuring you have assistance wherever your travels take you."
+      },
+      "response": {
+        "title": "Immediate Response",
+        "description": "Prompt and immediate response to any issues during ticketing or flight processes, ensuring peace of mind throughout your journey."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Strong 24/7 online presence ensuring continuous customer support whenever and wherever you need assistance."
+      }
+    },
+    "audience": {
+      "title": "Who We Serve",
+      "subtitle": "Our services primarily cater to both business travelers and vacationers looking for reliable and comprehensive travel support.",
+      "business": {
+        "title": "Business Travelers",
+        "description": "Middle-class business professionals and employees who value convenience, efficiency, and quality service in their travel experiences. We understand the unique needs of business travel and provide seamless solutions to ensure productive journeys."
+      },
+      "vacationers": {
+        "title": "Vacationers",
+        "description": "Leisure travelers seeking memorable experiences with reliable and comprehensive travel support. We create tailored vacation packages that allow you to relax and enjoy your journey while we handle all the details."
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "ceo": {
+        "name": "Mr. Abraham Lemma",
+        "role": "CEO",
+        "description": "With a business journey that began in 2008, our CEO brings over 15 years of entrepreneurial experience across multiple industries. He started in hotel management and ownership, then expanded into importing and selling cars. He became the first person in Ethiopia to put his own company name on engine oil and lubricants that manufactured by Dubai company, He also imported and distributed car batteries throughout Ethiopia.\n\nThroughout his journey, he has consistently demonstrated a sharp eye for opportunity and sustainable growth. Today, he is expanding his operations on a global scale, with new ventures including a world-class travel agency that aims to redefine international travel experiences. His leadership is rooted in vision, versatility, and a deep commitment to excellence across every venture."
+      },
+      "members": {
+        "tsion": {
+          "name": "Tsion Dereje Haile",
+          "role": "Tour and Travel, Addis Ababa Operation Head",
+          "phone": "+251 98 911 1112"
+        },
+        "yeabtsega": {
+          "name": "YEABTSEGA BEHAILU",
+          "role": "Office Assistant",
+          "phone": "+251 98 911 1111"
+        },
+        "evangeline": {
+          "name": "Evangeline Guinto Ramelo",
+          "role": "Tour and Travel, Dubai Operation Head"
+        }
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Your Journey?",
+    "description": "Contact our team of experienced travel designers to begin planning your next extraordinary adventure.",
+    "buttonText": "Contact Us"
+  },
+  "sisterCompany": {
+    "title": "Our Sister Company",
+    "description": "Motor oil, Engine oil, or Engine Lubricant is any one of various substances used for the lubrication of internal combustion engines. They typically consist of base oils enhanced with various additives, particularly antiwear additives, detergents, dispersants, and, for multi-grade oils, viscosity index improvers.",
+    "buttonText": "Visit Geneve Lubricants",
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "expertTechnicians": "Expert Technicians",
+      "satisfiedClients": "Satisfied Clients",
+      "deliveredLubes": "Delivered Lubes"
+    }
+  },
+  "footer": {
+    "companyDescription": "Inspired by Geneva, the \"Peace Capital,\" Geneve Getaway represents unity, excellence, and internationalism. We provide comprehensive travel services with a vision to build a large-scale, peaceful, and high-performing company that reflects the spirit of Geneva itself.",
+    "services": {
+      "travelPackages": "Travel Packages",
+      "flightBooking": "Flight Booking",
+      "hotelReservations": "Hotel Reservations",
+      "visaServices": "Visa Services",
+      "airportTransfers": "Airport Transfers"
+    },
+    "destinations": {
+      "dubai": "Dubai",
+      "usa": "USA",
+      "china": "China",
+      "turkey": "Turkey",
+      "jerusalem": "Jerusalem",
+      "saudiArabia": "Saudi Arabia",
+      "france": "France"
+    }
+  },
+  "attractions": {
+    "hero": {
+      "title": "Luxury Attractions",
+      "subtitle": "Discover handpicked destinations that offer unique and authentic experiences"
+    },
+    "intro": "Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your travels. Whether you're seeking cultural experiences, luxury shopping, historical landmarks, or modern marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these extraordinary destinations.",
+    "featuredTitle": "Featured Attractions",
+    "cta": {
+      "title": "Ready to Explore?",
+      "description": "Our travel designers are ready to craft your perfect journey to any of our luxury attractions.",
+      "buttonText": "Contact Us"
+    }
+  },
+  "packages": {
+    "hero": {
+      "title": "Travel Packages",
+      "subtitle": "Curated luxury journeys to the world's most remarkable destinations"
+    },
+    "search": {
+      "loading": "Loading packages...",
+      "error": "Error",
+      "errorMessage": "Failed to load packages. Please try again later.",
+      "searchResults": "Search Results for",
+      "noResults": "No packages found matching your search criteria.",
+      "viewAll": "View All Packages",
+      "foundPackages": "Found {count} packages matching your search.",
+      "sortBy": "Sort by:",
+      "sortOptions": {
+        "featured": "Featured",
+        "priceLow": "Price: Low to High",
+        "priceHigh": "Price: High to Low",
+        "durationShort": "Duration: Shortest to Longest",
+        "durationLong": "Duration: Longest to Shortest"
+      },
+      "matchingPackages": "Matching Packages",
+      "allPackages": "All Packages",
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next"
+      }
+    },
+    "featured": {
+      "title": "Featured Package",
+      "badge": "Featured",
+      "duration": "Duration not specified",
+      "tagline": "No tagline available",
+      "accommodation": "Accommodation not specified",
+      "meals": "Meals not specified",
+      "flightsIncluded": "Flights Included",
+      "startingFrom": "Starting from",
+      "perPerson": "per person",
+      "viewDetails": "View Details"
+    },
+    "packageCard": {
+      "from": "From",
+      "perPerson": "per person",
+      "viewDetails": "View Details"
+    },
+    "customPackage": {
+      "title": "Looking for Something Unique?",
+      "description": "Our travel designers can create a completely customized package tailored to your specific preferences, interests, and travel style.",
+      "buttonText": "Create Custom Package"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog & Press",
+      "subtitle": "Discover our latest travel ideas, news, and stories"
+    },
+    "latestArticles": "Latest Articles",
+    "readMore": "Read More",
+    "noPosts": "No blog posts found.",
+    "categories": {
+      "travel": "Travel",
+      "news": "News",
+      "tips": "Travel Tips",
+      "destinations": "Destinations"
+    },
+    "title": "Blog & Press",
+    "subtitle": "Latest news and updates from our travel experts",
+    "category": "Travel News",
+    "viewAll": "View All Articles"
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "connect": {
+      "title": "Connect with Us",
+      "ititle": "Connect with Us",
+      "description": "Scan our QR code to access all our social media links and contact information in one place"
+    },
+    "offices": {
+      "title": "Our Offices",
+      "addis": {
+        "title": "Addis Ababa, Ethiopia",
+        "address1": "Near Olympia Dembele City Center",
+        "address2": "New Building, 3rd Floor, Office 001"
+      },
+      "dubai": {
+        "title": "Dubai, UAE",
+        "address1": "Geneve-Addis LLC - FZ Diyafa City Centre",
+        "address2": "Metro Station, NGI House, Office 101-05"
+      }
+    },
+    "businessHours": {
+      "title": "Business Hours",
+      "onlineSupport": "Online Support",
+      "officeHours": "Office Hours"
+    },
+    "contactDetails": {
+      "title": "Contact Details",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "findUs": {
+      "title": "Find Us"
+    }
+  },
+  "experienceDesigners": {
+    "subtitle": "Precisely Designed",
+    "title": "We are\nExperience Designers",
+    "description": "Our team of experienced travel designers guides you through authentic and unique cultural experiences, creating tailor-made journeys from start to finish. We can bring your most detailed travel dreams to life.",
+    "cta": "Talk to Us"
+  },
+  "partner": {
+    "title": "Our Trusted Partner",
+    "subtitle": "We are proud to partner with industry leaders who share our commitment to exceptional experiences",
+    "hotel": {
+      "title": "Rove Hotels in Dubai",
+      "subtitle": "Premium Service Partner",
+      "description": "Rove Hotels represents your perfect travel story - your gateway to unexplored paths. With their modern approach to service, they create welcoming, fun, and distinctive experiences for every guest."
+    },
+    "features": {
+      "locations": {
+        "title": "Strategic Locations",
+        "description": "Well-positioned hotels"
+      },
+      "guests": {
+        "title": "Guest-Centric",
+        "description": "Premium service levels"
+      },
+      "quality": {
+        "title": "Superior Quality",
+        "description": "Award-winning service"
+      }
+    },
+    "cta": {
+      "visit": "Visit Rove Hotels"
+    },
+    "experience": {
+      "title": "The Rove Experience",
+      "subtitle": "Welcoming • Fun • Distinctive",
+      "rating": "Partner Rating 5.0"
+    },
+    "stats": {
+      "partnership": "Years of Partnership",
+      "guests": "Satisfied Guests",
+      "locations": "Hotel Locations",
+      "satisfaction": "Satisfaction Rate"
+    }
   }
 } 

@@ -1,28 +1,7 @@
-footer and mobile link
-images
-
-backend 
-    - contact us
-    - blog
-    - partners
-    - products
-
-
-- blog 
-- products
-
-finalized 
-- Compaany company spelling
-- products
-- adding blog
-- contact us everywhere
-- check gaps
-    - in our story
-- email
-- check link
-- keywords , seo
-
-todo
-- footer
-
-
+- admin 
+    - ui
+    - social media counter
+- frontend
+    - testimony
+    - blog on landing
+    - language

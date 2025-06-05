@@ -14,7 +14,10 @@ export async function POST(req: any) {
     try {
       const body = await req.json();
       const blogData = body.formData;
+      console.log("Working",blogData)
       await blogValidationSchema.validate(blogData);
+      console.log("Still Working")
+
       const link = sanitizeString(blogData.topic)
       console.log(link," - updated one")
       const doesExist = await Blog.findOne({ link: link });
@@ -30,6 +33,7 @@ export async function POST(req: any) {
         { status: 200 }
       );
     } catch (err) {
+      console.log(err)
       return NextResponse.json(
         { blog: (err as any)?.blog ?? "Server Error", error: err },
         { status: 500 }

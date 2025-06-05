@@ -1,10 +1,10 @@
 import React from "react";
 import AdminNav from "../_components/AdminNav";
 import Blogs from "./_components/Blogs";
-import { ICBlog } from "@/interfaces/blog.interface";
+import { IBlog } from "@/interfaces/blog.interface";
 
 const Page = async () => {
-  let blogs: ICBlog[] = [];
+  let blogs: IBlog[] = [];
   blogs = await getBlogs();
   return (
     <div className="w-full px-6 pt-2 h-full overflow-auto pb-12">
@@ -13,7 +13,7 @@ const Page = async () => {
   );
 };
 
-async function getBlogs(): Promise<ICBlog[]> {
+async function getBlogs(): Promise<IBlog[]> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog`, {
       cache: "no-store",
@@ -21,7 +21,7 @@ async function getBlogs(): Promise<ICBlog[]> {
     if (!res.ok) {
       throw new Error("Failed to fetch");
     }
-    const blogs: ICBlog[] = await res.json();
+    const blogs: IBlog[] = await res.json();
     return blogs;
   } catch (error) {
     return [];

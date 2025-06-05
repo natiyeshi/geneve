@@ -1,0 +1,404 @@
+{
+  "common": {
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "language": "Langue",
+    "preferences": "Préférences",
+    "profile": "Profil",
+    "notifications": "Notifications",
+    "security": "Sécurité",
+    "children": "Enfants",
+    "save": "Enregistrer les modifications",
+    "cancel": "Annuler",
+    "dashboard": "Tableau de bord",
+    "message": "Message",
+    "announcements": "Annonces",
+    "gradeLevels": "Niveaux scolaires",
+    "sections": "Sections",
+    "calendar": "Calendrier",
+    "subjects": "Matières",
+    "teachers": "Enseignants",
+    "parents": "Parents",
+    "students": "Étudiants",
+    "privacyPolicy": "Politique de confidentialité",
+    "allRightsReserved": "Tous droits réservés",
+    "workingHours": "Heures de travail",
+    "onlineSupport": "Support en ligne",
+    "officeHours": "Heures de bureau",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "contactUs": "Contactez-nous",
+    "explore": "Explorer",
+    "services": "Services",
+    "visit": "Visiter"
+  },
+  "header": {
+    "search": "Rechercher...",
+    "openSidebar": "Ouvrir le menu latéral",
+    "closeSidebar": "Fermer le menu latéral",
+    "navigation": {
+      "attractions": "Attractions",
+      "packages": "Forfaits",
+      "about": "À propos",
+      "blog": "Blog et Presse",
+      "contact": "Contact"
+    }
+  },
+  "packages": {
+    "hero": {
+      "title": "Forfaits de Voyage",
+      "subtitle": "Voyages de luxe soigneusement sélectionnés vers les destinations les plus remarquables du monde"
+    },
+    "customPackage": {
+      "title": "Vous cherchez quelque chose d'unique ?",
+      "description": "Nos concepteurs de voyages peuvent créer un forfait entièrement personnalisé adapté à vos préférences, intérêts et style de voyage spécifiques.",
+      "cta": "Créer un forfait personnalisé"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contactez-nous",
+      "whatsapp": "WhatsApp",
+      "telegram": "Télégramme",
+      "email": "E-mail",
+      "phone": "Téléphone"
+    },
+    "connect": {
+      "title": "Connectez-vous avec nous",
+      "description": "Scannez notre code QR pour accéder à tous nos liens de médias sociaux et informations de contact en un seul endroit"
+    },
+    "offices": {
+      "title": "Nos Bureaux",
+      "addis": {
+        "title": "Addis-Abeba, Éthiopie",
+        "address1": "Près du Centre Olympia Dembele City",
+        "address2": "Nouveau Bâtiment, 3ème étage, Bureau 001"
+      },
+      "dubai": {
+        "title": "Dubaï, ÉAU",
+        "address1": "Geneve-Addis LLC - FZ Diyafa City Centre",
+        "address2": "Station de métro, NGI House, Bureau 101-05"
+      }
+    },
+    "businessHours": {
+      "title": "Heures d'ouverture",
+      "onlineSupport": "Support en ligne",
+      "officeHours": "Heures de bureau"
+    },
+    "contactDetails": {
+      "title": "Coordonnées",
+      "phone": "Téléphone",
+      "email": "E-mail"
+    },
+    "findUs": {
+      "title": "Trouvez-nous"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog et Presse",
+      "subtitle": "Découvrez nos dernières idées de voyage, actualités et histoires"
+    },
+    "latestArticles": "Derniers articles",
+    "readMore": "Lire la suite",
+    "noPosts": "Aucun article de blog trouvé.",
+    "categories": {
+      "travel": "Voyage",
+      "news": "Actualités",
+      "tips": "Conseils de voyage",
+      "destinations": "Destinations"
+    },
+    "title": "Blog et Presse",
+    "subtitle": "Dernières nouvelles et mises à jour de nos experts en voyage",
+    "category": "Actualités Voyage",
+    "viewAll": "Voir Tous les Articles"
+  },
+  "experienceDesigners": {
+    "subtitle": "Conçu avec précision",
+    "title": "Nous sommes des\nConcepteurs d'Expériences",
+    "description": "Notre équipe de concepteurs de voyages expérimentés vous guide à travers des expériences culturelles authentiques et uniques, en créant des voyages sur mesure du début à la fin. Nous pouvons réaliser vos rêves de voyage les plus détaillés.",
+    "cta": "Parlez avec nous"
+  },
+  "partner": {
+    "title": "Notre Partenaire de Confiance",
+    "subtitle": "Nous sommes fiers d'être partenaires avec des leaders de l'industrie qui partagent notre engagement envers des expériences exceptionnelles",
+    "hotel": {
+      "title": "Rove Hotels à Dubaï",
+      "subtitle": "Partenaire de service premium",
+      "description": "Rove Hotels représente votre histoire de voyage parfaite - votre chemin vers des chemins inexplorés. Avec leur approche moderne du service, ils créent des expériences accueillantes, amusantes et distinctives pour chaque invité."
+    },
+    "features": {
+      "locations": {
+        "title": "Emplacements stratégiques",
+        "description": "Hôtels bien situés"
+      },
+      "guests": {
+        "title": "Centré sur l'invité",
+        "description": "Niveaux de service premium"
+      },
+      "quality": {
+        "title": "Qualité supérieure",
+        "description": "Service primé"
+      }
+    },
+    "cta": {
+      "visit": "Visiter Rove Hotels"
+    },
+    "experience": {
+      "title": "L'Expérience Rove",
+      "subtitle": "Accueillant • Amusant • Distinctif",
+      "rating": "Note des partenaires 5.0"
+    },
+    "stats": {
+      "partnership": "Années de partenariat",
+      "guests": "Invités satisfaits",
+      "locations": "Emplacements d'hôtels",
+      "satisfaction": "Taux de satisfaction"
+    }
+  },
+  "footer": {
+    "companyDescription": "Inspiré par la ville de Genève, la \"ville de la paix\", Geneve Gateway représente l'unité, la neutralité et l'internationalisme. Notre vision est de construire une grande entreprise qui reflète l'esprit de Genève, apportant la paix et des performances exceptionnelles.",
+    "services": {
+      "travelPackages": "Forfaits de voyage",
+      "flightBooking": "Réservation de vols",
+      "hotelReservations": "Réservations d'hôtels",
+      "visaServices": "Services de visa",
+      "airportTransfers": "Transferts aéroport"
+    },
+    "destinations": {
+      "dubai": "Dubaï",
+      "usa": "États-Unis",
+      "china": "Chine",
+      "turkey": "Turquie",
+      "jerusalem": "Jérusalem",
+      "saudiArabia": "Arabie Saoudite",
+      "france": "France"
+    }
+  },
+  "settings": {
+    "languageAndRegion": "Langue et Région",
+    "timeZone": "Fuseau horaire",
+    "changePassword": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le nouveau mot de passe",
+    "updatePassword": "Mettre à jour le mot de passe"
+  },
+  "profile": {
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "phone": "Téléphone",
+    "changeProfilePicture": "Cliquez sur l'icône de la caméra pour changer votre photo de profil"
+  },
+  "home": {
+    "hero": {
+      "title": "Geneve Getaway",
+      "subtitle": "Votre passeport vers l'extraordinaire"
+    },
+    "about": {
+      "title": "L'Esprit de Genève, L'Art du Voyage",
+      "paragraph1": "Le nom Geneve s'inspire de la ville de Genève, un centre mondial de diplomatie et de coopération internationale. Connue comme la \"Capitale de la Paix\", Genève représente l'unité, l'excellence et l'internationalisme.",
+      "paragraph2": "Notre vision est de construire une entreprise à grande échelle, pacifique et performante qui reflète l'esprit même de Genève. Nous fournissons des services de voyage complets avec une approche moderne qui communique la paix, le mouvement et l'exploration.",
+      "cta": "EN SAVOIR PLUS SUR NOUS"
+    },
+    "services": {
+      "title": "Services de Voyage Complets",
+      "subtitle": "Geneve Getaway fournit une gamme complète de services de voyage nationaux et internationaux, notamment :",
+      "items": {
+        "flights": "Réservation de vols nationaux et internationaux",
+        "packages": "Forfaits de voyage personnalisés pour les mariages, expositions et vacances",
+        "hotels": "Réservations et réservations d'hôtels",
+        "visa": "Services de facilitation de visa",
+        "transport": "Services de navette aéroport et de transport"
+      },
+      "cta": "EXPLORER NOS SERVICES"
+    },
+    "attractions": {
+      "title": "Attractions de Luxe",
+      "description": "Laissez Geneve ouvrir un monde de merveilles et créer des souvenirs magiques qui resteront avec vous bien au-delà de vos voyages. Que vous recherchiez des expériences culturelles, du shopping de luxe, des monuments historiques ou des merveilles modernes, nous sommes là pour créer une expérience fluide tout en façonnant votre voyage sur mesure vers ces destinations extraordinaires."
+    },
+    "features": {
+      "title": "Ce Qui Nous Distingue",
+      "global": {
+        "title": "Présence Mondiale",
+        "description": "Nos bureaux internationaux renforcent le support mondial, vous assurant une assistance où que vos voyages vous mènent."
+      },
+      "response": {
+        "title": "Réponse Immédiate",
+        "description": "Réponse rapide et immédiate à tout problème pendant les processus de billetterie ou de vol, assurant la tranquillité d'esprit tout au long de votre voyage."
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Forte présence en ligne 24/7 assurant un support client continu quand et où vous avez besoin d'assistance."
+      }
+    },
+    "cta": {
+      "packages": "NOS FORFAITS",
+      "contact": "CONTACTEZ-NOUS"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "À Propos de Geneve",
+      "subtitle": "Inspiré par la \"Capitale de la Paix\" du monde"
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "paragraph1": "Le nom Geneve s'inspire de la ville de Genève, un centre mondial de diplomatie et de coopération internationale. Connue comme la \"Capitale de la Paix\", Genève représente l'unité, l'excellence et l'internationalisme. Avec des liens familiaux avec la ville et des visites fréquentes, les fondateurs ont été profondément influencés par son atmosphère et ses valeurs.",
+      "paragraph2": "La vision de Geneve Getaway est de construire une entreprise à grande échelle, pacifique et performante qui reflète l'esprit même de Genève. Nous nous efforçons d'incarner les principes de coopération internationale et d'excellence dans chaque aspect de notre service.",
+      "paragraph3": "Notre approche moderne des services de voyage communique la paix, le mouvement et l'exploration, s'alignant parfaitement avec notre vision. Nous croyons que le voyage ne devrait pas seulement enrichir votre perception, compréhension et appréciation du monde, mais qu'il devrait également vous permettre de soutenir les communautés locales que vous visitez."
+    },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Geneve Getaway fournit une gamme complète de services de voyage nationaux et internationaux conçus pour répondre aux besoins des voyageurs d'affaires et des vacanciers.",
+      "items": {
+        "flights": {
+          "title": "Réservation de Vols",
+          "description": "Services de réservation de vols nationaux et internationaux avec des réductions tarifaires spéciales pour les voyageurs professionnels et un support complet tout au long de votre voyage."
+        },
+        "hotels": {
+          "title": "Réservations d'Hôtels",
+          "description": "Obtenez les meilleurs hébergements dans le monde avec nos services de réservation d'hôtels, offrant une gamme d'options des stations balnéaires de luxe aux propriétés de charme."
+        },
+        "visa": {
+          "title": "Services de Visa",
+          "description": "Services complets de facilitation de visa pour assurer des arrangements de voyage fluides, avec un accompagnement expert tout au long du processus de demande."
+        },
+        "transfers": {
+          "title": "Transferts Aéroport",
+          "description": "Services fiables de navette aéroport et de transport assurant des transferts confortables et ponctuels vers et depuis vos hébergements."
+        },
+        "packages": {
+          "title": "Forfaits de Voyage",
+          "description": "Forfaits de voyage personnalisés pour diverses occasions, y compris les mariages, expositions et vacances, conçus pour répondre à vos besoins et préférences spécifiques."
+        },
+        "cargo": {
+          "title": "Logistique Aérienne",
+          "description": "Services efficaces de logistique aérienne pour les entreprises et les particuliers nécessitant un transport fiable de marchandises à l'international."
+        }
+      }
+    },
+    "features": {
+      "title": "Ce Qui Nous Distingue",
+      "global": {
+        "title": "Présence Mondiale",
+        "description": "Nos bureaux internationaux renforcent le support mondial, vous assurant une assistance où que vos voyages vous mènent."
+      },
+      "response": {
+        "title": "Réponse Immédiate",
+        "description": "Réponse rapide et immédiate à tout problème pendant les processus de billetterie ou de vol, assurant la tranquillité d'esprit tout au long de votre voyage."
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Forte présence en ligne 24/7 assurant un support client continu quand et où vous avez besoin d'assistance."
+      }
+    },
+    "audience": {
+      "title": "Qui Nous Servons",
+      "subtitle": "Nos services s'adressent principalement aux voyageurs d'affaires et aux vacanciers à la recherche d'un support de voyage fiable et complet.",
+      "business": {
+        "title": "Voyageurs d'Affaires",
+        "description": "Professionnels et employés de la classe moyenne qui valorisent la commodité, l'efficacité et un service de qualité dans leurs expériences de voyage. Nous comprenons les besoins uniques du voyage d'affaires et fournissons des solutions fluides pour assurer des voyages productifs."
+      },
+      "vacationers": {
+        "title": "Vacanciers",
+        "description": "Voyageurs de loisirs recherchant des expériences mémorables avec un support de voyage fiable et complet. Nous créons des forfaits de vacances personnalisés qui vous permettent de vous détendre et de profiter de votre voyage pendant que nous gérons tous les détails."
+      }
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "ceo": {
+        "name": "M. Abraham Lemma",
+        "role": "PDG",
+        "description": "Avec un parcours professionnel commencé en 2008, notre PDG apporte plus de 15 ans d'expérience entrepreneuriale dans plusieurs industries. Il a commencé dans la gestion et la propriété hôtelière, puis s'est étendu à l'importation et à la vente de voitures. Il est devenu la première personne en Éthiopie à mettre le nom de sa propre entreprise sur l'huile moteur et les lubrifiants fabriqués par une entreprise de Dubaï. Il a également importé et distribué des batteries de voiture dans toute l'Éthiopie.\n\nTout au long de son parcours, il a constamment démontré un œil aiguisé pour les opportunités et la croissance durable. Aujourd'hui, il étend ses opérations à l'échelle mondiale, avec de nouvelles entreprises incluant une agence de voyage de classe mondiale qui vise à redéfinir les expériences de voyage international. Son leadership est enraciné dans la vision, la polyvalence et un engagement profond envers l'excellence dans chaque entreprise."
+      },
+      "members": {
+        "tsion": {
+          "name": "Tsion Dereje Haile",
+          "role": "Chef des Opérations Tour et Voyage, Addis-Abeba",
+          "phone": "+251 98 911 1112"
+        },
+        "yeabtsega": {
+          "name": "YEABTSEGA BEHAILU",
+          "role": "Assistant de Bureau",
+          "phone": "+251 98 911 1111"
+        },
+        "evangeline": {
+          "name": "Evangeline Guinto Ramelo",
+          "role": "Chef des Opérations Tour et Voyage, Dubaï"
+        }
+      }
+    }
+  },
+  "cta": {
+    "title": "Prêt à Commencer Votre Voyage ?",
+    "description": "Contactez notre équipe de concepteurs de voyage expérimentés pour commencer à planifier votre prochaine aventure extraordinaire.",
+    "buttonText": "Contactez-nous"
+  },
+  "sisterCompany": {
+    "title": "Notre Entreprise Sœur",
+    "description": "L'huile moteur, l'huile moteur ou le lubrifiant moteur est l'une des diverses substances utilisées pour la lubrification des moteurs à combustion interne. Ils sont généralement composés d'huiles de base améliorées par divers additifs, notamment des additifs anti-usure, des détergents, des dispersants et, pour les huiles multigrades, des améliorateurs d'indice de viscosité.",
+    "buttonText": "Visiter Geneve Lubricants",
+    "stats": {
+      "yearsExperience": "Années d'Expérience",
+      "expertTechnicians": "Techniciens Experts",
+      "satisfiedClients": "Clients Satisfaits",
+      "deliveredLubes": "Lubrifiants Livrés"
+    }
+  },
+  "attractions": {
+    "hero": {
+      "title": "Attractions de Luxe",
+      "subtitle": "Découvrez des destinations soigneusement sélectionnées qui offrent des expériences uniques et authentiques"
+    },
+    "intro": "Laissez Geneve ouvrir un monde de merveilles et créer des souvenirs magiques qui resteront avec vous bien au-delà de vos voyages. Que vous recherchiez des expériences culturelles, du shopping de luxe, des monuments historiques ou des merveilles modernes, nous sommes là pour créer une expérience fluide tout en façonnant votre voyage sur mesure vers ces destinations extraordinaires.",
+    "featuredTitle": "Attractions en Vedette",
+    "cta": {
+      "title": "Prêt à Explorer ?",
+      "description": "Nos concepteurs de voyage sont prêts à créer votre voyage parfait vers l'une de nos attractions de luxe.",
+      "buttonText": "Contactez-nous"
+    }
+  },
+  "packages": {
+    "search": {
+      "loading": "Chargement des forfaits...",
+      "error": "Erreur",
+      "errorMessage": "Échec du chargement des forfaits. Veuillez réessayer plus tard.",
+      "searchResults": "Résultats de recherche pour",
+      "noResults": "Aucun forfait trouvé correspondant à vos critères de recherche.",
+      "viewAll": "Voir Tous les Forfaits",
+      "foundPackages": "{count} forfaits trouvés correspondant à votre recherche.",
+      "sortBy": "Trier par :",
+      "sortOptions": {
+        "featured": "En vedette",
+        "priceLow": "Prix : Croissant",
+        "priceHigh": "Prix : Décroissant",
+        "durationShort": "Durée : Plus courte à plus longue",
+        "durationLong": "Durée : Plus longue à plus courte"
+      },
+      "matchingPackages": "Forfaits Correspondants",
+      "allPackages": "Tous les Forfaits",
+      "pagination": {
+        "previous": "Précédent",
+        "next": "Suivant"
+      }
+    },
+    "featured": {
+      "title": "Forfait en Vedette",
+      "badge": "En vedette",
+      "duration": "Durée non spécifiée",
+      "tagline": "Pas de slogan disponible",
+      "accommodation": "Hébergement non spécifié",
+      "meals": "Repas non spécifiés",
+      "flightsIncluded": "Vols Inclus",
+      "startingFrom": "À partir de",
+      "perPerson": "par personne",
+      "viewDetails": "Voir les Détails"
+    },
+    "packageCard": {
+      "from": "À partir de",
+      "perPerson": "par personne",
+      "viewDetails": "Voir les Détails"
+    }
+  }
+} 

@@ -6,7 +6,7 @@ import PackageForm from "../../_components/PackageForm";
 import { PackageInf } from "@/app/packages/data";
 
 export default function EditPackagePage() {
-  const { id } = useParams();
+  const { id } = useParams() as any;
   const [packageData, setPackageData] = useState<PackageInf | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

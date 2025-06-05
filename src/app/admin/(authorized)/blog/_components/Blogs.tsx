@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ICBlog } from "@/interfaces/blog.interface";
-import AddBlog from "./AddBlog";
+import { IBlog } from "@/interfaces/blog.interface";
+import BlogForm from "./AddBlog";
 import Blog from "./Blog";
 import { useToast } from "@/hooks/use-toast";
 
 interface Props {
-  initialBlogs: ICBlog[];
+  initialBlogs: IBlog[];
 }
 
 const Blogs = ({ initialBlogs }: Props) => {
-  const [blogs, setBlogs] = useState<ICBlog[]>(initialBlogs);
+  const [blogs, setBlogs] = useState<IBlog[]>(initialBlogs);
 
   const { toast } = useToast();
   const handleDelete = async (id: string) => {
@@ -23,7 +23,7 @@ const Blogs = ({ initialBlogs }: Props) => {
         }
       );
       if (res.ok) {
-        setBlogs((test) => test.filter((data) => data._id != id));
+        setBlogs((prev) => prev.filter((data) => data._id !== id));
         return true;
       }
       toast({
@@ -37,11 +37,15 @@ const Blogs = ({ initialBlogs }: Props) => {
     return false;
   };
 
+  const handleEdit = (updatedBlog: IBlog) => {
+    setBlogs((prev) => prev.map((blog) => (blog._id === updatedBlog._id ? updatedBlog : blog)));
+  };
+
   return (
     <div>
       <div className="flex justify-between my-2">
         <div className="text-2xl font-black">Blogs</div>
-        <AddBlog setBlogs={setBlogs} />
+        <BlogForm setBlogs={setBlogs} />
       </div>
       <div className=" text-adminText capitalize">Available Blogs</div>
       <div className="grid grid-cols-3 mt-8 gap-5 ">
@@ -50,6 +54,7 @@ const Blogs = ({ initialBlogs }: Props) => {
             key={blog._id}
             blog={blog}
             onDelete={() => handleDelete(blog._id)}
+            onEdit={handleEdit}
           />
         ))}
       </div>

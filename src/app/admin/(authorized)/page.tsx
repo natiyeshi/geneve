@@ -3,16 +3,22 @@
 export const dynamic = 'force-dynamic';
 
 import { useEffect, useState } from "react";
-import { Package, Users, Newspaper } from "lucide-react";
+import { Package, Users, Newspaper, Share2 } from "lucide-react";
 import Link from "next/link";
 import AdminNav from "./_components/AdminNav";
 import { FcGoogle } from "react-icons/fc";
 import { SiGoogleanalytics } from "react-icons/si";
+import * as Toast from '@radix-ui/react-toast';
+import { Cross2Icon } from '@radix-ui/react-icons';
 
 interface DashboardStats {
   packages: number;
   testimonials: number;
   blogPosts: number;
+  referrals: {
+    source: string;
+    count: number;
+  }[];
 }
 
 export default function Dashboard() {
@@ -20,35 +26,51 @@ export default function Dashboard() {
     packages: 0,
     testimonials: 0,
     blogPosts: 0,
+    referrals: [],
   });
+  const [open, setOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const showError = (message: string) => {
+    setErrorMessage(message);
+    setOpen(true);
+  };
 
   useEffect(() => {
     // Fetch dashboard statistics
     const fetchStats = async () => {
       try {
-        const [packagesRes, testimonialsRes, blogRes] = await Promise.all([
+        const [packagesRes, testimonialsRes, blogRes, referralsRes] = await Promise.all([
           fetch('/api/packages/count'),
           fetch('/api/testimonial'),
-          fetch('/api/blog')
+          fetch('/api/blog'),
+          fetch('/api/referral', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({}),
+          })
         ]);
 
-        if (!packagesRes.ok || !testimonialsRes.ok || !blogRes.ok) {
-          throw new Error('Failed to fetch stats');
+        if (!packagesRes.ok || !testimonialsRes.ok || !blogRes.ok || !referralsRes.ok) {
+          throw new Error('Failed to fetch dashboard statistics');
         }
 
-        const [packagesCount, testimonials, blog] = await Promise.all([
+        const [packagesCount, testimonials, blog, referrals] = await Promise.all([
           packagesRes.json(),
           testimonialsRes.json(),
-          blogRes.json()
+          blogRes.json(),
+          referralsRes.json()
         ]);
 
         setStats({
           packages: packagesCount.count || 0,
           testimonials: testimonials.length || 0,
           blogPosts: blog.length || 0,
+          referrals: referrals.stats || [],
         });
       } catch (error) {
         console.error('Error fetching dashboard stats:', error);
+        showError(error instanceof Error ? error.message : 'Failed to fetch dashboard statistics');
       }
     };
 
@@ -80,14 +102,15 @@ export default function Dashboard() {
   ];
 
   return (
+    <Toast.Provider swipeDirection="right">
     <div className="w-full  relative px-6 pt-2 h-full overflow-auto">
-      <Section1 />
+        {/* <Section1 />
       <div className="flex flex-col mt-8">
         <div className="text-2xl font-black">Recent status</div>
         <div className=" text-adminText mt-1">
           Follow current status of your site
         </div>
-      </div>
+        </div> */}
       <div className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <h1 className="text-3xl font-serif font-light text-[#09163A]">Dashboard</h1>
@@ -95,6 +118,7 @@ export default function Dashboard() {
             Welcome to your Geneve Getaway admin dashboard
           </p>
         </div>
+
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-8">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -181,11 +205,62 @@ export default function Dashboard() {
                   </div>
                 </div>
               </Link>
+              </div>
+            </div>
+
+            {/* Referral Stats Section */}
+            <div className="mt-8">
+              <h2 className="text-lg font-medium text-[#09163A]">Referral Statistics</h2>
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {stats.referrals.map((referral) => (
+                  <div
+                    key={referral.source}
+                    className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm"
+                  >
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0">
+                        <Share2 className="h-6 w-6 text-[#EE1D46]" />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="text-sm font-medium text-[#09163A] capitalize">
+                          {referral.source}
+                        </h3>
+                        <p className="text-2xl font-semibold text-[#09163A]">
+                          {referral.count}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Total Referrals
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Toast.Root
+        className="bg-white rounded-md shadow-lg border border-red-200 p-4 flex items-start gap-3 data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut"
+        open={open}
+        onOpenChange={setOpen}
+      >
+        <div className="flex-1">
+          <Toast.Title className="text-red-600 font-medium">
+            Error
+          </Toast.Title>
+          <Toast.Description className="text-gray-600 mt-1">
+            {errorMessage}
+          </Toast.Description>
     </div>
+        <Toast.Close className="rounded-full p-1 hover:bg-gray-100">
+          <Cross2Icon className="h-4 w-4 text-gray-500" />
+        </Toast.Close>
+      </Toast.Root>
+
+      <Toast.Viewport className="fixed bottom-0 right-0 flex flex-col p-4 gap-2 w-96 max-w-[100vw] m-0 z-50 outline-none" />
+    </Toast.Provider>
   );
 }
 

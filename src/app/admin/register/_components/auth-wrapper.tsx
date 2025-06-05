@@ -8,7 +8,8 @@ import SignupForm from "./signup";
 export default function AuthWrapper() {
   const searchParams = useSearchParams();
   const [showSuccess, setShowSuccess] = useState(false);
-  const isSignup = searchParams.get("mode") === "signup";
+  
+  const isSignup = searchParams && (searchParams.get("mode") === "signup");
 
   useEffect(() => {
     // Show success message if user just registered

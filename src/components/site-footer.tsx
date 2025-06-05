@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import {
   Facebook,
@@ -11,12 +13,16 @@ import {
   Send,
   Clock,
 } from "lucide-react";
-import { FaTiktok } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa";
+import { SiFacebook, SiWhatsapp, SiTelegram } from "react-icons/si";
+import { useTranslation } from 'react-i18next';
 
 import logo from "@/../public/assets/logo/log.svg";
 import Image from "next/image";
 
 export function SiteFooter() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#09163A] text-white">
       {/* Top wave decoration */}
@@ -47,63 +53,79 @@ export function SiteFooter() {
               </Link>
             </div>
             <p className="text-white/80 leading-relaxed">
-              Inspired by Geneva, the &ldquo;Peace Capital,&rdquo; Geneve
-              Getaway represents unity, excellence, and internationalism. We
-              provide comprehensive travel services with a vision to build a
-              large-scale, peaceful, and high-performing company that reflects
-              the spirit of Geneva itself.
+              {t('footer.companyDescription')}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-6">
+              {/* Facebook */}
               <Link
                 href="https://www.facebook.com/profile.php?id=61575684971389"
-                className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
+                className=" relative"
                 aria-label="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook className="h-8 w-8" />
+                <div className="contact-icon bg-[#1877F2] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <SiFacebook className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/10 rounded-full animate-ripple-3"></div>
               </Link>
+
+              {/* TikTok */}
               <Link
                 href="https://vm.tiktok.com/ZMBTVapDx/"
-                className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
+                className=" relative"
                 aria-label="TikTok"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaTiktok className="text-xl" />
+                <div className="contact-icon bg-[#000000] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <FaTiktok className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#000000]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#000000]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#000000]/10 rounded-full animate-ripple-3"></div>
               </Link>
+
+              {/* WhatsApp */}
               <Link
                 href="https://wa.me/0989111111"
-                className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
+                className=" relative"
                 aria-label="WhatsApp"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Phone className="h-8 w-8" />
+                <div className="contact-icon bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <SiWhatsapp className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#25D366]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#25D366]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#25D366]/10 rounded-full animate-ripple-3"></div>
               </Link>
+
+              {/* Telegram */}
               <Link
                 href="https://t.me/Geneve_getaway"
-                className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
+                className=" relative"
                 aria-label="Telegram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Send className="h-8 w-8" />
+                <div className="contact-icon bg-[#26A5E4] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <SiTelegram className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/10 rounded-full animate-ripple-3"></div>
               </Link>
-              {/* <Link
-                href="#"
-                className="w-10 h-10 px-3 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#EE1D46] transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-8 w-8" />
-              </Link> */}
             </div>
           </div>
 
           {/* Quick links */}
           <div>
             <h3 className="text-xl font-serif mb-8 relative after:content-[''] after:absolute after:w-12 after:h-1 after:bg-[#EE1D46] after:left-0 after:-bottom-3">
-              Explore
+              {t('common.explore')}
             </h3>
             <ul className="space-y-4">
               <li>
@@ -112,7 +134,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Dubai
+                  {t('footer.destinations.dubai')}
                 </Link>
               </li>
               <li>
@@ -121,7 +143,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  USA
+                  {t('footer.destinations.usa')}
                 </Link>
               </li>
               <li>
@@ -130,7 +152,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  China
+                  {t('footer.destinations.china')}
                 </Link>
               </li>
               <li>
@@ -139,7 +161,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Turkey
+                  {t('footer.destinations.turkey')}
                 </Link>
               </li>
               <li>
@@ -148,7 +170,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Jerusalem
+                  {t('footer.destinations.jerusalem')}
                 </Link>
               </li>
               <li>
@@ -157,7 +179,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Saudi Arabia
+                  {t('footer.destinations.saudiArabia')}
                 </Link>
               </li>
               <li>
@@ -166,7 +188,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  France
+                  {t('footer.destinations.france')}
                 </Link>
               </li>
             </ul>
@@ -175,7 +197,7 @@ export function SiteFooter() {
           {/* Services */}
           <div>
             <h3 className="text-xl font-serif mb-8 relative after:content-[''] after:absolute after:w-12 after:h-1 after:bg-[#EE1D46] after:left-0 after:-bottom-3">
-              Services
+              {t('common.services')}
             </h3>
             <ul className="space-y-4">
               <li>
@@ -184,7 +206,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Travel Packages
+                  {t('footer.services.travelPackages')}
                 </Link>
               </li>
               <li>
@@ -193,7 +215,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Flight Booking
+                  {t('footer.services.flightBooking')}
                 </Link>
               </li>
               <li>
@@ -202,7 +224,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Hotel Reservations
+                  {t('footer.services.hotelReservations')}
                 </Link>
               </li>
               <li>
@@ -211,7 +233,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Visa Services
+                  {t('footer.services.visaServices')}
                 </Link>
               </li>
               <li>
@@ -220,7 +242,7 @@ export function SiteFooter() {
                   className="text-white/80 hover:text-[#EE1D46] transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-[#EE1D46] rounded-full mr-2"></span>
-                  Airport Transfers
+                  {t('footer.services.airportTransfers')}
                 </Link>
               </li>
             </ul>
@@ -229,7 +251,7 @@ export function SiteFooter() {
           {/* Contact */}
           <div>
             <h3 className="text-xl font-serif mb-8 relative after:content-[''] after:absolute after:w-12 after:h-1 after:bg-[#EE1D46] after:left-0 after:-bottom-3">
-              Contact Us
+              {t('common.contactUs')}
             </h3>
             <div className="space-y-6">
               {/* <div className="flex items-start">
@@ -246,7 +268,7 @@ export function SiteFooter() {
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-[#EE1D46] mr-3 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium mb-1">Email</p>
+                  <p className="font-medium mb-1">{t('common.email')}</p>
                   <a
                     href="mailto:info@genevegetaway.com"
                     className="text-white/80 hover:text-[#EE1D46] transition-colors"
@@ -258,7 +280,7 @@ export function SiteFooter() {
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-[#EE1D46] mr-3 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium mb-1">Phone</p>
+                  <p className="font-medium mb-1">{t('common.phone')}</p>
                   <a
                     href="tel:+251989111111"
                     className="text-white/80 hover:text-[#EE1D46] transition-colors"
@@ -270,10 +292,10 @@ export function SiteFooter() {
               <div className="flex items-start">
                 <Clock className="h-5 w-5 text-[#EE1D46] mr-3 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium mb-1">Working Hours</p>
-                  <p className="text-white/80">Online Support: 24/7</p>
+                  <p className="font-medium mb-1">{t('common.workingHours')}</p>
+                  <p className="text-white/80">{t('common.onlineSupport')}: 24/7</p>
                   <p className="text-white/80">
-                    Office Hours: 2:30 PM - 11:30 PM
+                    {t('common.officeHours')}: 2:30 PM - 11:30 PM
                   </p>
                 </div>
               </div>
@@ -284,11 +306,11 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/20 flex flex-wrap justify-between items-center">
           <div className="text-white/60 text-sm">
-            © {new Date().getFullYear()} Geneve Getaway. All rights reserved.
+            © {new Date().getFullYear()} Geneve Getaway. {t('common.allRightsReserved')}
           </div>
           <div className="flex space-x-6 text-sm text-white/60">
             <Link href="/" className="hover:text-white transition-colors">
-              Privacy and Policy
+              {t('common.privacyPolicy')}
             </Link>
           </div>
         </div>
