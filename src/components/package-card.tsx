@@ -21,17 +21,23 @@ interface PackageCardProps {
     from: string;
     perPerson: string;
     viewDetails: string;
+    accommodation: string;
+    meals: string;
+    flightsIncluded: string;
   };
 }
 
-export function PackageCard({ package: pkg, translations }: PackageCardProps) {
+export function PackageCard({ package: pkg, translations: customTranslations }: PackageCardProps) {
   const { t } = useTranslation();
   const defaultTranslations = {
     from: t('packages.packageCard.from'),
     perPerson: t('packages.packageCard.perPerson'),
-    viewDetails: t('packages.packageCard.viewDetails')
+    viewDetails: t('packages.packageCard.viewDetails'),
+    accommodation: t('packages.featured.accommodation'),
+    meals: t('packages.featured.meals'),
+    flightsIncluded: t('packages.featured.flightsIncluded')
   };
-  const t = translations || defaultTranslations;
+  const translations = customTranslations || defaultTranslations;
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -57,30 +63,30 @@ export function PackageCard({ package: pkg, translations }: PackageCardProps) {
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-gray-600">
             <Hotel className="w-5 h-5 mr-2" />
-            <span>{pkg.accommodation || t('packages.featured.accommodation')}</span>
+            <span>{pkg.accommodation || translations.accommodation}</span>
           </div>
           <div className="flex items-center text-gray-600">
             <Utensils className="w-5 h-5 mr-2" />
-            <span>{pkg.meals || t('packages.featured.meals')}</span>
+            <span>{pkg.meals || translations.meals}</span>
           </div>
           {pkg.flightsIncluded && (
             <div className="flex items-center text-gray-600">
               <Plane className="w-5 h-5 mr-2" />
-              <span>{t('packages.featured.flightsIncluded')}</span>
+              <span>{translations.flightsIncluded}</span>
             </div>
           )}
         </div>
         <div className="flex justify-between items-center">
           <div>
-            <span className="text-gray-600">{t.from} </span>
+            <span className="text-gray-600">{translations.from} </span>
             <span className="text-2xl font-bold text-primary">${pkg.price}</span>
-            <span className="text-gray-600"> {t.perPerson}</span>
+            <span className="text-gray-600"> {translations.perPerson}</span>
           </div>
           <Link
             href={`/packages/${pkg.id}`}
             className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors"
           >
-            {t.viewDetails}
+            {translations.viewDetails}
           </Link>
         </div>
       </div>

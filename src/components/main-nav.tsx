@@ -77,11 +77,11 @@ export function MainNav({ isDark = false }: { isDark?: boolean }) {
     // For attractions with query parameters
     if (path.startsWith("/attractions")) {
       return (
-        pathname === "/attractions" || pathname.startsWith("/attractions/")
+        pathname === "/attractions" || (pathname && pathname.startsWith("/attractions/"))
       );
     }
 
-    return pathname.startsWith(path);
+    return (pathname && pathname.startsWith(path));
   };
 
   // Function to get the appropriate text color based on active state

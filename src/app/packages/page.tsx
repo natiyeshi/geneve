@@ -3,6 +3,7 @@
 import { useTranslation } from "react-i18next"
 import Image from "next/image"
 import Link from "next/link"
+import { Suspense } from "react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
@@ -44,7 +45,14 @@ export default function PackagesPage() {
 
       {/* Main Content */}
       <section className="py-20 bg-white">
-        <PackageSearch />
+        <Suspense fallback={
+          <div className="container mx-auto py-12 text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EE1D46] mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading packages...</p>
+          </div>
+        }>
+          <PackageSearch />
+        </Suspense>
       </section>
 
       {/* Custom Package CTA */}

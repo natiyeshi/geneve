@@ -16,7 +16,7 @@ const Page = async () => {
 async function getBlogs(): Promise<IBlog[]> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog`, {
-      cache: "no-store",
+      next: { revalidate: 3600 } // Revalidate every hour
     });
     if (!res.ok) {
       throw new Error("Failed to fetch");
@@ -24,6 +24,7 @@ async function getBlogs(): Promise<IBlog[]> {
     const blogs: IBlog[] = await res.json();
     return blogs;
   } catch (error) {
+    console.error("Error fetching blogs:", error);
     return [];
   }
 }

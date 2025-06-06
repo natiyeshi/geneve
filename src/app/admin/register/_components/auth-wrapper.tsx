@@ -13,7 +13,7 @@ export default function AuthWrapper() {
 
   useEffect(() => {
     // Show success message if user just registered
-    if (searchParams.get("registered") === "true") {
+    if (searchParams && searchParams.get("registered") === "true") {
       setShowSuccess(true);
       const timer = setTimeout(() => setShowSuccess(false), 5000);
       return () => clearTimeout(timer);

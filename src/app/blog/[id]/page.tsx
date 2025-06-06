@@ -22,7 +22,7 @@ interface BlogPost {
 const getBlogPost = async (id: string): Promise<BlogPost | null> => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/${id}`, {
-      cache: 'no-store'
+      next: { revalidate: 3600 } // Revalidate every hour
     });
     
     if (!response.ok) {
