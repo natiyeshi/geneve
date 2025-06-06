@@ -1,4 +1,6 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -8,96 +10,62 @@ import { BackToTop } from "@/components/back-to-top"
 import { ImageGallery } from "@/components/image-gallery"
 import { Calendar, Clock, MapPin, Users, Utensils, Wifi, Plane, Car, Hotel, Shield, Check } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-
-import p1 from "@/../public/assets/image/packages/p1.jpg"
-import p2 from "@/../public/assets/image/packages/p2.jpg"
-import p3 from "@/../public/assets/image/packages/p3.jpg"
-import p4 from "@/../public/assets/image/packages/p4.jpg"
-import p5 from "@/../public/assets/image/packages/p5.jpg"
-import { allPackages } from "../data"
-// Updated package data structure
-// const packageData = {
-//   id: "italian-splendor",
-//   name: "Italian Splendor",
-//   tagline: "Experience the Art, Culture, and Cuisine of Italy",
-//   locations: ["Rome", "Florence", "Venice", "Amalfi Coast"],
-//   mapUrl: "https://maps.google.com/...",
-//   duration: "14 Days / 13 Nights",
-//   inclusions: {
-//     flights: true,
-//     accommodation: "5-Star Luxury Hotels",
-//     airportTransfers: true,
-//     guidedTours: true,
-//     meals: "Breakfast & Dinner",
-//     travelInsurance: true
-//   },
-//   exclusions: [
-//     "Visa fees",
-//     "Personal expenses",
-//     "Tips and gratuities",
-//     "Optional activities"
-//   ],
-//   itinerary: [
-//     { day: 1, description: "Arrival in Rome, Welcome Dinner" },
-//     { day: 2, description: "Vatican City & Colosseum Tour" },
-//     { day: 3, description: "Roman Forum & City Exploration" },
-//     { day: 4, description: "Transfer to Florence, Uffizi Gallery" },
-//     { day: 5, description: "Florence Cathedral & City Tour" },
-//     { day: 6, description: "Tuscan Wine Tasting Experience" },
-//     { day: 7, description: "Transfer to Venice, Grand Canal Tour" },
-//     { day: 8, description: "Venice Islands Exploration" },
-//     { day: 9, description: "Transfer to Amalfi Coast" },
-//     { day: 10, description: "Positano & Ravello Tour" },
-//     { day: 11, description: "Amalfi Coast Boat Tour" },
-//     { day: 12, description: "Free Day for Optional Activities" },
-//     { day: 13, description: "Cooking Class & Farewell Dinner" },
-//     { day: 14, description: "Departure" }
-//   ],
-//   pricing: {
-//     pricePerPerson: 12500,
-//     doubleOccupancy: 11500,
-//     tripleOccupancy: 10500,
-//     earlyBirdDiscount: 1000,
-//     groupDiscount: 1500,
-//     paymentPlans: ["Full Payment", "50% Deposit + Balance"]
-//   },
-//   bookingInfo: {
-//     bookingMethods: ["Website", "Phone", "Email"],
-//     consultantName: "Sarah Johnson",
-//     officeAddress: "123 Travel Street, New York",
-//     bookingLink: "https://booking.example.com/italian-splendor"
-//   },
-//   termsAndConditions: {
-//     cancellationPolicy: "Free cancellation up to 30 days before departure",
-//     refundPolicy: "Full refund minus processing fees",
-//     passportRequirements: "Valid passport with 6 months validity",
-//     visaRequirements: "Schengen visa required for non-EU citizens"
-//   },
-//   images: [
-//     { src: p1, alt: "Roman Colosseum at sunset" },
-//     { src: p2, alt: "Florence Cathedral and cityscape" },
-//     { src: p3, alt: "Venice Grand Canal with gondolas" },
-//     { src: p4, alt: "Colorful houses of Positano on Amalfi Coast" },
-//     { src: p5, alt: "Italian vineyard in Tuscany" }
-//   ],
-//   activityIcons: ["culture", "food", "history", "shopping"]
-// };
+import { PackageInf } from "../data"
 
 export default function PackageDetailPage({ params }: { params: { id: string } }) {
-  const packageData = allPackages.find((p) => p.id === params.id)
+  const [packageData, setPackageData] = useState<PackageInf | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  if (!packageData) {
+  useEffect(() => {
+    const fetchPackage = async () => {
+      try {
+        setIsLoading(true);
+        setError("");
+        
+        const response = await fetch(`/api/packages/${params.id}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch package");
+        }
+        
+        const data = await response.json();
+        setPackageData(data);
+      } catch (err) {
+        console.error("Error fetching package:", err);
+        setError("Failed to load package details. Please try again later.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPackage();
+  }, [params.id]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EE1D46] mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading package details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !packageData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-serif text-[#09163A] mb-4">Package Not Found</h1>
-          <p className="text-gray-600 mb-6">The package you&apos;re looking for doesn&apos;t exist.</p>
+          <p className="text-gray-600 mb-6">
+            {error || "The package you're looking for doesn't exist."}
+          </p>
           <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white" asChild>
             <Link href="/packages">View All Packages</Link>
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -105,8 +73,8 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
       {/* Hero Section */}
       <div className="relative h-[60vh]">
         <Image
-          src={packageData.images?.[0]?.src ?? p1}
-          alt={packageData.name ?? "Package Image"}
+          src={packageData.images?.[0] || "/placeholder.svg"}
+          alt={packageData.name || "Package Image"}
           fill
           className="object-cover brightness-75"
           priority
@@ -119,8 +87,8 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-4xl px-4 text-center">
-            <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">{packageData.name ?? "Package Name"}</h1>
-            <p className="text-xl text-white/90 mb-2">{packageData.tagline ?? "Package Description"}</p>
+            <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">{packageData.name}</h1>
+            <p className="text-xl text-white/90 mb-2">{packageData.tagline}</p>
             <div className="flex flex-wrap justify-center gap-2 mt-4">
               {packageData.locations?.map((location, index) => (
                 <Badge key={index} variant="outline" className="bg-white/10 text-white border-white/20">
@@ -334,14 +302,17 @@ export default function PackageDetailPage({ params }: { params: { id: string } }
                 {packageData.bookingInfo && (
                   <div className="mt-6 text-center">
                     <p className="text-sm text-gray-500 mb-2">Need help planning?</p>
-                    {packageData.bookingInfo.consultantName && (
+                      <Link href={"/contact"} className="text-sm font-medium text-[#09163A] mb-1">
+                        Contact Us
+                      </Link>
+                    {/* {packageData.bookingInfo.consultantName && (
                       <p className="text-sm font-medium text-[#09163A] mb-1">
                         Contact {packageData.bookingInfo.consultantName}
                       </p>
                     )}
                     {packageData.bookingInfo.officeAddress && (
                       <p className="text-sm text-gray-600">{packageData.bookingInfo.officeAddress}</p>
-                    )}
+                    )} */}
                   </div>
                 )}
               </div>

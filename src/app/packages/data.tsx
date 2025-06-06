@@ -15,7 +15,7 @@ import tw2 from "@/../public/assets/image/p/tw2.jpg"
 
 
 export interface PackageInf {
-    id: string;
+    _id: string;
     name?: string;
     tagline?: string;
     locations?: string[];
@@ -60,7 +60,7 @@ export interface PackageInf {
   // Update the package data with proper typing
   export const allPackages: PackageInf[] = [
     {
-      id: "italian-splendor",
+      _id: "italian-splendor",
       name: "Italian Splendor",
       tagline: "Experience the Art, Culture, and Cuisine of Italy",
       locations: ["Rome", "Florence", "Venice", "Amalfi Coast"],
@@ -112,7 +112,7 @@ export interface PackageInf {
       featured: true
     },
     {
-      id: "african-safari",
+      _id: "african-safari",
       name: "African Safari Adventure",
       tagline: "Experience the magic of East Africa",
       locations: ["Kenya", "Tanzania"],
@@ -162,7 +162,7 @@ export interface PackageInf {
       featured: false
     },
     {
-      id: "japan-journey",
+      _id: "japan-journey",
       name: "Japan Journey",
       tagline: "Discover the perfect balance of ancient traditions and modern wonders",
       locations: ["Tokyo", "Kyoto", "Hakone"],
@@ -212,7 +212,7 @@ export interface PackageInf {
       featured: false
     },
     {
-      id: "greek-islands",
+      _id: "greek-islands",
       name: "Greek Islands Escape",
       tagline: "Indulge in the beauty of the Greek Islands",
       locations: ["Athens", "Santorini", "Mykonos"],
@@ -262,7 +262,7 @@ export interface PackageInf {
       featured: false
     },
     {
-      id: "peruvian-expedition",
+      _id: "peruvian-expedition",
       name: "Peruvian Expedition",
       tagline: "Journey through Peru&apos;s most iconic destinations",
       locations: ["Lima", "Cusco", "Machu Picchu"],
@@ -312,7 +312,7 @@ export interface PackageInf {
       featured: false
     },
     {
-      id: "thai-wellness",
+      _id: "thai-wellness",
       name: "Thai Wellness Retreat",
       tagline: "Rejuvenate your mind, body, and soul",
       locations: ["Bangkok", "Chiang Mai", "Phuket"],

@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 import mountain from "@/../public/assets/image/mountain-1.jpg"
 import mountain2 from "@/../public/assets/image/mountain-2.jpg"
-import Link from "next/link"
 
 export function ExperienceDesigners() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -24,26 +29,22 @@ export function ExperienceDesigners() {
             </div>
           </div>
           <div>
-            <div className="uppercase tracking-wider text-[#EE1D46] mb-4">Made to Measure</div>
-            <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
-              We are Experience
-              <br />
-              Designers
+            <div className="uppercase tracking-wider text-[#EE1D46] mb-4">{t('experienceDesigners.subtitle')}</div>
+            <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8 whitespace-pre-line">
+              {t('experienceDesigners.title')}
             </h2>
             <p className="text-lg mb-8">
-              Our team of highly experienced travel designers will guide you from beginning to end as you embark on a
-              tailor-made journey of distinction, enjoying truly exclusive and authentic cultural experiences. We can
-              fulfil your bucket-list dreams.
+              {t('experienceDesigners.description')}
             </p>
             <Link href="/contact">
-                <Button
-                  variant="outline"
-                  className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
-                  asChild
-                >
-                  SPEAK TO US
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
+                asChild
+              >
+                {t('experienceDesigners.cta')}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

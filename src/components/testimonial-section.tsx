@@ -1,31 +1,38 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 
-const testimonials = [
-  {
-    quote:
-      "Our journey through Ireland was nothing short of magical. The private castle stay arranged by Geneve was the highlight of our trip. Every detail was meticulously planned, from the chauffeur service to the personalized tours. We felt like royalty throughout our stay.",
-    author: "James & Elizabeth Thompson",
-    location: "New York, USA",
-  },
-  {
-    quote:
-      "Geneve created an African safari experience that exceeded all our expectations. The accommodations were luxurious, the guides were incredibly knowledgeable, and the wildlife encounters were breathtaking. It truly was the adventure of a lifetime.",
-    author: "Michael & Sarah Johnson",
-    location: "Sydney, Australia",
-  },
-  {
-    quote:
-      "Our family trip to Italy was flawlessly organized by the Geneve team. From private tours of the Vatican to cooking classes in Tuscany, every experience was authentic and tailored to our interests. The children still talk about it as their favorite vacation.",
-    author: "The Williams Family",
-    location: "London, UK",
-  },
-]
+interface Testimonial {
+  _id: string;
+  name: string;
+  message: string;
+}
 
 export function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch('/api/testimonial')
+        if (!response.ok) {
+          throw new Error('Failed to fetch testimonials')
+        }
+        const data = await response.json()
+        setTestimonials(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load testimonials')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchTestimonials()
+  }, [])
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
@@ -33,6 +40,50 @@ export function TestimonialSection() {
 
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+  }
+
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-16">Client Experiences</h2>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-pulse">
+              <div className="h-8 w-8 bg-gray-200 rounded-full mx-auto mb-8"></div>
+              <div className="h-32 bg-gray-200 rounded mb-8"></div>
+              <div className="h-6 w-48 bg-gray-200 rounded mx-auto mb-4"></div>
+              <div className="h-4 w-32 bg-gray-200 rounded mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-16">Client Experiences</h2>
+          <div className="max-w-4xl mx-auto text-center text-red-500">
+            {error}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (testimonials.length === 0) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-16">Client Experiences</h2>
+          <div className="max-w-4xl mx-auto text-center text-gray-500">
+            No testimonials available at the moment.
+          </div>
+        </div>
+      </section>
+    )
   }
 
   const currentTestimonial = testimonials[currentIndex]
@@ -51,12 +102,11 @@ export function TestimonialSection() {
 
           <div className="flex flex-col items-center justify-center">
             <blockquote className="mb-8">
-              <p className="text-lg md:text-xl leading-relaxed italic text-gray-700">&ldquo;{currentTestimonial.quote}&rdquo;</p>
+              <p className="text-lg md:text-xl leading-relaxed italic text-gray-700">&ldquo;{currentTestimonial.message}&rdquo;</p>
             </blockquote>
 
             <div className="mb-8">
-              <p className="text-xl font-serif text-[#09163A]">{currentTestimonial.author}</p>
-              <p className="text-gray-500">{currentTestimonial.location}</p>
+              <p className="text-xl font-serif text-[#09163A]">{currentTestimonial.name}</p>
             </div>
 
             <div className="flex space-x-4">

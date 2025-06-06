@@ -3,12 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { PartnerLogos } from "@/components/partner-logos";
 import { ExperienceButton } from "@/components/experience-button";
 import { AttractionCard } from "@/components/attraction-card";
 import { TestimonialSection } from "@/components/testimonial-section";
-import { NewsSection } from "@/components/news-section";
+import NewsSection from "@/components/news-section";
 import { ExperienceDesigners } from "@/components/experience-designers";
 import { SiteFooter } from "@/components/site-footer";
 import { BackToTop } from "@/components/back-to-top";
@@ -52,6 +53,7 @@ import france from "@/../public/images/ni/france.jpeg"
 
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const { t } = useTranslation();
 
   const heroImages = [
     { src: gmel, alt: "Luxury travel destination" },
@@ -73,18 +75,18 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
             <h1 className="d uppercase text-3xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
-              Geneve Getaway
+              {t('home.hero.title')}
             </h1>
             <p
               className="d text-2xl text-white/90 max-w-2xl mx-auto mb-12 slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Your passport to the extraordinary
+              {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-wrap justify-center mt-12 gap-6">
-              <ExperienceButton label="OUR PACKAGES" href="/packages" />
+              <ExperienceButton label={t('home.cta.packages')} href="/packages" />
               <ExperienceButton
-                label="CONTACT US"
+                label={t('home.cta.contact')}
                 href="/contact"
                 active={true}
               />
@@ -113,28 +115,20 @@ export default function Home() {
           </div>
           <div className="max-w-xl slide-in-right">
             <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
-              The Spirit of Geneva,
-              <br />
-              The Art of Travel
+              {t('home.about.title')}
             </h2>
             <p className="text-lg mb-6">
-              The name Geneve is inspired by the city of Geneva, a global center
-              for diplomacy and international cooperation. Known as the
-              &ldquo;Peace Capital,&rdquo; Geneva represents unity, excellence,
-              and internationalism.
+              {t('home.about.paragraph1')}
             </p>
             <p className="text-lg mb-8">
-              Our vision is to build a large-scale, peaceful, and
-              high-performing company that reflects the spirit of Geneva itself.
-              We provide comprehensive travel services with a modern approach
-              that communicates peace, movement, and exploration.
+              {t('home.about.paragraph2')}
             </p>
             <Button
               variant="outline"
               className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
               asChild
             >
-              <Link href="/about">LEARN MORE ABOUT US</Link>
+              <Link href="/about">{t('home.about.cta')}</Link>
             </Button>
           </div>
         </div>
@@ -146,13 +140,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
               <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
-                Comprehensive
-                <br />
-                Travel Services
+                {t('home.services.title')}
               </h2>
               <p className="text-lg mb-8 max-w-xl">
-                Geneve Getaway provides a comprehensive range of domestic and
-                international travel services, including:
+                {t('home.services.subtitle')}
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
@@ -171,7 +162,7 @@ export default function Home() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
-                  <span>Domestic and international flight booking</span>
+                  <span>{t('home.services.items.flights')}</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -189,10 +180,7 @@ export default function Home() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
-                  <span>
-                    Tailored travel packages for weddings, exhibitions, and
-                    vacations
-                  </span>
+                  <span>{t('home.services.items.packages')}</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -210,7 +198,7 @@ export default function Home() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
-                  <span>Hotel reservations and bookings</span>
+                  <span>{t('home.services.items.hotels')}</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -228,7 +216,7 @@ export default function Home() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
-                  <span>Visa facilitation services</span>
+                  <span>{t('home.services.items.visa')}</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -246,7 +234,7 @@ export default function Home() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
-                  <span>Airport shuttle and transport services</span>
+                  <span>{t('home.services.items.transport')}</span>
                 </li>
               </ul>
               <Button
@@ -254,7 +242,7 @@ export default function Home() {
                 className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
                 asChild
               >
-                <Link href="/services">EXPLORE OUR SERVICES</Link>
+                <Link href="/services">{t('home.services.cta')}</Link>
               </Button>
             </div>
             <div className="relative h-[500px] slide-in-right">
@@ -283,17 +271,13 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container mx-auto">
           <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12 slide-up">
-            Luxury Attractions
+            {t('home.attractions.title')}
           </h2>
           <p
             className="text-lg text-center max-w-3xl mx-auto mb-16 slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Let Geneve open up a world of wonders and create magical memories
-            that will stay with you far beyond your travels. Whether you&apos;re seeking
-            cultural experiences, luxury shopping, historical landmarks, or modern
-            marvels, we are here to create a seamless experience while handcrafting
-            your bespoke journey to these extraordinary destinations.
+            {t('home.attractions.description')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -353,7 +337,7 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12 slide-up">
-            What Sets Us Apart
+            {t('home.features.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div
@@ -379,11 +363,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Global Presence
+                {t('home.features.global.title')}
               </h3>
               <p className="text-gray-700">
-                Our international offices enhance global support, ensuring you
-                have assistance wherever your travels take you.
+                {t('home.features.global.description')}
               </p>
             </div>
 
@@ -409,12 +392,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Immediate Response
+                {t('home.features.response.title')}
               </h3>
               <p className="text-gray-700">
-                Prompt and immediate response to any issues during ticketing or
-                flight processes, ensuring peace of mind throughout your
-                journey.
+                {t('home.features.response.description')}
               </p>
             </div>
 
@@ -441,11 +422,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                24/7 Support
+                {t('home.features.support.title')}
               </h3>
               <p className="text-gray-700">
-                Strong 24/7 online presence ensuring continuous customer support
-                whenever and wherever you need assistance.
+                {t('home.features.support.description')}
               </p>
             </div>
           </div>

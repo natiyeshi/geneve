@@ -8,6 +8,7 @@ import { AttractionCardShow } from "@/components/attraction-card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BackToTop } from "@/components/back-to-top"
+import { useTranslation } from "react-i18next"
 import attractionLanding from "@/../public/assets/image/attraction-landing.jpg"
 import gmel from "@/../public/images/gmel.jpg"
 
@@ -25,7 +26,8 @@ import Link from "next/link"
 // Create a client component for the attractions content
 function AttractionsContent() {
   const searchParams = useSearchParams();
-  const destination = searchParams.get('q');
+  const destination = searchParams?.get('q') || null;
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (destination) {
@@ -46,52 +48,49 @@ function AttractionsContent() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto mb-16">
           <p className="text-lg text-center">
-            Let Geneve open up a world of wonders and create magical memories that will stay with you far beyond your
-            travels. Whether you&apos;re seeking cultural experiences, luxury shopping, historical landmarks, or modern
-            marvels, we are here to create a seamless experience while handcrafting your bespoke journey to these
-            extraordinary destinations.
+            {t('attractions.intro')}
           </p>
         </div>
 
-        <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12">Featured Attractions</h2>
+        <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12">{t('attractions.featuredTitle')}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div id="attraction-dubai">
-            <AttractionCardShow title="Dubai" imageSrc={dubai} href="/attractions?q=dubai" large />
+            <AttractionCardShow title={t('footer.destinations.dubai')} imageSrc={dubai} href="/attractions?q=dubai" large />
           </div>
           <div id="attraction-usa">
-            <AttractionCardShow title="USA" imageSrc={usa} href="/attractions?q=usa" large />
+            <AttractionCardShow title={t('footer.destinations.usa')} imageSrc={usa} href="/attractions?q=usa" large />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div id="attraction-china">
-            <AttractionCardShow title="China" imageSrc={china} href="/attractions?q=china" />
+            <AttractionCardShow title={t('footer.destinations.china')} imageSrc={china} href="/attractions?q=china" />
           </div>
           <div id="attraction-turkey">
-            <AttractionCardShow title="Turkey" imageSrc={istanbul} href="/attractions?q=turkey" />
+            <AttractionCardShow title={t('footer.destinations.turkey')} imageSrc={istanbul} href="/attractions?q=turkey" />
           </div>
           <div id="attraction-jerusalem">
-            <AttractionCardShow title="Jerusalem" imageSrc={jerusalem} href="/attractions?q=jerusalem" />
+            <AttractionCardShow title={t('footer.destinations.jerusalem')} imageSrc={jerusalem} href="/attractions?q=jerusalem" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div id="attraction-saudi-arabia">
-            <AttractionCardShow title="Saudi Arabia" imageSrc={saudiArabia} href="/attractions?q=saudi-arabia" />
+            <AttractionCardShow title={t('footer.destinations.saudiArabia')} imageSrc={saudiArabia} href="/attractions?q=saudi-arabia" />
           </div>
           <div id="attraction-france">
-            <AttractionCardShow title="France" imageSrc={france} href="/attractions?q=france" />
+            <AttractionCardShow title={t('footer.destinations.france')} imageSrc={france} href="/attractions?q=france" />
           </div>
         </div>
 
         <div className="text-center">
-          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">Ready to Explore?</h2>
+          <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">{t('attractions.cta.title')}</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Our travel designers are ready to craft your perfect journey to any of our luxury attractions.
+            {t('attractions.cta.description')}
           </p>
           <Link href="/contact">
-            <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white">Contact Us</Button>
+            <Button className="bg-[#EE1D46] hover:bg-[#EE1D46]/90 text-white">{t('attractions.cta.buttonText')}</Button>
           </Link>
         </div>
       </div>
@@ -101,13 +100,15 @@ function AttractionsContent() {
 
 // Main page component
 export default function AttractionsPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[60vh]">
         <Image
           src={gmel}
-          alt="Luxury attractions"
+          alt={t('attractions.hero.title')}
           fill
           className="object-cover brightness-75"
           priority
@@ -120,9 +121,9 @@ export default function AttractionsPage() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-4xl px-4 text-center">
-            <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-6">Luxury Attractions</h1>
+            <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-6">{t('attractions.hero.title')}</h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Discover handpicked destinations that offer unique and authentic experiences
+              {t('attractions.hero.subtitle')}
             </p>
           </div>
         </div>

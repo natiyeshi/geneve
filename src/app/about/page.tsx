@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -5,6 +7,7 @@ import { BackToTop } from "@/components/back-to-top";
 import { CTASection } from "@/components/cta-section";
 import { SisterCompany } from "@/components/sister-company";
 import Team from "./Team";
+import { useTranslation } from "react-i18next";
 
 import abay from "@/../public/images/abay.jpg";
 
@@ -13,6 +16,7 @@ import img3 from "@/../public/assets/image/blog-3.jpg";
 import img2 from "@/../public/assets/image/blog-2.jpg";
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -36,10 +40,11 @@ export default function AboutPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-4xl px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
-              About Geneve
+              {t('about.hero.title')}
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto slide-up">
-              Inspired by the &ldquo;Peace Capital&rdquo; of the world
+            <p
+             className="text-xl text-white/90 max-w-2xl mx-auto slide-up">
+              {t('about.hero.subtitle')}
             </p>
           </div>
         </div>
@@ -65,29 +70,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
               <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">
-                Our Story
+                {t('about.story.title')}
               </h2>
               <p className="text-lg mb-6">
-                The name Geneve is inspired by the city of Geneva, a global
-                center for diplomacy and international cooperation. Known as the
-                &ldquo;Peace Capital,&rdquo; Geneva represents unity,
-                excellence, and internationalism. With family ties to the city
-                and frequent visits, the founders were deeply influenced by its
-                atmosphere and values.
+                {t('about.story.paragraph1')}
               </p>
               <p className="text-lg mb-6">
-                The vision for Geneve Getaway is to build a large-scale,
-                peaceful, and high-performing company that reflects the spirit
-                of Geneva itself. We strive to embody the principles of
-                international cooperation and excellence in every aspect of our
-                service.
+                {t('about.story.paragraph2')}
               </p>
               <p className="text-lg">
-                Our modern approach to travel services communicates peace,
-                movement, and exploration, aligning perfectly with our vision.
-                We believe that travel should not only enrich your perception,
-                understanding, and appreciation of the world, but that it should
-                also allow you to support the local communities you visit.
+                {t('about.story.paragraph3')}
               </p>
             </div>
             <div className="relative h-[500px] slide-in-right">
@@ -116,15 +108,13 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8 text-center slide-up">
-            Our Services
+            {t('about.services.title')}
           </h2>
           <p
             className="text-lg text-center max-w-3xl mx-auto mb-12 slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Geneve Getaway provides a comprehensive range of domestic and
-            international travel services designed to meet the needs of both
-            business travelers and vacationers.
+            {t('about.services.subtitle')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,12 +141,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Flight Booking
+                {t('about.services.items.flights.title')}
               </h3>
               <p className="text-gray-700">
-                Domestic and international flight booking services with special
-                fare discounts for labor travelers and comprehensive support
-                throughout your journey.
+                {t('about.services.items.flights.description')}
               </p>
             </div>
 
@@ -183,12 +171,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Hotel Reservations
+                {t('about.services.items.hotels.title')}
               </h3>
               <p className="text-gray-700">
-                Secure the best accommodations worldwide with our hotel
-                reservation services, offering a range of options from luxury
-                resorts to boutique properties.
+                {t('about.services.items.hotels.description')}
               </p>
             </div>
 
@@ -215,12 +201,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Visa Services
+                {t('about.services.items.visa.title')}
               </h3>
               <p className="text-gray-700">
-                Comprehensive visa facilitation services to ensure smooth travel
-                arrangements, with expert guidance through the application
-                process.
+                {t('about.services.items.visa.description')}
               </p>
             </div>
 
@@ -248,12 +232,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Airport Transfers
+                {t('about.services.items.transfers.title')}
               </h3>
               <p className="text-gray-700">
-                Reliable airport shuttle and transport services ensuring
-                comfortable and timely transfers to and from your
-                accommodations.
+                {t('about.services.items.transfers.description')}
               </p>
             </div>
 
@@ -278,12 +260,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Travel Packages
+                {t('about.services.items.packages.title')}
               </h3>
               <p className="text-gray-700">
-                Tailored travel packages for various occasions including
-                weddings, exhibitions, and vacations, designed to meet your
-                specific needs and preferences.
+                {t('about.services.items.packages.description')}
               </p>
             </div>
 
@@ -310,12 +290,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Air Cargo Logistics
+                {t('about.services.items.cargo.title')}
               </h3>
               <p className="text-gray-700">
-                Efficient air cargo logistics services for businesses and
-                individuals requiring reliable transportation of goods
-                internationally.
+                {t('about.services.items.cargo.description')}
               </p>
             </div>
           </div>
@@ -326,7 +304,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white" id="values">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12 text-center slide-up">
-            What Sets Us Apart
+            {t('about.features.title')}
           </h2>
 
           <div
@@ -353,11 +331,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Global Presence
+                {t('about.features.global.title')}
               </h3>
               <p className="text-gray-700">
-                Our international offices enhance global support, ensuring you
-                have assistance wherever your travels take you.
+                {t('about.features.global.description')}
               </p>
             </div>
 
@@ -380,12 +357,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Immediate Response
+                {t('about.features.response.title')}
               </h3>
               <p className="text-gray-700">
-                Prompt and immediate response to any issues during ticketing or
-                flight processes, ensuring peace of mind throughout your
-                journey.
+                {t('about.features.response.description')}
               </p>
             </div>
 
@@ -409,11 +384,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                24/7 Support
+                {t('about.features.support.title')}
               </h3>
               <p className="text-gray-700">
-                Strong 24/7 online presence ensuring continuous customer support
-                whenever and wherever you need assistance.
+                {t('about.features.support.description')}
               </p>
             </div>
           </div>
@@ -424,14 +398,13 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8 text-center slide-up">
-            Who We Serve
+            {t('about.audience.title')}
           </h2>
           <p
             className="text-lg text-center max-w-3xl mx-auto mb-12 slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Our services primarily cater to both business travelers and
-            vacationers looking for reliable and comprehensive travel support.
+            {t('about.audience.subtitle')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -459,13 +432,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Business Travelers
+                {t('about.audience.business.title')}
               </h3>
               <p className="text-gray-700">
-                Middle-class business professionals and employees who value
-                convenience, efficiency, and quality service in their travel
-                experiences. We understand the unique needs of business travel
-                and provide seamless solutions to ensure productive journeys.
+                {t('about.audience.business.description')}
               </p>
             </div>
 
@@ -492,13 +462,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                Vacationers
+                {t('about.audience.vacationers.title')}
               </h3>
               <p className="text-gray-700">
-                Leisure travelers seeking memorable experiences with reliable
-                and comprehensive travel support. We create tailored vacation
-                packages that allow you to relax and enjoy your journey while we
-                handle all the details.
+                {t('about.audience.vacationers.description')}
               </p>
             </div>
           </div>
