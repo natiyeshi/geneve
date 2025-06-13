@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ClientSessionProvider } from "@/components/client-session-provider";
 import I18nProvider from '@/providers/I18nProvider';
+import { ReferralTracker } from "@/components/referral-tracker";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
   title: "Geneve Getaway",
   description: "Your luxury travel partner",
 };
+
+
+// ... existing code ...
 
 export default function RootLayout({
   children,
@@ -67,9 +71,6 @@ export default function RootLayout({
             `,
           }}
         />
-      
-
-        {/* Favicon & Apple Icons */}
       </head>
       <I18nProvider>
         <ClientSessionProvider>
@@ -85,28 +86,11 @@ export default function RootLayout({
               speed={200}
               shadow="0 0 10px #EE1D46,0 0 5px #EE1D46"
             />
-            {/* Referral Tracking Script */}
-            <Script
-              id="referral-tracking"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  (function() {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const ref = urlParams.get('ref');
-                    if (ref) {
-                      fetch('/api/referral?ref=' + ref)
-                        .catch(error => console.error('Error tracking referral:', error));
-                    }
-                  })();
-                `,
-              }}
-            />
+            <ReferralTracker />
             {children}
           </body>
         </ClientSessionProvider>
       </I18nProvider>
-
     </html>
   );
 }

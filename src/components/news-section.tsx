@@ -62,7 +62,7 @@ export default function NewsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div key={blog._id} className="group">
-              <Link href={`/blog/${blog._id}`} className="block relative aspect-[4/3] overflow-hidden mb-4">
+              <Link href={`/blog/${blog.link}`} className="block relative aspect-[4/3] overflow-hidden mb-4">
                 <Image
                   src={blog.image}
                   alt={blog.topic}

@@ -2,6 +2,5 @@
     - ui
     - social media counter
 - frontend
-    - testimony
     - blog on landing
     - language

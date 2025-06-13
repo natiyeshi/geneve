@@ -6,6 +6,7 @@ export interface IBlog {
     createdAt?: string; 
     updatedAt?: string;
     _id : string,
+    link : string,
 }
 
 
