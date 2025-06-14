@@ -5,13 +5,10 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface ImageGalleryProps {
-  images: {
-    src: any
-    alt: string
-  }[]
+  images: string[]
 }
 
-export function ImageGallery({ images }: any) {
+export function ImageGallery({ images }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextImage = () => {
