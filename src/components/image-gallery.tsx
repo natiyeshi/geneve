@@ -27,8 +27,8 @@ export function ImageGallery({ images }: ImageGalleryProps) {
     <div className="space-y-4">
       <div className="relative aspect-[16/9] overflow-hidden rounded-md">
         <Image
-          src={images[currentIndex].src || "/placeholder.svg"}
-          alt={images[currentIndex].alt}
+          src={images[currentIndex] || "/placeholder.svg"}
+          alt={images[currentIndex]}
           fill
           className="object-cover"
         />
