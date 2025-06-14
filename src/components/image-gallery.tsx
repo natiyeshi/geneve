@@ -11,7 +11,7 @@ interface ImageGalleryProps {
   }[]
 }
 
-export function ImageGallery({ images }: ImageGalleryProps) {
+export function ImageGallery({ images }: any) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextImage = () => {
