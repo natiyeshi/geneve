@@ -65,7 +65,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
               index === currentIndex ? "ring-2 ring-[#EE1D46]" : "opacity-70 hover:opacity-100"
             }`}
           >
-            <Image src={image || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+            <Image src={image || "/placeholder.svg"} alt={image} fill className="object-cover" />
           </button>
         ))}
       </div>
