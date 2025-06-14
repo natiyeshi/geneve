@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
 
             {/* Content */}
             <div 
-              className="prose prose-lg max-w-none [&>h2]:text-3xl [&>h2]:font-bold [&>h3]:text-2xl [&>h3]:font-bold" 
+              className="prose prose-lg my-blog max-w-none [&>h2]:text-3xl [&>h2]:font-bold [&>h3]:text-2xl [&>h3]:font-bold" 
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
           </div>
