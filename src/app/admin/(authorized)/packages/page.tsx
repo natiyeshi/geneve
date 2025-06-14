@@ -22,7 +22,7 @@ export default function PackagesPage() {
   const fetchPackages = async () => {
     try {
       const response = await fetch('/api/packages');
-      if (!response.ok) throw new Error('Failed to fetch packages');
+      if (!response.ok){ throw new Error('Failed to fetch packages')};
       const data = await response.json();
       setPackages(data);
     } catch (err) {

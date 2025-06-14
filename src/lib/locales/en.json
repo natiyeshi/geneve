@@ -295,7 +295,7 @@
     "customPackage": {
       "title": "Looking for Something Unique?",
       "description": "Our travel designers can create a completely customized package tailored to your specific preferences, interests, and travel style.",
-      "buttonText": "Create Custom Package"
+      "cta": "Create Custom Package"
     }
   },
   "blog": {

@@ -4,3 +4,11 @@
 - frontend
     - blog on landing
     - language
+
+
+- ui
+- login
+- check functionality
+- package price optional
+
+- blog 

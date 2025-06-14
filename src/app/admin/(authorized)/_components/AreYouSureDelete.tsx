@@ -51,7 +51,7 @@ const AreYouSureDelete = ({ onDelete }: { onDelete: Function }) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <Button onClick={deleteData} disabled={loading}>
+          <Button className="bg-primary text-white" onClick={deleteData} disabled={loading}>
             Delete
           </Button>
         </AlertDialogFooter>

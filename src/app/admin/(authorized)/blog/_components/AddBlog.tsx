@@ -92,7 +92,10 @@ const BlogForm = ({ initialBlog, isEdit = false, onEdit, setBlogs }: BlogFormPro
       } else {
          const response = await res.json();
          if (isEdit && onEdit) {
-            onEdit(response.blog);
+           onEdit({...response.blog,_id : initialBlog});
+           if (typeof window !== 'undefined') {
+             window.location.reload();
+           }
          } else if (setBlogs) {
             setBlogs((prev) => [...prev, response.newBlog]);
          }
