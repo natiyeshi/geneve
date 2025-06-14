@@ -1,6 +1,6 @@
 import { IBlog } from "@/interfaces/blog.interface";
 
-export const sampleBlogs: IBlog[] = [
+export const sampleBlog = [
   {
     _id: "1",
     topic: "Discovering the Hidden Gems of Ethiopia: A Journey Through History",

@@ -131,7 +131,7 @@ const AddTestimony = ({ setTestimonials }: { setTestimonials: Function }) => {
             <AlertDialogCancel onClick={() => setIsOpen(false)}>
               Cancel
             </AlertDialogCancel>
-            <Button type="submit" disabled={loading}>
+            <Button className="bg-primary hover:bg-primary/60 text-white" type="submit" disabled={loading}>
               Continue
             </Button>
           </AlertDialogFooter>
