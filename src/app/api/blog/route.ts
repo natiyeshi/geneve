@@ -40,11 +40,15 @@ export async function POST(req: any) {
       );
     }
   }
-
-export async function GET(req: any) {
+  export async function GET(req: any) {
     try {
       const blogs = await Blog.find();
-      return NextResponse.json(blogs, { status: 200 });
+      return NextResponse.json(blogs, { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        },
+      });
     } catch (err) {
       console.error(err);
       return NextResponse.json(
@@ -53,4 +57,3 @@ export async function GET(req: any) {
       );
     }
   }
-    
