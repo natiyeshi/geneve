@@ -1,14 +1,13 @@
-- admin 
-    - ui
-    - social media counter
-- frontend
-    - blog on landing
-    - language
-
-
+----------------------------
+- q&a
+- email link
+- attraction local + dynamic
+- contact us links
+- image for the dubai beauro
+----------------------------
 - ui
 - login
 - package price optional
-
-- check functionality
-- blog 
+----------------------------
+- seo
+- host
