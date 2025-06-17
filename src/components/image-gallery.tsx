@@ -5,10 +5,7 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface ImageGalleryProps {
-  images: {
-    src: any
-    alt: string
-  }[]
+  images: string[]
 }
 
 export function ImageGallery({ images }: ImageGalleryProps) {
@@ -30,8 +27,8 @@ export function ImageGallery({ images }: ImageGalleryProps) {
     <div className="space-y-4">
       <div className="relative aspect-[16/9] overflow-hidden rounded-md">
         <Image
-          src={images[currentIndex].src || "/placeholder.svg"}
-          alt={images[currentIndex].alt}
+          src={images[currentIndex] || "/placeholder.svg"}
+          alt={images[currentIndex]}
           fill
           className="object-cover"
         />
@@ -68,7 +65,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
               index === currentIndex ? "ring-2 ring-[#EE1D46]" : "opacity-70 hover:opacity-100"
             }`}
           >
-            <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+            <Image src={image || "/placeholder.svg"} alt={image} fill className="object-cover" />
           </button>
         ))}
       </div>

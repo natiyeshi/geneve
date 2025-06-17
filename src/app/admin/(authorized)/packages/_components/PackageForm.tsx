@@ -433,7 +433,7 @@ export default function PackageForm({ initialValues = defaultValues, isEditing =
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="pricing.earlyBirdDiscount">Early Bird Discount (%)</Label>
+                  <Label htmlFor="pricing.earlyBirdDiscount">Early Bird Discount</Label>
                   <Field name="pricing.earlyBirdDiscount">
                     {({ field }: any) => (
                       <Input
@@ -449,7 +449,7 @@ export default function PackageForm({ initialValues = defaultValues, isEditing =
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="pricing.groupDiscount">Group Discount (%)</Label>
+                  <Label htmlFor="pricing.groupDiscount">Group Discount</Label>
                   <Field name="pricing.groupDiscount">
                     {({ field }: any) => (
                       <Input
