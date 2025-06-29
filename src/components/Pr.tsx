@@ -4,10 +4,23 @@ import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, MapPin, Star, Users } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import hotel from "@/../public/images/hotel.png"
+
+const floatAnim = {
+  animate: {
+    y: [0, -10, 0, 10, 0],
+    scale: [1, 1.03, 1, 0.97, 1],
+    transition: {
+      duration: 7,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
 
 export default function RovePartnerSection() {
   const { t } = useTranslation();
@@ -16,20 +29,38 @@ export default function RovePartnerSection() {
     <section className="w-full container py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl font-serif font-light tracking-tighter sm:text-4xl md:text-5xl text-primary mb-4">
             {t('partner.title')}
           </h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
             {t('partner.subtitle')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Partner Showcase */}
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
           {/* Partner Info */}
-          <div className="space-y-6">
-            <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
               <div className="flex items-center space-x-3">
                 <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Star className="h-6 w-6 text-primary" />
@@ -43,48 +74,91 @@ export default function RovePartnerSection() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t('partner.hotel.description')}
               </p>
-            </div>
+            </motion.div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <Card className="border-primary/20">
-                <CardContent className="p-4 text-center">
-                  <MapPin className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">{t('partner.features.locations.title')}</h4>
-                  <p className="text-sm text-muted-foreground">{t('partner.features.locations.description')}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20">
-                <CardContent className="p-4 text-center">
-                  <Users className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">{t('partner.features.guests.title')}</h4>
-                  <p className="text-sm text-muted-foreground">{t('partner.features.guests.description')}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20">
-                <CardContent className="p-4 text-center">
-                  <Star className="h-8 w-8 text-secondary mx-auto mb-2" />
-                  <h4 className="font-semibold text-primary">{t('partner.features.quality.title')}</h4>
-                  <p className="text-sm text-muted-foreground">{t('partner.features.quality.description')}</p>
-                </CardContent>
-              </Card>
-            </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.5, type: "spring" }}
+                >
+                  {i === 0 && (
+                    <Card className="border-primary/20">
+                      <CardContent className="p-4 text-center">
+                        <MapPin className="h-8 w-8 text-secondary mx-auto mb-2" />
+                        <h4 className="font-semibold text-primary">{t('partner.features.locations.title')}</h4>
+                        <p className="text-sm text-muted-foreground">{t('partner.features.locations.description')}</p>
+                      </CardContent>
+                    </Card>
+                  )}
+                  {i === 1 && (
+                    <Card className="border-primary/20">
+                      <CardContent className="p-4 text-center">
+                        <Users className="h-8 w-8 text-secondary mx-auto mb-2" />
+                        <h4 className="font-semibold text-primary">{t('partner.features.guests.title')}</h4>
+                        <p className="text-sm text-muted-foreground">{t('partner.features.guests.description')}</p>
+                      </CardContent>
+                    </Card>
+                  )}
+                  {i === 2 && (
+                    <Card className="border-primary/20">
+                      <CardContent className="p-4 text-center">
+                        <Star className="h-8 w-8 text-secondary mx-auto mb-2" />
+                        <h4 className="font-semibold text-primary">{t('partner.features.quality.title')}</h4>
+                        <p className="text-sm text-muted-foreground">{t('partner.features.quality.description')}</p>
+                      </CardContent>
+                    </Card>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Button asChild className="bg-primary hover:bg-primary/90">
                 <Link href="http://www.rovehotels.com/" target="_blank" rel="noopener noreferrer">
                   {t('partner.cta.visit')}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Partner Image */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
+            animate="animate"
+          >
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <Image
                 src={hotel}
@@ -113,11 +187,17 @@ export default function RovePartnerSection() {
             {/* Decorative Elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary/20 rounded-full blur-xl" />
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-xl" />
-          </div>
+          </motion.div>
         </div>
 
         {/* Partnership Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        >
           <div>
             <div className="text-3xl font-bold text-primary mb-2">5+</div>
             <div className="text-sm text-muted-foreground">{t('partner.stats.partnership')}</div>
@@ -134,7 +214,7 @@ export default function RovePartnerSection() {
             <div className="text-3xl font-bold text-secondary mb-2">98%</div>
             <div className="text-sm text-muted-foreground">{t('partner.stats.satisfaction')}</div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

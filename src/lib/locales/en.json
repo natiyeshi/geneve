@@ -323,7 +323,9 @@
       "whatsapp": "WhatsApp",
       "telegram": "Telegram",
       "email": "Email",
-      "phone": "Phone"
+      "phone": "Phone",
+      "facebook": "Facebook",
+      "tiktok": "TikTok"
     },
     "connect": {
       "title": "Connect with Us",

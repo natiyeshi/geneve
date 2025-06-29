@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
 import { getBlogs } from "@/lib/api"
 import { IBlog } from "@/interfaces/blog.interface"
+import { motion } from "framer-motion"
 
 export default function NewsSection() {
   const { t } = useTranslation();
@@ -52,16 +53,45 @@ export default function NewsSection() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
+          className="flex justify-between items-center mb-12"
+        >
           <h2 className="text-4xl font-serif font-light text-[#09163A]">{t('blog.title')}</h2>
           <Link href="/blog" className="text-[#09163A] hover:text-[#EE1D46] font-medium uppercase">
             {t('blog.viewAll')}
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <div key={blog._id} className="group">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+              }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {blogs.map((blog, i) => (
+            <motion.div
+              key={blog._id}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.96 },
+                visible: { opacity: 1, y: 0, scale: 1 }
+              }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="group"
+            >
               <Link href={`/blog/${blog.link}`} className="block relative aspect-[4/3] overflow-hidden mb-4">
                 <Image
                   src={blog.image}
@@ -95,9 +125,9 @@ export default function NewsSection() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

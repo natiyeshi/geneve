@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Mail, Phone } from "lucide-react"
-import { FaWhatsapp, FaTelegram } from "react-icons/fa"
+import { FaWhatsapp, FaTelegram, FaFacebook, FaTiktok } from "react-icons/fa"
 import { useTranslation } from "react-i18next"
 import land from "@/../public/images/land.jpg"
 
@@ -120,7 +120,7 @@ export function ContactHero() {
 
               {/* Telegram */}
               <a
-                href="https://t.me/genevegetaway"
+                href="https://t.me/Geneve_getaway"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ripple-container relative"
@@ -132,6 +132,38 @@ export function ContactHero() {
                 <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0088cc]/15 rounded-full animate-ripple-2"></div>
                 <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0088cc]/10 rounded-full animate-ripple-3"></div>
                 <p className="text-sm font-medium text-white mt-2 text-center">{t('contact.hero.telegram')}</p>
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://facebook.com/genevegetaway"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ripple-container relative"
+              >
+                <div className="contact-icon bg-[#1877F2] text-white w-16 h-16 rounded-full flex items-center justify-center z-10 relative">
+                  <FaFacebook className="w-8 h-8" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1877F2]/10 rounded-full animate-ripple-3"></div>
+                <p className="text-sm font-medium text-white mt-2 text-center">{t('contact.hero.facebook')}</p>
+              </a>
+
+              {/* TikTok */}
+              <a
+                href="https://vm.tiktok.com/ZMBTVapDx/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ripple-container relative"
+              >
+                <div className="contact-icon bg-black text-white w-16 h-16 rounded-full flex items-center justify-center z-10 relative">
+                  <FaTiktok className="w-8 h-8" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/10 rounded-full animate-ripple-3"></div>
+                <p className="text-sm font-medium text-white mt-2 text-center">{t('contact.hero.tiktok')}</p>
               </a>
 
               {/* Email */}

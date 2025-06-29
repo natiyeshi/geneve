@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface Testimonial {
   _id: string;
@@ -91,25 +92,64 @@ export function TestimonialSection() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-16">Client Experiences</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
+          className="text-4xl font-serif font-light text-center text-[#09163A] mb-16"
+        >
+          Client Experiences
+        </motion.h2>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative mb-8 flex justify-center">
-            <div className="bg-[#EE1D46] p-4 rounded-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
+            className="relative mb-8 flex justify-center"
+          >
+            <motion.div
+              animate={{ rotate: [0, 8, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="bg-[#EE1D46] p-4 rounded-full shadow-lg"
+            >
               <Quote className="h-8 w-8 text-white" />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="flex flex-col items-center justify-center">
-            <blockquote className="mb-8">
-              <p className="text-lg md:text-xl leading-relaxed italic text-gray-700">&ldquo;{currentTestimonial.message}&rdquo;</p>
-            </blockquote>
+            <AnimatePresence mode="wait">
+              <motion.blockquote
+                key={currentTestimonial._id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5, type: "spring" }}
+                className="mb-8"
+              >
+                <p className="text-lg md:text-xl leading-relaxed italic text-gray-700">&ldquo;{currentTestimonial.message}&rdquo;</p>
+              </motion.blockquote>
+            </AnimatePresence>
 
-            <div className="mb-8">
+            <motion.div
+              key={currentTestimonial._id + "-author"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
+              className="mb-8"
+            >
               <p className="text-xl font-serif text-[#09163A]">{currentTestimonial.name}</p>
-            </div>
+            </motion.div>
 
-            <div className="flex space-x-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+              viewport={{ once: true }}
+              className="flex space-x-4"
+            >
               <button
                 onClick={prevTestimonial}
                 className="w-10 h-10 rounded-full border border-[#09163A] flex items-center justify-center hover:bg-[#09163A] hover:text-white transition-colors"
@@ -124,9 +164,15 @@ export function TestimonialSection() {
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
-            </div>
+            </motion.div>
 
-            <div className="mt-4 flex space-x-2">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+              viewport={{ once: true }}
+              className="mt-4 flex space-x-2"
+            >
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -135,7 +181,7 @@ export function TestimonialSection() {
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

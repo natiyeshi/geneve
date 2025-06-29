@@ -1,13 +1,9 @@
 ----------------------------
-- q&a
-- email link
-- attraction local + dynamic
-- contact us links
-- image for the dubai beauro
-----------------------------
-- ui
-- login
-- package price optional
-----------------------------
 - seo
-- host
+- attraction local + dynamic
+- ui - animation
+----------------------------
+- image for the dubai beauro
+- login
+----------------------------
+- package price optional

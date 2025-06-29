@@ -40,7 +40,7 @@ export function SiteFooter() {
       <div className="container mx-auto pt-12 pb-20 ">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-14 ">
           {/* Company info */}
-          <div className="space-y-8">
+          <div className="space-y-8 ">
             <div className="flex items-center space-x-3">
               <Link href="/" className="relative z-10">
                 <Image
@@ -55,7 +55,7 @@ export function SiteFooter() {
             <p className="text-white/80 leading-relaxed">
               {t('footer.companyDescription')}
             </p>
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 pt-12">
               {/* Facebook */}
               <Link
                 href="https://www.facebook.com/profile.php?id=61575684971389"
@@ -118,6 +118,37 @@ export function SiteFooter() {
                 <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/20 rounded-full animate-ripple-1"></div>
                 <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/15 rounded-full animate-ripple-2"></div>
                 <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#26A5E4]/10 rounded-full animate-ripple-3"></div>
+              </Link>
+              {/* Email */}
+              <Link
+                href="mailto:info@genevegetaway.com"
+                className="relative"
+                aria-label="Email"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="contact-icon bg-[#EE1D46] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EE1D46]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EE1D46]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EE1D46]/10 rounded-full animate-ripple-3"></div>
+              </Link>
+
+              {/* Phone */}
+              <Link
+                href="tel:251989111111"
+                className="relative"
+                aria-label="Phone"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="contact-icon bg-[#34B7F1] text-white w-12 h-12 rounded-full flex items-center justify-center z-10 relative">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#34B7F1]/20 rounded-full animate-ripple-1"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#34B7F1]/15 rounded-full animate-ripple-2"></div>
+                <div className="ripple absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#34B7F1]/10 rounded-full animate-ripple-3"></div>
               </Link>
             </div>
           </div>

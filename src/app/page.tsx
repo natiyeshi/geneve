@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,15 @@ import { BackToTop } from "@/components/back-to-top";
 import { SearchDialog } from "@/components/search-dialog";
 import { SiteHeader } from "@/components/site-header";
 import { HeroCarousel } from "@/components/hero-carousel";
+import { FAQSection } from "@/components/faq-section";
+import { 
+  AnimatedSection, 
+  AnimatedText, 
+  AnimatedImage, 
+  AnimatedCard,
+  AnimatedWrapper 
+} from "@/components/animated-wrapper";
+import { motion } from "framer-motion";
 
 import gmel from "@/../public/images/gmel.jpg"
 
@@ -54,6 +63,23 @@ import france from "@/../public/images/ni/france.jpeg"
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
   const { t } = useTranslation();
+  const [attractions, setAttractions] = useState<{ name: string; image: string }[]>([]);
+  const [loadingAttractions, setLoadingAttractions] = useState(true);
+
+  useEffect(() => {
+    async function fetchAttractions() {
+      try {
+        const res = await fetch("/api/attractions");
+        if (res.ok) {
+          const data = await res.json();
+          setAttractions(data);
+        }
+      } finally {
+        setLoadingAttractions(false);
+      }
+    }
+    fetchAttractions();
+  }, []);
 
   const heroImages = [
     { src: gmel, alt: "Luxury travel destination" },
@@ -74,23 +100,35 @@ export default function Home() {
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto text-center pt-16 md:pt-0">
-            <h1 className="d uppercase text-3xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="d uppercase text-3xl md:text-6xl font-serif font-light text-white mb-6 fade-in"
+            >
               {t('home.hero.title')}
-            </h1>
-            <p
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="d text-2xl text-white/90 max-w-2xl mx-auto mb-12 slide-up"
-              style={{ animationDelay: "0.2s" }}
             >
               {t('home.hero.subtitle')}
-            </p>
-            <div className="flex flex-wrap justify-center mt-12 gap-6">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-wrap justify-center mt-12 gap-6"
+            >
               <ExperienceButton label={t('home.cta.packages')} href="/packages" />
               <ExperienceButton
                 label={t('home.cta.contact')}
                 href="/contact"
                 active={true}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -100,11 +138,10 @@ export default function Home() {
         </div> */}
       </div>
 
-      {/* Rest of the page content remains the same */}
       {/* About Geneve Section */}
-      <section className="py-24 bg-white">
+      <AnimatedSection className="py-24 bg-white">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="slide-up">
+          <AnimatedImage delay={0.2}>
             <Image
               src={ertu}
               alt="Scenic travel destination"
@@ -112,140 +149,112 @@ export default function Home() {
               height={600}
               className="object-cover rounded-sm shadow-lg"
             />
-          </div>
-          <div className="max-w-xl slide-in-right">
-            <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
-              {t('home.about.title')}
-            </h2>
-            <p className="text-lg mb-6">
-              {t('home.about.paragraph1')}
-            </p>
-            <p className="text-lg mb-8">
-              {t('home.about.paragraph2')}
-            </p>
-            <Button
-              variant="outline"
-              className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
-              asChild
-            >
-              <Link href="/about">{t('home.about.cta')}</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="slide-up">
+          </AnimatedImage>
+          <div className="max-w-xl">
+            <AnimatedText delay={0.3}>
               <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
-                {t('home.services.title')}
+                {t('home.about.title')}
               </h2>
-              <p className="text-lg mb-8 max-w-xl">
-                {t('home.services.subtitle')}
+            </AnimatedText>
+            <AnimatedText delay={0.4}>
+              <p className="text-lg mb-6">
+                {t('home.about.paragraph1')}
               </p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>{t('home.services.items.flights')}</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>{t('home.services.items.packages')}</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>{t('home.services.items.hotels')}</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>{t('home.services.items.visa')}</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-[#EE1D46] mr-2 mt-1"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  <span>{t('home.services.items.transport')}</span>
-                </li>
-              </ul>
+            </AnimatedText>
+            <AnimatedText delay={0.5}>
+              <p className="text-lg mb-8">
+                {t('home.about.paragraph2')}
+              </p>
+            </AnimatedText>
+            <AnimatedWrapper delay={0.6}>
               <Button
                 variant="outline"
                 className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
                 asChild
               >
-                <Link href="/services">{t('home.services.cta')}</Link>
+                <Link href="/about">{t('home.about.cta')}</Link>
               </Button>
+            </AnimatedWrapper>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Our Services */}
+      <AnimatedSection className="py-20 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <AnimatedText delay={0.2}>
+                <h2 className="text-4xl font-serif font-light text-[#09163A] mb-8">
+                  {t('home.services.title')}
+                </h2>
+              </AnimatedText>
+              <AnimatedText delay={0.3}>
+                <p className="text-lg mb-8 max-w-xl">
+                  {t('home.services.subtitle')}
+                </p>
+              </AnimatedText>
+              <motion.ul 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1,
+                      delayChildren: 0.4
+                    }
+                  }
+                }}
+                className="space-y-4 mb-8"
+              >
+                {[
+                  t('home.services.items.flights'),
+                  t('home.services.items.packages'),
+                  t('home.services.items.hotels'),
+                  t('home.services.items.visa'),
+                  t('home.services.items.transport')
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    className="flex items-start"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-[#EE1D46] mr-2 mt-1"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+              <AnimatedWrapper delay={0.8}>
+                <Button
+                  variant="outline"
+                  className="uppercase tracking-wider border-[#09163A] text-[#09163A] hover:bg-[#09163A] hover:text-white"
+                  asChild
+                >
+                  <Link href="/services">{t('home.services.cta')}</Link>
+                </Button>
+              </AnimatedWrapper>
             </div>
-            <div className="relative h-[500px] slide-in-right">
+            <AnimatedImage delay={0.4} className="relative h-[500px]">
               <div className="absolute top-0 right-0 w-4/5 h-4/5 bg-gray-200 rounded-md shadow-lg overflow-hidden">
                 <Image
                   src={travel4}
@@ -262,71 +271,67 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </AnimatedImage>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Luxury Attractions */}
-      <section className="py-20 bg-white">
+      <AnimatedSection className="py-20 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12 slide-up">
-            {t('home.attractions.title')}
-          </h2>
-          <p
-            className="text-lg text-center max-w-3xl mx-auto mb-16 slide-up"
-            style={{ animationDelay: "0.1s" }}
-          >
-            {t('home.attractions.description')}
-          </p>
+          <AnimatedText delay={0.2}>
+            <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12">
+              {t('home.attractions.title')}
+            </h2>
+          </AnimatedText>
+          <AnimatedText delay={0.3}>
+            <p className="text-lg text-center max-w-3xl mx-auto mb-16">
+              {t('home.attractions.description')}
+            </p>
+          </AnimatedText>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <AttractionCard
-              title="Dubai"
-              imageSrc={dubai}
-              href="/attractions?q=dubai"
-              large
-            />
-            <AttractionCard
-              title="USA"
-              imageSrc={usa}
-              href="/attractions?q=usa"
-              large
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <AttractionCard
-              title="China"
-              imageSrc={china}
-              href="/attractions?q=china"
-            />
-            <AttractionCard
-              title="Turkey"
-              imageSrc={istanbul}
-              href="/attractions?q=turkey"
-            />
-            <AttractionCard
-              title="Jerusalem"
-              imageSrc={jerusalem}
-              href="/attractions?q=jerusalem"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <AttractionCard
-              title="Saudi Arabia"
-              imageSrc={saudiArabia}
-              href="/attractions?q=saudi-arabia"
-            />
-            <AttractionCard
-              title="France"
-              imageSrc={france}
-              href="/attractions?q=france"
-            />
-          </div>
+          {loadingAttractions ? (
+            <div className="text-center py-12 text-gray-500">Loading attractions...</div>
+          ) : attractions.length === 0 ? (
+            <div className="text-center py-12 text-gray-500">No attractions found.</div>
+          ) : (
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.4
+                  }
+                }
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8"
+            >
+              {attractions.map((attr, idx) => (
+                <motion.div
+                  key={attr.name + idx}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.9, y: 30 },
+                    visible: { opacity: 1, scale: 1, y: 0 }
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <AttractionCard
+                    title={attr.name}
+                    imageSrc={attr.image}
+                    href={`/attractions?q=${encodeURIComponent(attr.name.toLowerCase().replace(/\s+/g, "-"))}`}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Experience Designers Section */}
       <ExperienceDesigners />
@@ -334,109 +339,134 @@ export default function Home() {
       <RovePartnerSection />
 
       {/* What Sets Us Apart */}
-      <section className="py-20 bg-gray-50">
+      <AnimatedSection className="py-20 bg-gray-50">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12 slide-up">
-            {t('home.features.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div
-              className="bg-white p-8 rounded-md shadow-sm hover-lift slide-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <div className="w-16 h-16 bg-[#EE1D46]/10 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#EE1D46]"
+          <AnimatedText delay={0.2}>
+            <h2 className="text-4xl font-serif font-light text-center text-[#09163A] mb-12">
+              {t('home.features.title')}
+            </h2>
+          </AnimatedText>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.3
+                }
+              }
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          >
+            {[
+              {
+                icon: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46]"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                    <path d="M2 12h20" />
+                  </svg>
+                ),
+                title: t('home.features.global.title'),
+                description: t('home.features.global.description')
+              },
+              {
+                icon: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46]"
+                  >
+                    <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+                    <path d="M12 8v4l3 3" />
+                  </svg>
+                ),
+                title: t('home.features.response.title'),
+                description: t('home.features.response.description')
+              },
+              {
+                icon: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#EE1D46]"
+                  >
+                    <path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z" />
+                    <path d="M12 13v8" />
+                    <path d="M12 3v3" />
+                  </svg>
+                ),
+                title: t('home.features.support.title'),
+                description: t('home.features.support.description')
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white p-8 rounded-md shadow-sm hover-lift"
+              >
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 200 }}
+                  className="w-16 h-16 bg-[#EE1D46]/10 rounded-full flex items-center justify-center mb-6"
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                  <path d="M2 12h20" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('home.features.global.title')}
-              </h3>
-              <p className="text-gray-700">
-                {t('home.features.global.description')}
-              </p>
-            </div>
-
-            <div
-              className="bg-white p-8 rounded-md shadow-sm hover-lift slide-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <div className="w-16 h-16 bg-[#EE1D46]/10 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#EE1D46]"
-                >
-                  <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
-                  <path d="M12 8v4l3 3" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('home.features.response.title')}
-              </h3>
-              <p className="text-gray-700">
-                {t('home.features.response.description')}
-              </p>
-            </div>
-
-            <div
-              className="bg-white p-8 rounded-md shadow-sm hover-lift slide-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <div className="w-16 h-16 bg-[#EE1D46]/10 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#EE1D46]"
-                >
-                  <path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z" />
-                  <path d="M12 13v8" />
-                  <path d="M12 3v3" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('home.features.support.title')}
-              </h3>
-              <p className="text-gray-700">
-                {t('home.features.support.description')}
-              </p>
-            </div>
-          </div>
+                  {feature.icon}
+                </motion.div>
+                <h3 className="text-xl font-serif text-[#09163A] mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-700">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Testimonials */}
       <TestimonialSection />
 
       {/* News Section */}
       <NewsSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Footer */}
       <SiteFooter />

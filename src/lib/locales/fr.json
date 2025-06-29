@@ -61,7 +61,9 @@
       "whatsapp": "WhatsApp",
       "telegram": "Télégramme",
       "email": "E-mail",
-      "phone": "Téléphone"
+      "phone": "Téléphone",
+      "facebook": "Facebook",
+      "tiktok": "TikTok"
     },
     "connect": {
       "title": "Connectez-vous avec nous",

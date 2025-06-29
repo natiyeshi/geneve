@@ -15,8 +15,53 @@ const montserrat = Montserrat({
 const GA_TRACKING_ID = ""; // Your Google Analytics ID
 
 export const metadata: Metadata = {
-  title: "Geneve Getaway",
-  description: "Your luxury travel partner",
+  title: {
+    default:
+      "Geneve Getaway - Best Tour & Travel Agency in Ethiopia | Dubai Visa & Hotel Booking",
+    template: "%s - Geneve Getaway",
+  },
+  description:
+    "Geneve Getaway is a trusted travel agency based in Ethiopia, offering the best airfare deals, Dubai visa processing, hotel bookings, and custom tour packages. Discover affordable flights, luxury stays, and stress-free travel planning with us.",
+  keywords: [
+    "Best tour and travel in Ethiopia",
+    "Dubai visa processing",
+    "Hotel booking in Dubai",
+    "Airfare booking Ethiopia",
+    "Cheap air tickets in Ethiopia",
+    "Air ticket office in Addis Ababa",
+    "Ethiopian travel agency",
+    "Tour and travel Ethiopia",
+    "Dubai travel packages",
+    "Affordable Dubai tours",
+    "Dubai hotel deals",
+    "Visa assistance Ethiopia",
+    "Geneve Getaway",
+    "Best travel agency Ethiopia",
+    "Travel to Dubai from Ethiopia",
+    "Ethiopia to Dubai flights",
+    "Vacation planning Ethiopia",
+    "Luxury hotel booking Dubai",
+    "Flight deals Addis Ababa",
+  ],
+  twitter: {
+    card: "summary_large_image",
+  },
+  authors: [{ name: "Geneve Getaway" }],
+  openGraph: {
+    title:
+      "Geneve Getaway - Best Tour & Travel Agency in Ethiopia | Dubai Visa & Hotel Booking",
+    description:
+      "Plan your next trip with Geneve Getaway. From visa processing to hotel reservations and flight bookings, we make your travel to Dubai and beyond smooth, affordable, and unforgettable.",
+    type: "website",
+    url: "https://genevegetaway.com",
+    siteName: "Geneve Getaway",
+    images: [
+      {
+        url: "/favicon.ico", // Update if you have a better preview image
+        alt: "Geneve Getaway logo",
+      },
+    ],
+  },
 };
 
 

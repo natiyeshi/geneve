@@ -23,6 +23,11 @@ const navigation = [
     icon: Package,
   },
   {
+    name: "Attractions",
+    href: "/admin/attractions",
+    icon: Star,
+  },
+  {
     name: "Testimonials",
     href: "/admin/testimonials",
     icon: Users,
