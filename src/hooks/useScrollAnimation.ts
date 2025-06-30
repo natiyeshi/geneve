@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 export const useScrollAnimation = (threshold = 0.1) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { threshold, once: true });
+  const isInView = useInView(ref, { once: true });
 
   return { ref, isInView };
 };
