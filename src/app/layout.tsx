@@ -12,7 +12,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const GA_TRACKING_ID = ""; // Your Google Analytics ID
+const GA_TRACKING_ID = "G-LFH85GFENP"; // Your Google Analytics ID
 
 export const metadata: Metadata = {
   title: {
