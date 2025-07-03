@@ -2,6 +2,7 @@
   "common": {
     "settings": "Paramètres",
     "logout": "Déconnexion",
+    "loading": "Chargement...",
     "language": "Langue",
     "preferences": "Préférences",
     "profile": "Profil",

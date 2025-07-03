@@ -2,6 +2,7 @@
   "common": {
     "settings": "ቅንብሮች",
     "logout": "ውጣ",
+    "loading" : "Loading...",
     "language": "ቋንቋ",
     "preferences": "ምርጫዎች",
     "profile": "መገለጫ",

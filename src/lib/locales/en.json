@@ -1,6 +1,7 @@
 {
   "common": {
     "settings": "Settings",
+    "loading" : "Loading...",
     "logout": "Logout",
     "language": "Language",
     "preferences": "Preferences",
