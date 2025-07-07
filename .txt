@@ -1,9 +1,6 @@
 ----------------------------
 - seo
-- attraction local + dynamic
-- ui - animation
+- attraction places to add
 ----------------------------
-- image for the dubai beauro
 - login
-----------------------------
-- package price optional
+- update form in package
