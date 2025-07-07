@@ -14,6 +14,7 @@ import abay from "@/../public/images/abay.jpg";
 import img from "@/../public/assets/image/landing.jpg";
 import img3 from "@/../public/assets/image/blog-3.jpg";
 import img2 from "@/../public/assets/image/blog-2.jpg";
+import DubaiBureauShowcase from "./Dubai";
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -63,7 +64,6 @@ export default function AboutPage() {
           Your browser does not support the video tag.
         </video>
       </div> */}
-
       {/* Our Story */}
       <section className="py-20 bg-white" id="story">
         <div className="container mx-auto">
@@ -103,6 +103,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <DubaiBureauShowcase />
+
 
       {/* Our Services */}
       <section className="py-20 bg-gray-50">
