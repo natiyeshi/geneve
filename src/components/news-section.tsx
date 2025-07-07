@@ -18,6 +18,8 @@ export default function NewsSection() {
     const fetchBlogs = async () => {
       try {
         const data = await getBlogs();
+        console.log("Blogs found..")
+        console.log(data)
         setBlogs(data.slice(0, 3)); // Get first 3 blogs
       } catch (err) {
         setError('Failed to fetch blogs');
@@ -54,10 +56,10 @@ export default function NewsSection() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
-          // initial={{ opacity: 0, y: 40 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          // viewport={{ once: true }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
           className="flex justify-between items-center mb-12"
         >
           <h2 className="text-4xl font-serif font-light text-[#09163A]">{t('blog.title')}</h2>
@@ -67,29 +69,29 @@ export default function NewsSection() {
         </motion.div>
 
         <motion.div
-          // initial="hidden"
-          // whileInView="visible"
-          // viewport={{ once: true }}
-          // variants={{
-          //   hidden: { opacity: 0 },
-          //   visible: {
-          //     opacity: 1,
-          //     transition: {
-          //       staggerChildren: 0.15,
-          //       delayChildren: 0.2
-          //     }
-          //   }
-          // }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+              }
+            }
+          }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {blogs.map((blog, i) => (
             <motion.div
-              // key={blog._id}
-              // variants={{
-              //   hidden: { opacity: 0, y: 40, scale: 0.96 },
-              //   visible: { opacity: 1, y: 0, scale: 1 }
-              // }}
-              // transition={{ duration: 0.5, type: "spring" }}
+              key={blog._id}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.96 },
+                visible: { opacity: 1, y: 0, scale: 1 }
+              }}
+              transition={{ duration: 0.5, type: "spring" }}
               className="group"
             >
               <Link href={`/blog/${blog.link}`} className="block relative aspect-[4/3] overflow-hidden mb-4">
