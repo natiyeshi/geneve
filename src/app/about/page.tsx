@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -15,6 +14,7 @@ import img from "@/../public/assets/image/landing.jpg";
 import img3 from "@/../public/assets/image/blog-3.jpg";
 import img2 from "@/../public/assets/image/blog-2.jpg";
 import DubaiBureauShowcase from "./Dubai";
+
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -41,11 +41,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-4xl px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-6 fade-in">
-              {t('about.hero.title')}
+              {t("about.hero.title")}
             </h1>
-            <p
-             className="text-xl text-white/90 max-w-2xl mx-auto slide-up">
-              {t('about.hero.subtitle')}
+            <p className="text-xl text-white/90 max-w-2xl mx-auto slide-up">
+              {t("about.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -70,17 +69,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="slide-up">
               <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8">
-                {t('about.story.title')}
+                {t("about.story.title")}
               </h2>
-              <p className="text-lg mb-6">
-                {t('about.story.paragraph1')}
-              </p>
-              <p className="text-lg mb-6">
-                {t('about.story.paragraph2')}
-              </p>
-              <p className="text-lg">
-                {t('about.story.paragraph3')}
-              </p>
+              <p className="text-lg mb-6">{t("about.story.paragraph1")}</p>
+              <p className="text-lg mb-6">{t("about.story.paragraph2")}</p>
+              <p className="text-lg">{t("about.story.paragraph3")}</p>
             </div>
             <div className="relative h-[500px] slide-in-right">
               <div className="absolute top-0 right-0 w-4/5 h-4/5 bg-gray-200 rounded-md overflow-hidden shadow-lg">
@@ -106,18 +99,17 @@ export default function AboutPage() {
 
       <DubaiBureauShowcase />
 
-
       {/* Our Services */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8 text-center slide-up">
-            {t('about.services.title')}
+            {t("about.services.title")}
           </h2>
           <p
             className="text-lg text-center max-w-3xl mx-auto mb-12 slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            {t('about.services.subtitle')}
+            {t("about.services.subtitle")}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -144,10 +136,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.flights.title')}
+                {t("about.services.items.flights.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.flights.description')}
+                {t("about.services.items.flights.description")}
               </p>
             </div>
 
@@ -174,10 +166,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.hotels.title')}
+                {t("about.services.items.hotels.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.hotels.description')}
+                {t("about.services.items.hotels.description")}
               </p>
             </div>
 
@@ -204,10 +196,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.visa.title')}
+                {t("about.services.items.visa.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.visa.description')}
+                {t("about.services.items.visa.description")}
               </p>
             </div>
 
@@ -235,10 +227,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.transfers.title')}
+                {t("about.services.items.transfers.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.transfers.description')}
+                {t("about.services.items.transfers.description")}
               </p>
             </div>
 
@@ -263,10 +255,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.packages.title')}
+                {t("about.services.items.packages.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.packages.description')}
+                {t("about.services.items.packages.description")}
               </p>
             </div>
 
@@ -293,10 +285,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.services.items.cargo.title')}
+                {t("about.services.items.cargo.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.services.items.cargo.description')}
+                {t("about.services.items.cargo.description")}
               </p>
             </div>
           </div>
@@ -307,7 +299,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white" id="values">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-12 text-center slide-up">
-            {t('about.features.title')}
+            {t("about.features.title")}
           </h2>
 
           <div
@@ -334,10 +326,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.features.global.title')}
+                {t("about.features.global.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.features.global.description')}
+                {t("about.features.global.description")}
               </p>
             </div>
 
@@ -360,10 +352,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.features.response.title')}
+                {t("about.features.response.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.features.response.description')}
+                {t("about.features.response.description")}
               </p>
             </div>
 
@@ -387,10 +379,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.features.support.title')}
+                {t("about.features.support.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.features.support.description')}
+                {t("about.features.support.description")}
               </p>
             </div>
           </div>
@@ -401,13 +393,13 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-serif font-light text-[#09163A] mb-8 text-center slide-up">
-            {t('about.audience.title')}
+            {t("about.audience.title")}
           </h2>
           <p
             className="text-lg text-center max-w-3xl mx-auto mb-12 slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            {t('about.audience.subtitle')}
+            {t("about.audience.subtitle")}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -435,10 +427,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.audience.business.title')}
+                {t("about.audience.business.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.audience.business.description')}
+                {t("about.audience.business.description")}
               </p>
             </div>
 
@@ -465,10 +457,10 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-serif text-[#09163A] mb-4">
-                {t('about.audience.vacationers.title')}
+                {t("about.audience.vacationers.title")}
               </h3>
               <p className="text-gray-700">
-                {t('about.audience.vacationers.description')}
+                {t("about.audience.vacationers.description")}
               </p>
             </div>
           </div>

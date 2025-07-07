@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Trash2, Edit, Plus, Image as ImageIcon } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { uploadImage } from "@/utils/helper";
@@ -22,7 +28,9 @@ export default function AttractionsPage() {
   const [attractions, setAttractions] = useState<Attraction[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingAttraction, setEditingAttraction] = useState<Attraction | null>(null);
+  const [editingAttraction, setEditingAttraction] = useState<Attraction | null>(
+    null
+  );
   const [formData, setFormData] = useState({ name: "", image: "" });
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -59,7 +67,7 @@ export default function AttractionsPage() {
     const items = e.clipboardData?.items;
     if (items) {
       for (let i = 0; i < items.length; i++) {
-        if (items[i].type.indexOf('image') !== -1) {
+        if (items[i].type.indexOf("image") !== -1) {
           const file = items[i].getAsFile();
           if (file) {
             setImage(file);
@@ -73,7 +81,7 @@ export default function AttractionsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name) {
       toast.error("Please fill in the name field");
       return;
@@ -88,7 +96,7 @@ export default function AttractionsPage() {
 
     try {
       let imageUrl = editingAttraction?.image; // Use existing image if editing and no new image
-      
+
       if (image) {
         const { url, error: uploadError } = await uploadImage(image);
         if (uploadError) {
@@ -99,12 +107,12 @@ export default function AttractionsPage() {
         imageUrl = url;
       }
 
-      const url = editingAttraction 
+      const url = editingAttraction
         ? `/api/attractions/${editingAttraction._id}`
         : "/api/attractions";
-      
+
       const method = editingAttraction ? "PUT" : "POST";
-      
+
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
@@ -113,8 +121,8 @@ export default function AttractionsPage() {
 
       if (response.ok) {
         toast.success(
-          editingAttraction 
-            ? "Attraction updated successfully" 
+          editingAttraction
+            ? "Attraction updated successfully"
             : "Attraction created successfully"
         );
         setIsDialogOpen(false);
@@ -179,9 +187,15 @@ export default function AttractionsPage() {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-[#09163A]">Attractions</h1>
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <Dialog
+          open={isDialogOpen}
+          onOpenChange={setIsDialogOpen}
+        >
           <DialogTrigger asChild>
-            <Button onClick={resetForm} className="bg-[#EE1D46] hover:bg-[#EE1D46]/90">
+            <Button
+              onClick={resetForm}
+              className="bg-[#EE1D46] hover:bg-[#EE1D46]/90"
+            >
               <Plus className="w-4 h-4 mr-2" />
               Add Attraction
             </Button>
@@ -192,36 +206,40 @@ export default function AttractionsPage() {
                 {editingAttraction ? "Edit Attraction" : "Add New Attraction"}
               </DialogTitle>
             </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              onPaste={handlePaste}
+              onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   placeholder="Enter attraction name"
                   required
                 />
               </div>
-              
+
               <div>
                 <Label>Image</Label>
-                <input 
+                <input
                   ref={fileInputRef}
-                  hidden 
-                  type="file" 
-                  accept="image/*" 
-                  onChange={handleImageChange} 
+                  hidden
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
                 />
-                
+
                 {imagePreview ? (
                   <div className="mt-2">
-                    <Image 
-                      src={imagePreview} 
-                      width={200} 
-                      height={150} 
-                      alt="Preview" 
-                      className="w-full h-40 object-cover rounded-md" 
+                    <Image
+                      src={imagePreview}
+                      width={200}
+                      height={150}
+                      alt="Preview"
+                      className="w-full h-40 object-cover rounded-md"
                     />
                     <div className="flex gap-2 mt-2">
                       <Button
@@ -246,15 +264,16 @@ export default function AttractionsPage() {
                     </div>
                   </div>
                 ) : (
-                  <div 
+                  <div
                     onClick={handleButtonClick}
-                    onPaste={handlePaste}
                     className="w-full flex cursor-pointer hover:bg-gray-100 duration-200 rounded-md border-2 border-dashed border-gray-300 py-8 h-32"
                     tabIndex={0}
                   >
                     <div className="flex flex-col m-auto text-center">
                       <ImageIcon className="w-8 h-8 mx-auto text-gray-400 mb-2" />
-                      <div className="text-sm text-gray-600">Click to upload or paste image</div>
+                      <div className="text-sm text-gray-600">
+                        Click to upload or paste image
+                      </div>
                     </div>
                   </div>
                 )}
@@ -268,12 +287,18 @@ export default function AttractionsPage() {
                 >
                   Cancel
                 </Button>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="bg-[#EE1D46] hover:bg-[#EE1D46]/90"
                   disabled={uploading}
                 >
-                  {uploading ? (editingAttraction ? "Updating..." : "Creating...") : (editingAttraction ? "Update" : "Create")}
+                  {uploading
+                    ? editingAttraction
+                      ? "Updating..."
+                      : "Creating..."
+                    : editingAttraction
+                    ? "Update"
+                    : "Create"}
                 </Button>
               </div>
             </form>
@@ -283,7 +308,10 @@ export default function AttractionsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {attractions.map((attraction) => (
-          <Card key={attraction._id} className="hover:shadow-lg transition-shadow">
+          <Card
+            key={attraction._id}
+            className="hover:shadow-lg transition-shadow"
+          >
             <CardHeader>
               <div className="aspect-video bg-gray-100 rounded-md overflow-hidden mb-4">
                 {attraction.image ? (
@@ -328,9 +356,11 @@ export default function AttractionsPage() {
       {attractions.length === 0 && (
         <div className="text-center py-12">
           <ImageIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-500">No attractions found. Create your first one!</p>
+          <p className="text-gray-500">
+            No attractions found. Create your first one!
+          </p>
         </div>
       )}
     </div>
   );
-} 
+}

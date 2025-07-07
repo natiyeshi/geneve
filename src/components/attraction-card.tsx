@@ -45,17 +45,19 @@ export function AttractionCard({ title, imageSrc, href, large = false }: Attract
 
 export function AttractionCardShow({ title, imageSrc, href, large = false }: AttractionCardProps) {
   return (
-    <div className="group block relative overflow-hidden">
+    <div className="group block relative overflow-hidden" style={{ height: 320 }}>
       <motion.div
-        className={`relative ${large ? "aspect-[16/9]" : "aspect-[4/3]"}`}
+        className="relative w-full h-full "
         whileHover={{ scale: 1.06, rotate: -2, boxShadow: "0 8px 32px 0 rgba(30,30,60,0.18)" }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={{ height: "100%" }}
       >
         <Image
           src={imageSrc || "/placeholder.svg?height=600&width=800"}
           alt={title}
           fill
           className="object-cover"
+          style={{ objectFit: "cover" }}
         />
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
