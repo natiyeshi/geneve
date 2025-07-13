@@ -71,15 +71,6 @@ const Team = () => {
       isCEO: true,
     },
     {
-      name: t('about.team.members.tsion.name'),
-      role: t('about.team.members.tsion.role'),
-      phone: "+251 98 911 1111",
-      description: "",
-      delay: "0.2s",
-      img: ts,
-      isCEO: false,
-    },
-    {
       name: t('about.team.members.yeabtsega.name'),
       role: t('about.team.members.yeabtsega.role'),
       phone: "+251 98 911 1111",
@@ -175,11 +166,11 @@ const Team = () => {
         )}
 
         {/* Other Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="flex flex-wrap justify-center gap-12 place-items-center mx-auto max-w-6xl">
           {otherMembers.map((member, index) => (
             <div
               key={index}
-              className="text-center slide-up hover-lift"
+              className="text-center  slide-up hover-lift"
               style={{ animationDelay: member.delay }}
             >
               <div className="image-container w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-[#EE1D46]/10 to-[#09163A]/10">
