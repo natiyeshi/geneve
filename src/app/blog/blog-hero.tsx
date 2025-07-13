@@ -10,7 +10,7 @@ export function BlogHero() {
     <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/image/blog-hero.jpg"
+          src="/assets/image/blog-1.jpg"
           alt="Blog Hero"
           fill
           className="object-cover"
