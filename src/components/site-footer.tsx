@@ -326,7 +326,7 @@ export function SiteFooter() {
                   <p className="font-medium mb-1">{t('common.workingHours')}</p>
                   <p className="text-white/80">{t('common.onlineSupport')}: 24/7</p>
                   <p className="text-white/80">
-                    {t('common.officeHours')}: 2:30 PM - 11:30 PM
+                    {t('common.officeHours')}: 2:30 AM - 11:30 AM
                   </p>
                 </div>
               </div>
